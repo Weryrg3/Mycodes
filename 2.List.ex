@@ -1,8 +1,7 @@
-############################# List ##############################
+############################################################ List ################################################################
 list = [1, 2, 3]
 kw = [{:name, "Wesley"}, {:likes, "Programming"}, {:where, "Ji-Paraná", "RO"}]
 kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]
-#IO.inspect(List.Chars               
 # IO.inspect(List.ascii_printable?())                         #                                         /1
 # IO.inspect(List.ascii_printable?())                         #                                         /2
 # IO.inspect(List.delete())                                   #                                         /2
@@ -38,7 +37,7 @@ IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle m
 # IO.inspect(List.update_at())                                #                                         /3
 # IO.inspect(List.wrap())                                     #                                         /1
 # IO.inspect(List.zip())                                      #                                         /1
-# List.Chars
+# ------------------------------------------------------------#------------------------------------------#
 # IO.inspect(List.Chars.Atom())
 # IO.inspect(List.Chars.BitString())
 # IO.inspect(List.Chars.Float())
