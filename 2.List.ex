@@ -59,7 +59,10 @@ IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle m
 map = %{ nome: "Wesley", likes: "Programming", where: "Ji-Paraná" }
 map1 = %{ nome: "Wesley"}
 IO.inspect(map[:nome])  # "Wesley"
-IO.inspect(map.nome)    # "Wesley"                                  
+IO.inspect(map.nome)    # "Wesley"   
+# m = %{ a: 1, b: 2, c: 3 }               %{a: 1, b: 2, c: 3}                             \ Map
+# m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map 
+# m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map
 # IO.inspect(Map.delete())                      #                                         /2
 IO.inspect(Map.drop(map, [:nome, :likes]))      # %{where: "Ji-Paraná"}                   /2
 # IO.inspect(Map.equal?                         #                                         /2

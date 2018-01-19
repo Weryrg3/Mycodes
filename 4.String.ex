@@ -22,29 +22,48 @@ IO.inspect(String.pad_leading("ABCD", 6))                     # "  ABCD"        
 IO.inspect(String.pad_leading("ABCD", 6, "-"))                # "--ABCD"                                /3    \completa tamanho da String, com numero, nesse caso traço
 IO.inspect(String.pad_trailing("ABCD", 6))                    # "ABCD  "                                /2    \completa tamanho da String, com numero, nesse caso espaço.
 IO.inspect(String.pad_trailing("ABCD", 6, "*"))               # "ABCD**"                                /3    \completa tamanho da String, com numero, nesse caso asterisco
-
-# Break                   Casing                  Chars                   
-# Normalizer              Tokenizer               Unicode                 
-# capitalize/2            
-# chunk/2
-# downcase/2        
-# ends_with?/2            equivalent?/2                 
-# graphemes/1             jaro_distance/2                  
-# match?/2                myers_difference/2      
-# next_codepoint/1        next_grapheme/1         next_grapheme_size/1    
-# normalize/2
-# printable?/2            replace/3               replace/4               
-# replace_leading/3       replace_prefix/3        replace_suffix/3        
-# replace_trailing/3      slice/2                 
-# slice/3                
-# split/3                 split_at/2              splitter/2              
-# splitter/3              starts_with?/2
-# to_integer/2            trim/1                  
-# trim/2                  trim_leading/1          trim_leading/2          
-# trim_trailing/1         trim_trailing/2                
-# upcase/2                valid?/1  
-
-# String.Chars.           StringIO.
-
-
+# IO.inspect(String.Break())                                  #                                          
+# IO.inspect(String.Casing                                    #
+# IO.inspect(String.Chars())                                  #                                          
+# IO.inspect(String.Normalizer())                             #                                            
+# IO.inspect(String.Tokenizer())                              #                                            
+# IO.inspect(String.Unicode())                                #                                          
+# IO.inspect(String.capitalize())                             #                                         /2
+# IO.inspect(String.chunk())                                  #                                         /2
+# IO.inspect(String.downcase())                               #                                         /2
+# IO.inspect(String.ends_with?())                             #                                         /2
+# IO.inspect(String.equivalent?())                            #                                         /2
+# IO.inspect(String.graphemes())                              #                                         /1
+# IO.inspect(String.jaro_distance())                          #                                         /2
+# IO.inspect(String.match?())                                 #                                         /2
+# IO.inspect(String.myers_difference())                       #                                         /2
+# IO.inspect(String.next_codepoint())                         #                                         /1
+# IO.inspect(String.next_grapheme())                          #                                         /1
+# IO.inspect(String.next_grapheme_size())                     #                                         /1
+# IO.inspect(String.normalize())                              #                                         /2
+# IO.inspect(String.printable?())                             #                                         /2
+# IO.inspect(String.replace())                                #                                         /3
+# IO.inspect(String.replace())                                #                                         /4
+# IO.inspect(String.replace_leading())                        #                                         /3
+# IO.inspect(String.replace_prefix())                         #                                         /3
+# IO.inspect(String.replace_suffix())                         #                                         /3
+# IO.inspect(String.replace_trailing())                       #                                         /3
+# IO.inspect(String.slice())                                  #                                         /2
+# IO.inspect(String.slice())                                  #                                         /3
+# IO.inspect(String.split())                                  #                                         /3
+# IO.inspect(String.split_at())                               #                                         /2
+# IO.inspect(String.splitter())                               #                                         /2
+# IO.inspect(String.splitter())                               #                                         /3
+# IO.inspect(String.starts_with?())                           #                                         /2
+# IO.inspect(String.to_integer())                             #                                         /2
+# IO.inspect(String.trim())                                   #                                         /1
+# IO.inspect(String.trim())                                   #                                         /2
+# IO.inspect(String.trim_leading())                           #                                         /1
+# IO.inspect(String.trim_leading())                           #                                         /2
+# IO.inspect(String.trim_trailing())                          #                                         /1
+# IO.inspect(String.trim_trailing())                          #                                         /2
+# IO.inspect(String.upcase())                                 #                                         /2
+# IO.inspect(String.valid?())                                 #                                         /1
+# IO.inspect(String.String.Chars.                             #
+# IO.inspect(String.StringIO.                                 #           
 
