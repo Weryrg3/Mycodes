@@ -2,6 +2,7 @@
 #import Enum      Com importação evitaria ter que escrever Enum mais de uma vez, porém nesse caso decidi não importar.
 list1 = [1, 2, 3]
 list2 = [0, 1, 2, 3, 4, 9, 8, 7, 6, 5]
+# teste de edição
 IO.inspect(Enum.all?([1, nil, 3]))                  # false                                     /1    /&  &Enum.all?/1
 IO.inspect(Enum.all?(list2, &(&1 < 10)))            # true  fun \ or fn x -> x < 10 end         /2    /&  &Enum.all?/2
 IO.inspect(Enum.count(list1))                       # 3                                         /1    /&  &Enum.count/1
