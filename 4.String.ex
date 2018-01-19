@@ -22,12 +22,6 @@ IO.inspect(String.pad_leading("ABCD", 6))                     # "  ABCD"        
 IO.inspect(String.pad_leading("ABCD", 6, "-"))                # "--ABCD"                                /3    \completa tamanho da String, com numero, nesse caso traço
 IO.inspect(String.pad_trailing("ABCD", 6))                    # "ABCD  "                                /2    \completa tamanho da String, com numero, nesse caso espaço.
 IO.inspect(String.pad_trailing("ABCD", 6, "*"))               # "ABCD**"                                /3    \completa tamanho da String, com numero, nesse caso asterisco
-# IO.inspect(String.Break())                                  #                                          
-# IO.inspect(String.Casing                                    #
-# IO.inspect(String.Chars())                                  #                                          
-# IO.inspect(String.Normalizer())                             #                                            
-# IO.inspect(String.Tokenizer())                              #                                            
-# IO.inspect(String.Unicode())                                #                                          
 # IO.inspect(String.capitalize())                             #                                         /2
 # IO.inspect(String.chunk())                                  #                                         /2
 # IO.inspect(String.downcase())                               #                                         /2
@@ -64,6 +58,46 @@ IO.inspect(String.pad_trailing("ABCD", 6, "*"))               # "ABCD**"        
 # IO.inspect(String.trim_trailing())                          #                                         /2
 # IO.inspect(String.upcase())                                 #                                         /2
 # IO.inspect(String.valid?())                                 #                                         /1
-# IO.inspect(String.String.Chars.                             #
-# IO.inspect(String.StringIO.                                 #           
+# ------------------------------------------------------------#------------------------------------------#
+#IO.inspect(StringIO.close())                                 #                                         /1
+#IO.inspect(StringIO.contents())                              #                                         /1
+#IO.inspect(StringIO.flush())                                 #                                         /1
+#IO.inspect(StringIO.init())                                  #                                         /1
+#IO.inspect(StringIO.open())                                  #                                         /1
+#IO.inspect(StringIO.open())                                  #                                         /2
+# ------------------------------------------------------------#------------------------------------------#
+# IO.inspect(String.Break.decompose())                        #                                         /2
+# IO.inspect(String.Break.do_trim_leading())                  #                                         /1
+# IO.inspect(String.Break.split())                            #                                         /1
+# IO.inspect(String.Break.trim_leading())                     #                                         /1
+# IO.inspect(String.Break.trim_trailing())                    #                                         /1
+# ------------------------------------------------------------#------------------------------------------#
+# IO.inspect(String.Casing.downcase())                        #                                         /3
+# IO.inspect(String.Casing.titlecase_once())                  #                                         /2
+# IO.inspect(String.Casing.upcase())                          #                                         /3
+# ------------------------------------------------------------#------------------------------------------#
+# IO.inspect(String.Chars.to_string                           #                                         /1
+# IO.inspect(String.Chars.Atom.to_string())                   #                                         /1
+# IO.inspect(String.Chars.BitString.to_string())              #                                         /1
+# IO.inspect(String.Chars.Date.to_string())                   #                                         /1
+# IO.inspect(String.Chars.DateTime.to_string())               #                                         /1
+# IO.inspect(String.Chars.Float.to_string())                  #                                         /1
+# IO.inspect(String.Chars.Integer.to_string())                #                                         /1
+# IO.inspect(String.Chars.List.to_string())                   #                                         /1
+# IO.inspect(String.Chars.NaiveDateTime.to_string())          #                                         /1
+# IO.inspect(String.Chars.Time.to_string())                   #                                         /1
+# IO.inspect(String.Chars.URI.to_string())                    #                                         /1
+# IO.inspect(String.Chars.Version.to_string())                #                                         /1
+# IO.inspect(String.Chars.Version.Requirement.to_string())    #                                         /1
+# ------------------------------------------------------------#------------------------------------------#
+# IO.inspect(String.Normalizer.normalize())                   #                                         /2
+# IO.inspect(String.Tokenizer.tokenize())                     #                                         /1
+# ------------------------------------------------------------#------------------------------------------#
+# IO.inspect(String.Unicode.codepoints())                     #                                         /1
+# IO.inspect(String.Unicode.graphemes())                      #                                         /1
+# IO.inspect(String.Unicode.length())                         #                                         /1
+# IO.inspect(String.Unicode.next_codepoint())                 #                                         /1
+# IO.inspect(String.Unicode.next_grapheme_size())             #                                         /1
+# IO.inspect(String.Unicode.split_at())                       #                                         /2
+IO.inspect(String.Unicode.version)                            # {10, 0, 0}                              /0
 
