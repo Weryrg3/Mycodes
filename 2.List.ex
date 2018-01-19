@@ -62,7 +62,7 @@ IO.inspect(map[:nome])  # "Wesley"
 IO.inspect(map.nome)    # "Wesley"   
 # m = %{ a: 1, b: 2, c: 3 }               %{a: 1, b: 2, c: 3}                             \ Map
 # m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map 
-# m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map
+# m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map (Map.put_new/3) para adicionar uma nova chave
 # IO.inspect(Map.delete())                      #                                         /2
 IO.inspect(Map.drop(map, [:nome, :likes]))      # %{where: "Ji-Paraná"}                   /2
 # IO.inspect(Map.equal?                         #                                         /2
