@@ -8,6 +8,7 @@ defmodule MyList0 do
   defp _sum([head | tail], total), do: _sum(tail, head + total)
 
   def soma([]), do: 0
+
   def soma([head | tail]) do
     head + soma(tail)
   end
@@ -19,11 +20,11 @@ IO.inspect(MyList0.soma([1, 2, 3]))
 
 # Pág 73 Livro 1.3
 defmodule MyList1 do
- 
   def mapsum([], _fun), do: 0
   def mapsum([head | tail], fun), do: fun.(head) + mapsum(tail, fun)
 
   def maior([n]), do: n
+
   def maior([head | tail]) do
     maior_tail = maior(tail)
     # 
@@ -34,24 +35,23 @@ defmodule MyList1 do
     end
   end
 
-  
   def caesar([], _number), do: []
+
   def caesar([head | tail], number) do
-    
-    if (head + number) > 122 do
-       tamanho = [head | tail ] |> List.to_string() |> String.length    #Tamanho da char_list
-       interrogacao = String.duplicate("?", tamanho)           # ?????
-       "#{interrogacao} :)"
+    if head + number > 122 do
+      # Tamanho da char_list
+      tamanho = [head | tail] |> List.to_string() |> String.length()
+      # ?????
+      interrogacao = String.duplicate("?", tamanho)
+      "#{interrogacao} :)"
     else
-       [head + number | caesar(tail, number)]
+      [head + number | caesar(tail, number)]
     end
   end
-
 end
 
-
-#IO.inspect(MyList1.mapsum([1, 2, 3], &(&1 * &1)))
-#IO.inspect(MyList1.maior([6, 4, 7, 3, 2, 1]))
+# IO.inspect(MyList1.mapsum([1, 2, 3], &(&1 * &1)))
+# IO.inspect(MyList1.maior([6, 4, 7, 3, 2, 1]))
 IO.inspect(MyList1.caesar('abcdegfsg', 97))
 IO.inspect(MyList1.caesar('abcde', 10))
 # ?????? :)
@@ -68,14 +68,93 @@ end
 #########################################################################################
 # Pág 98 Livro 1.3
 # Exercise: ListsAndRecursion-5
-# Implement the following Enum functions using no library functions or list
-# comprehensions: all? , each , filter , split , and take . You may need to use an if
-# statement to implement filter . The syntax for this is
-# if condition do
-# expression(s)
-# else
-# expression(s)
-# end
+defmodule Enum1 do
+  def all([]), do: true
+
+  def all([head | tail]) do
+    if head == nil do
+      false
+    else
+      all(tail)
+    end
+  end
+
+  def all([], _fun), do: true
+
+  def all([head | tail], fun) do
+    if fun.(head) == false do
+      false
+    else
+      all(tail, fun)
+    end
+  end
+
+  def each1([], _fun), do: :ok
+
+  def each1([head | tail], fun) do
+    fun.(head)
+    each1(tail, fun)
+  end
+
+  def filter([], _fun), do: []
+
+  def filter([head | tail], fun) do
+    if fun.(head) == true do
+      [head | filter(tail, fun)]
+    else
+      filter(tail, fun)
+    end
+  end
+
+  def take1([], _number), do: []
+
+  def take1([head | tail], number) do
+    if number > 0 do
+      [head | take1(tail, number - 1)]
+    else
+      []
+    end
+  end
+
+  def split1([], _), do: {[], []}
+  def split1(lista, 0), do: {[], lista}
+
+  def split1([head | tail], number) when number > 0 do
+    {list1, list2} = split1(tail, number - 1)
+    {[head | list1], list2}
+  end
+
+  def split1([head | tail], number) when number < 0 do
+    {list1, list2} = split1(tail, count(tail) + number)
+    {[head | list1], list2}
+  end
+
+  def count([]), do: 0
+
+  def count([_head | tail]) do
+    1 + count(tail)
+  end
+
+  IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7], 3))
+  IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7, 8], -3))
+end
+
+# Fim module Enum1
+
+# all? /1 um argumento
+# IO.inspect(Enum1.all([1, nil, 3]))
+# IO.inspect(Enum1.split1([1, 2, 3, 4, 5], 2))
+# IO.inspect(Enum1.take1([1, 2, 3, 4, 5, 6], 5))
+
+# IO.inspect(Enum1.split1([3, 4], 0) == {[], [3, 4]})
+# IO.inspect(Enum1.split1([], 2) == {[], []})
+
+# IO.inspect(Enum1.split1([1, 2], 3) == {[1,2], []})
+IO.inspect(Enum1.split1([1, 2, 3, 4], 3))
+# IO.inspect(Enum1.split1([1, 2, 3, 4], 2) == {[1, 2], [3, 4]})
+# IO.inspect(Enum1.split1([2, 3, 4], 1) == {[2], [3, 4]})
+# IO.inspect(Enum1.split1([3, 4], 0) == {[], [3, 4]})
+# IO.inspect()
 #########################################################################################
 # Pág 98 Livro 1.3
 # ➤ Exercise: ListsAndRecursion-6
