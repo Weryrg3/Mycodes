@@ -30,12 +30,14 @@ defmodule Enum1 do
   end
 
   def each1([], _fun), do: :ok
+
   def each1([head | tail], fun) do
     fun.(head)
     each1(tail, fun)
   end
 
   def filter([], _fun), do: []
+
   def filter([head | tail], fun) do
     if fun.(head) == true do
       [head | filter(tail, fun)]
@@ -44,19 +46,22 @@ defmodule Enum1 do
     end
   end
 
-  def split1([], _number), do: {[], []}
-  def split1([head | tail], number) do 
-    @begin
-    if number > 0 do
-      @begin [head | split1(tail, number - 1)]
-    else
-      {@begin, tail}
-    end
-  end 
-  def split1(list, 0), do: "funcion"
-  
+  def take1([], _number), do: []
 
+  def take1([head | tail], number) do
+    if number > 0 do
+      [head | take1(tail, number - 1)]
+    else
+      []
+    end
+  end
+
+  def split([], _number), do: {[], []}
 end
+
+# Fim module Enum1
 
 # all? /1 um argumento
 # IO.inspect(Enum1.all([1, nil, 3]))
+IO.inspect(Enum1.split1([1, 2, 3, 4, 5], 2))
+#IO.inspect(Enum1.take1([1, 2, 3, 4, 5, 6], 5))
