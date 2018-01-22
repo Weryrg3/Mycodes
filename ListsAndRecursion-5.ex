@@ -1,3 +1,4 @@
+# 
 # Implement the following Enum functions using no library functions or list
 # comprehensions: all? , each , filter , split , and take . You may need to use an if
 # statement to implement filter . The syntax for this is
@@ -44,14 +45,17 @@ defmodule Enum1 do
   end
 
   def split1([], _number), do: {[], []}
-  def split1([head | tail], number) do
-    if number > 1 do
-      [head ]
-      split1(tail, number - 1)
+  def split1([head | tail], number) do 
+    @begin
+    if number > 0 do
+      @begin [head | split1(tail, number - 1)]
     else
-      {, tail}
+      {@begin, tail}
     end
-  end
+  end 
+  def split1(list, 0), do: "funcion"
+  
+
 end
 
 # all? /1 um argumento
