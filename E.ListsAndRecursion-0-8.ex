@@ -197,17 +197,17 @@ end
 # IO.inspect(Primos.prime(7))
 #########################################################################################
 # Pág 110 Livro 1.3
-# Incomplete_________________________________________________________________
 defmodule Exercicio do
   def exercicio(orders, tax_rates) do
     Enum.map(orders, fn order ->
-      total_amount = 0
 
-      if(order[:ship_to] == :NC or order[:ship_to] == :TX)
-
-      Keyword.has_key?(tax_rates, order[:ship_to])
-
-      Keyword.put(order, :total_amount, total_amount)
+      if Keyword.has_key?(tax_rates, order[:ship_to]) do
+        #[tax_rate | _] = for {tax, value} <- tax_rates, tax == order[:ship_to], do: value 
+        tax_rate = tax_rates[order[:ship_to]]
+        Keyword.put(order, :total_amount, order[:net_amount] * (1 + tax_rate))
+      else
+        Keyword.put(order, :total_amount, order[:net_amount])
+      end
     end)
   end
 end
@@ -227,25 +227,5 @@ orders = [
   [id: 130, ship_to: :NC, net_amount: 50.00]
 ]
 
-# Keyword.put(orders)
-#IO.inspect(tax_rates)
 
-new_orders = Exercicio.exercicio(orders, NC: 0.075, TX: 0.08, MA: 0.10)
-#IO.inspect(new_orders)
-
-new_orders = Exercicio.exercicio(orders, NC: 0.075, MA: 0.12, OK: 0.05)
-#IO.inspect(new_orders)
-
-# Enum.map(orders, Keyword.put(orders, key, value))
-
-# order = [id: 123, ship_to: :TX, net_amount: 100.00]
-
-# keyword = order
-# key = :ship_to
-# Keyword.has_key?(keyword, key)
-
-# keyword = order
-# key = order[:ship_to]
-# Keyword.has_key?(keyword, key)
-
-# Keyword.has_key?(order, order[:ship_to])
+IO.inspect(Exercicio.exercicio(orders, tax_rates))

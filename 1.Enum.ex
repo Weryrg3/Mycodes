@@ -1,3 +1,4 @@
+############################################################ Enum ################################################################
 #te
 #import Enum      Com importação evitaria ter que escrever Enum mais de uma vez, porém nesse caso decidi não importar.
 list1 = [1, 2, 3]
@@ -40,7 +41,7 @@ IO.inspect(Enum.filter([1, 2, 3, 4], &(&1 > 2)))    # [3, 4]                    
 IO.inspect(Enum.flat_map([[1, 2], [3, 4]], &(&1)))  # [1, 2, 3, 4]                              /2    \ Pega matriz e transforma lista novamente matriz(chunk)
 # IO.inspect(Enum.flat_map_reduce())                #                                           /3
 # IO.inspect(Enum.intersperse())                    #                                           /2
-# IO.inspect(Enum.into())                           #                                           /2
+IO.inspect(Enum.into(1..5, [100, 101 ]))            # [100, 101, 1, 2, 3, 4, 5]                 /2    \ 
 # IO.inspect(Enum.into())                           #                                           /3
 IO.inspect(Enum.join(["ab", "cd", "efg"]))          # "abcdefg"                                 /1    \ Retorna uma string
 IO.inspect(Enum.join(["ap", "ho", "fl"], ", "))     # "ap, ho, fl"                              /2    \ Retorna uma string, com junção da função passada
@@ -51,7 +52,7 @@ IO.inspect(Enum.map(1 .. 5, &(&1)))                 # [1, 2, 3, 4, 5]           
 # IO.inspect(Enum.map_reduce())                     #                                           /3
 IO.inspect(Enum.max(palavras))                      # "wes"                                     /1    \ Retorna o maior valor, se String verifica valor ASCII number
 # IO.inspect(Enum.max())                            #                                           /2
-IO.inspect(Enum.max_by(palavras, &String.length/1)) # "Contêmporâneidade"                                       /2
+IO.inspect(Enum.max_by(palavras, &String.length/1)) # "Contêmporâneidade"                       /2
 # IO.inspect(Enum.max_by())                         #                                           /3
 IO.inspect(Enum.member?([1, 2, 3, 4], 2))           # true                                      /2     \ Verifica se o *num(or letr..) está dentro da lista
 # IO.inspect(Enum.min())                            #                                           /1
@@ -112,3 +113,70 @@ IO.inspect(Enum.group_by(medals, &(&1.medal), &(&1.player))) # /3
 # %{bronze: ["Anna"], gold: ["Anna", "Zoe"], silver: ["Joe", "Anderson", "Peter"]}       /3
 
 # IO.inspect(Enum.group_by())                       #                                           /2
+
+############################################################ Enumerable ################################################################
+
+#IO.inspect(Enumerable.Date.Range.count())          #                                           /1
+#IO.inspect(Enumerable.Date.Range.member?())        #                                           /2
+#IO.inspect(Enumerable.Date.Range.reduce())         #                                           /3
+#IO.inspect(Enumerable.Date.Range.slice())          #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.File.Stream.count())         #                                           /1
+#IO.inspect(Enumerable.File.Stream.member?())       #                                           /2
+#IO.inspect(Enumerable.File.Stream.reduce())        #                                           /3
+#IO.inspect(Enumerable.File.Stream.slice())         #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.Function.count())            #                                           /1
+#IO.inspect(Enumerable.Function.member?())          #                                           /2
+#IO.inspect(Enumerable.Function.reduce())           #                                           /3
+#IO.inspect(Enumerable.Function.slice())            #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.GenEvent.Stream.count())     #                                           /1
+#IO.inspect(Enumerable.GenEvent.Stream.member?())   #                                           /2
+#IO.inspect(Enumerable.GenEvent.Stream.reduce())    #                                           /3
+#IO.inspect(Enumerable.GenEvent.Stream.slice())     #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.HashDict.count())            #                                           /1
+#IO.inspect(Enumerable.HashDict.member?())          #                                           /2
+#IO.inspect(Enumerable.HashDict.reduce())           #                                           /3
+#IO.inspect(Enumerable.HashDict.slice())            #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.HashSet.count                #                                           /1
+#IO.inspect(Enumerable.HashSet.member?              #                                           /2
+#IO.inspect(Enumerable.HashSet.reduce               #                                           /3
+#IO.inspect(Enumerable.HashSet.slice                #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.IO.Stream.count())           #                                           /1
+#IO.inspect(Enumerable.IO.Stream.member?())         #                                           /2
+#IO.inspect(Enumerable.IO.Stream.reduce())          #                                           /3
+#IO.inspect(Enumerable.IO.Stream.slice())           #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.List.count())                #                                           /1
+#IO.inspect(Enumerable.List.member?())              #                                           /2
+#IO.inspect(Enumerable.List.reduce())               #                                           /3
+#IO.inspect(Enumerable.List.slice())                #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.Map.count())                 #                                           /1
+#IO.inspect(Enumerable.Map.member?())               #                                           /2
+#IO.inspect(Enumerable.Map.reduce())                #                                           /3
+#IO.inspect(Enumerable.Map.slice())                 #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.MapSet.count())              #                                           /1
+#IO.inspect(Enumerable.MapSet.member?())            #                                           /2
+#IO.inspect(Enumerable.MapSet.reduce())             #                                           /3
+#IO.inspect(Enumerable.MapSet.slice())              #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.Range.count())               #                                           /1
+#IO.inspect(Enumerable.Range.member?())             #                                           /2
+#IO.inspect(Enumerable.Range.reduce())              #                                           /3
+#IO.inspect(Enumerable.Range.slice())               #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.Stream.count())              #                                           /1
+#IO.inspect(Enumerable.Stream.member?())            #                                           /2
+#IO.inspect(Enumerable.Stream.reduce())             #                                           /3
+#IO.inspect(Enumerable.Stream.slice())              #                                           /1
+# --------------------------------------------------#--------------------------------------------#
+#IO.inspect(Enumerable.count())                     #                                           /1
+#IO.inspect(Enumerable.member?())                   #                                           /2
+#IO.inspect(Enumerable.reduce())                    #                                           /3
+#IO.inspect(Enumerable.slice())                     #                                           /1

@@ -114,42 +114,42 @@ IO.inspect(Map.put(map1, :state, "RO"))         # %{nome: "Wesley", state: "RO"}
 ######################################################
 
 ########################## Keyword
-# IO.inspect(Keyword.delete/2             
-# IO.inspect(Keyword.delete/3             
-# IO.inspect(Keyword.delete_first/2       
-# IO.inspect(Keyword.drop/2               
-# IO.inspect(Keyword.equal?/2             
-# IO.inspect(Keyword.fetch!/2             
-# IO.inspect(Keyword.fetch/2              
-# IO.inspect(Keyword.get/2                
-# IO.inspect(Keyword.get/3                
-# IO.inspect(Keyword.get_and_update!/3    
-# IO.inspect(Keyword.get_and_update/3     
-# IO.inspect(Keyword.get_lazy/3           
-# IO.inspect(Keyword.get_values/2         
-# IO.inspect(Keyword.has_key?/2           
-# IO.inspect(Keyword.keys/1               
-# IO.inspect(Keyword.keyword?/1           
-# IO.inspect(Keyword.merge/2              
-# IO.inspect(Keyword.merge/3              
-# IO.inspect(Keyword.new/0                
-# IO.inspect(Keyword.new/1                
-# IO.inspect(Keyword.new/2                
-# IO.inspect(Keyword.pop/2                
-# IO.inspect(Keyword.pop/3                
-# IO.inspect(Keyword.pop_first/2          
-# IO.inspect(Keyword.pop_first/3          
-# IO.inspect(Keyword.pop_lazy/3           
-# IO.inspect(Keyword.put/3                
-# IO.inspect(Keyword.put_new/3            
-# IO.inspect(Keyword.put_new_lazy/3       
-# IO.inspect(Keyword.replace!/3           
-# IO.inspect(Keyword.split/2              
-# IO.inspect(Keyword.take/2               
-# IO.inspect(Keyword.to_list/1            
-# IO.inspect(Keyword.update!/3            
-# IO.inspect(Keyword.update/4             
-# IO.inspect(Keyword.values/1   
+# IO.inspect(Keyword.delete())                     #                                           /2
+# IO.inspect(Keyword.delete())                     #                                           /3
+# IO.inspect(Keyword.delete_first())               #                                           /2
+# IO.inspect(Keyword.drop())                       #                                           /2
+# IO.inspect(Keyword.equal?())                     #                                           /2
+# IO.inspect(Keyword.fetch!())                     #                                           /2
+# IO.inspect(Keyword.fetch())                      #                                           /2
+# IO.inspect(Keyword.get())                        #                                           /2
+# IO.inspect(Keyword.get())                        #                                           /3
+# IO.inspect(Keyword.get_and_update!())            #                                           /3
+# IO.inspect(Keyword.get_and_update())             #                                           /3
+# IO.inspect(Keyword.get_lazy())                   #                                           /3
+# IO.inspect(Keyword.get_values())                 #                                           /2
+# IO.inspect(Keyword.has_key?())                   #                                           /2
+# IO.inspect(Keyword.keys())                       #                                           /1
+# IO.inspect(Keyword.keyword?())                   #                                           /1
+# IO.inspect(Keyword.merge())                      #                                           /2
+# IO.inspect(Keyword.merge())                      #                                           /3
+# IO.inspect(Keyword.new())                        #                                           /0
+# IO.inspect(Keyword.new())                        #                                           /1
+# IO.inspect(Keyword.new())                        #                                           /2
+# IO.inspect(Keyword.pop())                        #                                           /2
+# IO.inspect(Keyword.pop())                        #                                           /3
+# IO.inspect(Keyword.pop_first())                  #                                           /2
+# IO.inspect(Keyword.pop_first())                  #                                           /3
+# IO.inspect(Keyword.pop_lazy())                   #                                           /3
+# IO.inspect(Keyword.put())                        #                                           /3
+# IO.inspect(Keyword.put_new())                    #                                           /3
+# IO.inspect(Keyword.put_new_lazy())               #                                           /3
+# IO.inspect(Keyword.replace!())                   #                                           /3
+# IO.inspect(Keyword.split())                      #                                           /2
+# IO.inspect(Keyword.take())                       #                                           /2
+# IO.inspect(Keyword.to_list())                    #                                           /1
+# IO.inspect(Keyword.update!())                    #                                           /3
+# IO.inspect(Keyword.update())                     #                                           /4
+# IO.inspect(Keyword.values())                     #                                           /1
 ##########################################
 
 ############################# Set
