@@ -14,8 +14,8 @@ defmodule MyList0 do
   end
 end
 
-IO.inspect(MyList0.sum([1, 2, 3]))
-IO.inspect(MyList0.soma([1, 2, 3]))
+#IO.inspect(MyList0.sum([1, 2, 3]))
+#IO.inspect(MyList0.soma([1, 2, 3]))
 #########################################################################################
 
 # Pág 73 Livro 1.3
@@ -52,8 +52,8 @@ end
 
 # IO.inspect(MyList1.mapsum([1, 2, 3], &(&1 * &1)))
 # IO.inspect(MyList1.maior([6, 4, 7, 3, 2, 1]))
-IO.inspect(MyList1.caesar('abcdegfsg', 97))
-IO.inspect(MyList1.caesar('abcde', 10))
+#IO.inspect(MyList1.caesar('abcdegfsg', 97))
+#IO.inspect(MyList1.caesar('abcde', 10))
 # ?????? :)
 #########################################################################################
 
@@ -119,7 +119,7 @@ defmodule Enum1 do
   def split1([], _), do: {[], []}
   def split1(lista, 0), do: {[], lista}
 
-  def split1([head | tail], number) when number > 0 do
+  def split1([head | tail], number) when number > 0 do  # verificar função split1 depois
     {list1, list2} = split1(tail, number - 1)
     {[head | list1], list2}
   end
@@ -134,12 +134,12 @@ defmodule Enum1 do
   def count([_head | tail]) do
     1 + count(tail)
   end
-
-  IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7], 3))
-  IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7, 8], -3))
 end
 
 # Fim module Enum1
+
+#IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7], 3))
+#IO.inspect(Enum1.split1([1, 2, 3, 4, 5, 6, 7, 8], -3))
 
 # all? /1 um argumento
 # IO.inspect(Enum1.all([1, nil, 3]))
@@ -150,7 +150,7 @@ end
 # IO.inspect(Enum1.split1([], 2) == {[], []})
 
 # IO.inspect(Enum1.split1([1, 2], 3) == {[1,2], []})
-IO.inspect(Enum1.split1([1, 2, 3, 4], 3))
+#IO.inspect(Enum1.split1([1, 2, 3, 4], 3))
 # IO.inspect(Enum1.split1([1, 2, 3, 4], 2) == {[1, 2], [3, 4]})
 # IO.inspect(Enum1.split1([2, 3, 4], 1) == {[2], [3, 4]})
 # IO.inspect(Enum1.split1([3, 4], 0) == {[], [3, 4]})
@@ -158,12 +158,29 @@ IO.inspect(Enum1.split1([1, 2, 3, 4], 3))
 #########################################################################################
 # Pág 98 Livro 1.3
 # ➤ Exercise: ListsAndRecursion-6
-# (Hard) Write a flatten(list) function that takes a list that may contain any
-# number of sublists, which themselves may contain sublists, to any depth.
-# It returns the elements of these lists as a flat list.
-# iex> MyList.flatten([ 1, [ 2, 3, [4] ], 5, [[[6]]]])
-# [1,2,3,4,5,6]
-# Hint: You may have to use Enum.reverse to get your result in the correct order.
+defmodule Test do
+  def flatten1([]), do: []
+
+  def flatten1([head | tail]) when is_list(head) do
+    [head1 | tail1] = head
+
+    if is_list(head1) do
+      [head2 | tail2] = flatten1(head1)
+      [head2 | flatten1(tail1) ++ flatten1(tail2) ++ flatten1(tail)]
+    else
+      [head1 | flatten1(tail1) ++ flatten1(tail)]
+    end
+  end
+
+  def flatten1([head | tail]) when not is_list(head) do
+    [head | flatten1(tail)]
+  end
+end
+
+#IO.inspect(Test.flatten1([1, [2, 3, [4]], 5, [[[6]]]]))
+#IO.inspect(Test.flatten1([1, [2, [[[3]]], [4]], [[[[[[[[[[5]]]]]]]]]], [6]]))
+#IO.inspect(Test.flatten1([[1], [2], [3], [4]]))
+#IO.inspect(Test.flatten1([1, 2, 3, [[[[4]]]]]))
 #########################################################################################
 
 # Pág 110 Livro 1.3
@@ -211,13 +228,13 @@ orders = [
 ]
 
 # Keyword.put(orders)
-IO.inspect(tax_rates)
+#IO.inspect(tax_rates)
 
 new_orders = Exercicio.exercicio(orders, NC: 0.075, TX: 0.08, MA: 0.10)
-IO.inspect(new_orders)
+#IO.inspect(new_orders)
 
 new_orders = Exercicio.exercicio(orders, NC: 0.075, MA: 0.12, OK: 0.05)
-IO.inspect(new_orders)
+#IO.inspect(new_orders)
 
 # Enum.map(orders, Keyword.put(orders, key, value))
 

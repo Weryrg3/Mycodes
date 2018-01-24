@@ -8,11 +8,13 @@ defmodule Tudo do
   def tamanho([]), do: 0
   def tamanho([_head | tail]), do: 1 + tamanho(tail)
 
-  #def media(list), do: soma(list) / tamanho(list)
-
+  def media([]), do: 1
+  def media([head | tail]) do
+    
+  end
 end
 
-IO.inspect(Tudo.soma([1, 2, 3, 4]))
-IO.inspect(Tudo.mult([1, 2, 3, 4]))
-IO.inspect(Tudo.tamanho([1, 2, 3]))
-#IO.inspect(Tudo.media([1, 2, 3, 4]))
+#IO.inspect(Tudo.soma([1, 2, 3, 4]))
+#IO.inspect(Tudo.mult([1, 2, 3, 4]))
+#IO.inspect(Tudo.tamanho([1, 2, 3, 4]))
+IO.inspect(Tudo.media([1, 2, 3, 4]))

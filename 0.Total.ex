@@ -2,59 +2,67 @@ IO.inspect(!false)                     # true
 IO.inspect(1 != 1.0)                   # false Others       (</2, >/2, <=/2, >=/2, ==/2,)
 IO.inspect(1 !== 1.0)                  # true Others        ( ===/2 )
 IO.inspect(Enum.map 1 .. 5, &(&1))     # [1, 2, 3, 4, 5]    (1 .. 5) (#im 1.Enum) ../2      #/2 dois argumentos sendo passados
-IO.inspect(1 && 2)                     # 2      /2
-IO.inspect(1 || 2 )                    # 1      /2
+IO.inspect(1 && 2)                     # 2                                /2
+IO.inspect(1 || 2 )                    # 1                                /2
 IO.inspect(-1 * 2 + 3 / +4 - 0.25)     # -1.5               (-/1, -/2, +/1, +/2, //2, */2 )
-IO.inspect(abs(-4.5))                  # 4.5    /1
-IO.inspect(trunc(-4.5))                # -4     /1
-IO.inspect(tuple_size({-4.5, 4, 5}))   # 3      /1
+IO.inspect(abs(-4.5))                  # 4.5                              /1
+IO.inspect(trunc(-4.5))                # -4                               /1
+IO.inspect(tuple_size({-4.5, 4, 5}))   # 3                                /1
 
-IO.inspect(is_atom(:atom))             # true   /1
-IO.inspect(is_boolean(false))          # true   /1
+IO.inspect(is_atom(:atom))             # true                             /1
+IO.inspect(is_boolean(false))          # true                             /1
 IO.inspect(is_binary(<<1, 0>>))        # true   #Funciona também com string, pois toda string é binário   /1
-IO.inspect(is_bitstring("Texto"))      # true   /1
-IO.inspect(is_float(4.5))              # true   /1
-IO.inspect(is_function(&(&1)))         # true   /1
-IO.inspect(is_integer(10))             # true   /1
-IO.inspect(is_list([1, 2, 3, 4]))      # true   /1
-IO.inspect(is_map(%{"RO" => "Ron"}))   # true   /1
-IO.inspect(is_nil(nil))                # true   /1
-IO.inspect(is_number(10))              # true   /1
-IO.inspect(is_tuple({1, 2, 3}))        # true   /1
-# IO.inspect(is_pid())                 # true   /1
-# IO.inspect(is_port())                # true   /1
-# IO.inspect(is_reference())           # true   /1
+IO.inspect(is_bitstring("Texto"))      # true                             /1
+IO.inspect(is_float(4.5))              # true                             /1
+IO.inspect(is_function(&(&1)))         # true                             /1
+IO.inspect(is_integer(10))             # true                             /1
+IO.inspect(is_list([1, 2, 3, 4]))      # true                             /1
+IO.inspect(is_map(%{"RO" => "Ron"}))   # true                             /1
+IO.inspect(is_nil(nil))                # true                             /1
+IO.inspect(is_number(10))              # true                             /1
+IO.inspect(is_tuple({1, 2, 3}))        # true                             /1
+# IO.inspect(is_pid())                 # true                             /1
+# IO.inspect(is_port())                # true                             /1
+# IO.inspect(is_reference())           # true                             /1
+
+#IO.inspect(__CALLER__)                #                                  /0
+IO.inspect(__DIR__)                    # "/home/wesley/1.Wesley/Mycodes0" /0
+#IO.inspect(__ENV__)                   #                                  /0    \ Retorna diversas funções e seus parametros 
+IO.inspect(__MODULE__)                 # nil                              /0
+# binding/0
+# breaks/0
+# clear/0
+# continue/0
 
 
-
-#%/2
-
-# %{}/1                          
-# &/1                                                      
-# ++/2                                                    
-# +/2                           --/2                          
-# ../2                          ./2                           
-# ::/2                          
-# <<>>/1                        
-# <>/2                          
+# %/2
+# %{}/1
+# &/1
+# ++/2
+# --/2
+# ../2
+# ./2
+# ::/2
+# <<>>/1
+# <>/2
 # =/2
-# =~/2                          
-# @/1                           ^/1                           
-# __CALLER__/0                  __DIR__/0                     
-# __ENV__/0                     __MODULE__/0                  
+# =~/2
+# @/1
+# ^/1
+
 # __aliases__/1                 __block__/1                   
 # alias!/1                      
 # alias/2                       and/2                         
 # apply/2                       apply/3                       
 # b/1                           binary_part/3                 
-# binding/0                     binding/1                     
+#binding/1                     
 # bit_size/1                    break!/1                      
 # break!/2                      break!/3                      
-# break!/4                      breaks/0                      
+# break!/4                      
 # byte_size/1                   c/1                           
 # c/2                           case/2                        
-# cd/1                          clear/0                       
-# cond/1                        continue/0                    
+# cd/1                          
+# cond/1                        
 # def/1                         def/2                         
 # defdelegate/2                 defexception/1                
 # defguard/1                    defguardp/1                   
@@ -130,6 +138,8 @@ IO.inspect(is_tuple({1, 2, 3}))        # true   /1
 # with/1                        {}/1                          
 # |>/2
 
+#Kernel.
+# Kernel.SpecialForms.    Kernel.ParallelCompiler.  Kernel.ParallelRequire.
 # !/1                     !=/2                    !==/2                   
 # &&/2                    */2                     ++/2                    
 # +/1                     +/2                     --/2                    
@@ -180,4 +190,3 @@ IO.inspect(is_tuple({1, 2, 3}))        # true   /1
 # use/1                   use/2                   var!/1                  
 # var!/2                  |>/2                    ||/2 
 
-# Kernel.SpecialForms.    Kernel.ParallelCompiler.  Kernel.ParallelRequire.
