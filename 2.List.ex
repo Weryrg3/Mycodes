@@ -113,44 +113,44 @@ IO.inspect(Map.put(map1, :state, "RO"))         # %{nome: "Wesley", state: "RO"}
 # IO.inspect(MapSet.union/2 
 ######################################################
 
-########################## Keyword
-# IO.inspect(Keyword.delete())                     #                                           /2
-# IO.inspect(Keyword.delete())                     #                                           /3
-# IO.inspect(Keyword.delete_first())               #                                           /2
-# IO.inspect(Keyword.drop())                       #                                           /2
-# IO.inspect(Keyword.equal?())                     #                                           /2
-# IO.inspect(Keyword.fetch!())                     #                                           /2
-# IO.inspect(Keyword.fetch())                      #                                           /2
-# IO.inspect(Keyword.get())                        #                                           /2
-# IO.inspect(Keyword.get())                        #                                           /3
-# IO.inspect(Keyword.get_and_update!())            #                                           /3
-# IO.inspect(Keyword.get_and_update())             #                                           /3
-# IO.inspect(Keyword.get_lazy())                   #                                           /3
-# IO.inspect(Keyword.get_values())                 #                                           /2
-# IO.inspect(Keyword.has_key?())                   #                                           /2
-# IO.inspect(Keyword.keys())                       #                                           /1
-# IO.inspect(Keyword.keyword?())                   #                                           /1
-# IO.inspect(Keyword.merge())                      #                                           /2
-# IO.inspect(Keyword.merge())                      #                                           /3
-# IO.inspect(Keyword.new())                        #                                           /0
-# IO.inspect(Keyword.new())                        #                                           /1
-# IO.inspect(Keyword.new())                        #                                           /2
-# IO.inspect(Keyword.pop())                        #                                           /2
-# IO.inspect(Keyword.pop())                        #                                           /3
-# IO.inspect(Keyword.pop_first())                  #                                           /2
-# IO.inspect(Keyword.pop_first())                  #                                           /3
-# IO.inspect(Keyword.pop_lazy())                   #                                           /3
-# IO.inspect(Keyword.put())                        #                                           /3
-# IO.inspect(Keyword.put_new())                    #                                           /3
-# IO.inspect(Keyword.put_new_lazy())               #                                           /3
-# IO.inspect(Keyword.replace!())                   #                                           /3
-# IO.inspect(Keyword.split())                      #                                           /2
-# IO.inspect(Keyword.take())                       #                                           /2
-# IO.inspect(Keyword.to_list())                    #                                           /1
-# IO.inspect(Keyword.update!())                    #                                           /3
-# IO.inspect(Keyword.update())                     #                                           /4
-# IO.inspect(Keyword.values())                     #                                           /1
-##########################################
+########################## Keyword      
+IO.inspect(Keyword.delete([   a: 1, b: 2, a: 3], :a))             # [b: 2]                        /2
+IO.inspect(Keyword.delete([a: 1, b: 2, a: 3], :a, 3))             # [a: 1, b: 2]                  /3
+IO.inspect(Keyword.delete_first([a: 1, b: 2, a: 3], :a))          # [b: 2, a: 3]                  /2
+IO.inspect(Keyword.drop([a: 1, b: 2, c: 3], [:b, :a]))            # [c: 3]                        /2
+IO.inspect(Keyword.equal?([a: 1, b: 2], [b: 2, a: 1]))            # true                          /2
+IO.inspect(Keyword.fetch!([a: 1], :a))                            # 1                             /2    \ Se estiver errado dá erro de compilação
+IO.inspect(Keyword.fetch([a: 1], :b))                             # :error                        /2    \ Retorna um erro sem dar erro de compilação
+IO.inspect(Keyword.get([a: 2], :a))                               # 2                             /2
+IO.inspect(Keyword.get([a: 1], :b, 3))                            # 3                             /3
+# IO.inspect(Keyword.get_and_update!())                           #                               /3
+# IO.inspect(Keyword.get_and_update())                            #                               /3
+# IO.inspect(Keyword.get_lazy())                                  #                               /3
+IO.inspect(Keyword.get_values([a: 1, a: 2], :a))                  # [1, 2]                        /2
+IO.inspect(Keyword.has_key?([a: 1], :b))                          # false                         /2
+IO.inspect(Keyword.keys([a: 1, b: 2, a: 3]))                      # [:a, :b, :a]                  /1
+IO.inspect(Keyword.keyword?([a: 1, b: 2, a: 3]))                  # true                          /1
+IO.inspect(Keyword.merge([a: 1, b: 2], [a: 3, d: 4, a: 5]))       # [b: 2, a: 3, d: 4, a: 5]      /2
+# IO.inspect(Keyword.merge())                                     #                               /3
+IO.inspect(Keyword.new())                                         # []                            /0
+IO.inspect(Keyword.new([{:b, 1}, {:a, 2}]))                       # [b: 1, a: 2]                  /1
+IO.inspect(Keyword.new([:a, :b], fn(x) -> {x, x} end))            # [a: :a, b: :b]                /2
+IO.inspect(Keyword.pop([a: 1], :a))                               # {1, []}                       /2
+IO.inspect(Keyword.pop([a: 1], :b, 3))                            # {3, [a: 1]}                   /3
+IO.inspect(Keyword.pop_first([a: 1, a: 2], :a))                   # {1, [a: 2]}                   /2
+# IO.inspect(Keyword.pop_first())                                 #                               /3
+# IO.inspect(Keyword.pop_lazy())                                  #                               /3
+IO.inspect(Keyword.put([a: 1, b: 1], :a, 2))                      # [a: 2, b: 1]                  /3    \ Adiciona uma key e um value para Keyword, se chave já existe substitui
+IO.inspect(Keyword.put_new([a: 1, b: 1], :a, 2))                  # [a: 1, b: 1]                  /3    \ Não adiciona key se a chave já existe
+# IO.inspect(Keyword.put_new_lazy())                              #                               /3
+IO.inspect(Keyword.replace!([a: 1, b: 2, a: 4], :a, 3))           # [a: 3, b: 2]                  /3
+IO.inspect(Keyword.split([a: 1, b: 2, c: 3, a: 4], [:a, :c, :e])) # {[a: 1, c: 3, a: 4], [b: 2]}  /2
+IO.inspect(Keyword.take([a: 1, b: 2, c: 3, a: 5], [:a, :c, :e]))  # [a: 1, c: 3, a: 5]            /2
+IO.inspect(Keyword.to_list([a: 1, b: 2, c: 3, a: 5]))             # [a: 1, b: 2, c: 3, a: 5]      /1
+IO.inspect(Keyword.update!([a: 1], :a, &(&1 * 2)))                # [a: 2]                        /3    \ Caso não achei a key ocorre erro de compilação[a: 1, b: 2, a: 3]
+IO.inspect(Keyword.update([a: 1], :b, 13, &(&1 * 2)))             # [a: 1, b: 13]                 /4
+IO.inspect(Keyword.values([a: 1, b: 2, a: 3]))                    # [1, 2, 3]                     /1
+##########################################  
 
 ############################# Set
 # IO.inspect(Set.delete/2          
