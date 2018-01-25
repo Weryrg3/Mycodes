@@ -1,4 +1,5 @@
 ############################# Inspect ##############################
+IO.puts("Inspect \n")
 # IO.inspect(Inspect.inspect                               #                              /2
 # ---------------------------------------------------------#-------------------------------#
 IO.inspect(Inspect.Algebra.break)                          # {:doc_break, " ", :strict}   /0
@@ -61,6 +62,7 @@ IO.inspect(Inspect.Algebra.line)                           # :doc_line          
 # IO.inspect(Inspect.Version.Requirement.inspect/2
 # IO.inspect(Inspect.Version.inspect/2
 # ############################## IO #################################
+IO.puts("\nIO \n")
 # ANSI
 # Stream
 # StreamError

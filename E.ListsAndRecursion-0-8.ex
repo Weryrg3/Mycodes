@@ -158,7 +158,7 @@ end
 #########################################################################################
 # Pág 98 Livro 1.3
 # ➤ Exercise: ListsAndRecursion-6
-defmodule Test do
+defmodule MyList3 do
   def flatten1([]), do: []
 
   def flatten1([head | tail]) when is_list(head) do
@@ -177,10 +177,10 @@ defmodule Test do
   end
 end
 
-#IO.inspect(Test.flatten1([1, [2, 3, [4]], 5, [[[6]]]]))
-#IO.inspect(Test.flatten1([1, [2, [[[3]]], [4]], [[[[[[[[[[5]]]]]]]]]], [6]]))
-#IO.inspect(Test.flatten1([[1], [2], [3], [4]]))
-#IO.inspect(Test.flatten1([1, 2, 3, [[[[4]]]]]))
+#IO.inspect(MyList3.flatten1([1, [2, 3, [4]], 5, [[[6]]]]))
+#IO.inspect(MyList3.flatten1([1, [2, [[[3]]], [4]], [[[[[[[[[[5]]]]]]]]]], [6]]))
+#IO.inspect(MyList3.flatten1([[1], [2], [3], [4]]))
+#IO.inspect(MyList3.flatten1([1, 2, 3, [[[[4]]]]]))
 #########################################################################################
 
 # Pág 110 Livro 1.3

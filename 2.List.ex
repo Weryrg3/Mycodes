@@ -1,7 +1,8 @@
-############################################################ List ################################################################
+############################################## List #####################################################
 list = [1, 2, 3]
 kw = [{:name, "Wesley"}, {:likes, "Programming"}, {:where, "Ji-Paraná", "RO"}]
 kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]
+IO.puts("List\n")
 # IO.inspect(List.ascii_printable?())                         #                                         /1
 # IO.inspect(List.ascii_printable?())                         #                                         /2
 # IO.inspect(List.delete())                                   #                                         /2
@@ -38,23 +39,23 @@ IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle m
 # IO.inspect(List.wrap())                                     #                                         /1
 # IO.inspect(List.zip())                                      #                                         /1
 # ------------------------------------------------------------#------------------------------------------#
-# IO.inspect(List.Chars.Atom())
-# IO.inspect(List.Chars.BitString())
-# IO.inspect(List.Chars.Float())
-# IO.inspect(List.Chars.Integer())
-# IO.inspect(List.Chars.List())
-# IO.inspect(List.Chars.to_charlist/1  
+# IO.inspect(List.Chars.Atom.to_charlist())                   #                                         /1
+# IO.inspect(List.Chars.BitString.to_charlist())              #                                         /1
+# IO.inspect(List.Chars.Float.to_charlist())                  #                                         /1
+# IO.inspect(List.Chars.Integer.to_charlist())                #                                         /1
+# IO.inspect(List.Chars.List.to_charlist())                   #                                         /1
+# IO.inspect(List.Chars.to_charlist())                        #                                         /1
 ##########################################################################################################
-
-############################### Tuple 
-# IO.inspect(Tuple.append())/2
-# IO.inspect(Tuple.delete_at())/2
-# IO.inspect(Tuple.duplicate())/2
-# IO.inspect(Tuple.insert_at())/3
-# IO.inspect(Tuple.to_list())/1
-###############################
-
-########################### Map
+IO.puts("\nTuple \n")
+################################################ Tuple ###################################################
+# IO.inspect(Tuple.append())                                  #                                         /2
+# IO.inspect(Tuple.delete_at())                               #                                         /2
+# IO.inspect(Tuple.duplicate())                               #                                         /2
+# IO.inspect(Tuple.insert_at())                               #                                         /3
+# IO.inspect(Tuple.to_list())                                 #                                         /1
+##########################################################################################################
+IO.puts("\nMap \n")
+################################################ Map #####################################################
 map = %{ nome: "Wesley", likes: "Programming", where: "Ji-Paraná" }
 map1 = %{ nome: "Wesley"}
 IO.inspect(map[:nome])  # "Wesley"
@@ -93,26 +94,26 @@ IO.inspect(Map.put(map1, :state, "RO"))         # %{nome: "Wesley", state: "RO"}
 # IO.inspect(Map.to_list                        #                                         /1
 # IO.inspect(Map.update!                        #                                         /3
 # IO.inspect(Map.update                         #                                         /4
-########################################################################################
-
-########################## MapSet
+############################################################################################
+IO.puts("\nMapSet \n")
+####################################### MapSet #############################################
 # MapSet Need Enum.to_list, para printar
-# IO.inspect(MapSet.delete/2          
-# IO.inspect(MapSet.difference/2      
-# IO.inspect(MapSet.disjoint?/2       
-# IO.inspect(MapSet.equal?/2          
-# IO.inspect(MapSet.intersection/2    
-# IO.inspect(MapSet.member?/2         
-# IO.inspect(MapSet.new/0             
-# IO.inspect(MapSet.new/1             
-# IO.inspect(MapSet.new/2             
-# IO.inspect(MapSet.put/2             
-# IO.inspect(MapSet.size/1            
-# IO.inspect(MapSet.subset?/2         
-# IO.inspect(MapSet.to_list/1         
-# IO.inspect(MapSet.union/2 
+# IO.inspect(MapSet.delete())                   #                                         /2
+# IO.inspect(MapSet.difference())               #                                         /2
+# IO.inspect(MapSet.disjoint?())                #                                         /2
+# IO.inspect(MapSet.equal?())                   #                                         /2
+# IO.inspect(MapSet.intersection())             #                                         /2
+# IO.inspect(MapSet.member?())                  #                                         /2
+IO.inspect(MapSet.new())                        # #MapSet<[]>                             /0
+# IO.inspect(MapSet.new())                      #                                         /1
+# IO.inspect(MapSet.new())                      #                                         /2
+# IO.inspect(MapSet.put())                      #                                         /2
+# IO.inspect(MapSet.size())                     #                                         /1
+# IO.inspect(MapSet.subset?())                  #                                         /2
+# IO.inspect(MapSet.to_list())                  #                                         /1
+# IO.inspect(MapSet.union())                    #                                         /2
 ######################################################
-
+IO.puts("\nKeyword \n")
 ########################## Keyword      
 IO.inspect(Keyword.delete([   a: 1, b: 2, a: 3], :a))             # [b: 2]                        /2
 IO.inspect(Keyword.delete([a: 1, b: 2, a: 3], :a, 3))             # [a: 1, b: 2]                  /3
@@ -150,19 +151,19 @@ IO.inspect(Keyword.to_list([a: 1, b: 2, c: 3, a: 5]))             # [a: 1, b: 2,
 IO.inspect(Keyword.update!([a: 1], :a, &(&1 * 2)))                # [a: 2]                        /3    \ Caso não achei a key ocorre erro de compilação[a: 1, b: 2, a: 3]
 IO.inspect(Keyword.update([a: 1], :b, 13, &(&1 * 2)))             # [a: 1, b: 13]                 /4
 IO.inspect(Keyword.values([a: 1, b: 2, a: 3]))                    # [1, 2, 3]                     /1
-##########################################  
-
-############################# Set
-# IO.inspect(Set.delete/2          
-# IO.inspect(Set.difference/2      
-# IO.inspect(Set.disjoint?/2       
-# IO.inspect(Set.equal?/2          
-# IO.inspect(Set.intersection/2    
-# IO.inspect(Set.member?/2         
-# IO.inspect(Set.put/2             
-# IO.inspect(Set.size/1            
-# IO.inspect(Set.subset?/2         
-# IO.inspect(Set.to_list/1         
-# IO.inspect(Set.union/2
+#################################################################################################### 
+IO.puts("\nSet \n")
+################################################ Set ###############################################
+# IO.inspect(Set.delete())                                        #                               /2
+# IO.inspect(Set.difference())                                    #                               /2
+# IO.inspect(Set.disjoint?())                                     #                               /2
+# IO.inspect(Set.equal?())                                        #                               /2
+# IO.inspect(Set.intersection())                                  #                               /2
+# IO.inspect(Set.member?())                                       #                               /2
+# IO.inspect(Set.put())                                           #                               /2
+# IO.inspect(Set.size())                                          #                               /1
+# IO.inspect(Set.subset?())                                       #                               /2
+# IO.inspect(Set.to_list())                                       #                               /1
+# IO.inspect(Set.union())                                         #                               /2
 
 

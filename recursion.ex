@@ -8,9 +8,9 @@ defmodule Tudo do
   def tamanho([]), do: 0
   def tamanho([_head | tail]), do: 1 + tamanho(tail)
  
-  def media([]), do: 0
+  def media([]), do: []
   def media([head | tail]) do
-    (head + soma(tail)) / (1 + tamanho(tail))
+    [(head + media(tail)) / (1 + media(tail))]
   end
 end
 
@@ -20,45 +20,3 @@ end
 IO.inspect(Tudo.media([1, 2, 3, 4]))
 IO.inspect(Tudo.media([1, 1, 1, 1]))
 
-# media
-# [1, 2, 3, 4, 2, 1] = 13
-# 2,16
-
-# soma = 10
-# tamanho = 4
-
-# [1, 2, 3, 4]
-# [1, 1, 1, 1]
-
-# head + media(tail) + media(tail) = 49		0
-# head + media(tail) + media(tail) = 15		0
-
-# head - media(tail) + media(tail) = 1		0
-# head - media(tail) + media(tail) = 1		0
-
-# head + media(tail) - media(tail) = 1		0
-# head + media(tail) - media(tail) = 1		0
-
-# head - media(tail) - media(tail) = -23		0
-# head - media(tail) - media(tail) = -5		0
-
-# head * media(tail) + media(tail) = 120		1
-# head * media(tail) + media(tail) = 16		1
-
-# media(tail) + media(tail) = 16			1
-# media(tail) + media(tail) = 16			1
-
-# media(tail) * media(tail) = 1			1
-# media(tail) * media(tail) = 1			1
-
-# media(tail) / media(tail) = 1.0			1
-# media(tail) / media(tail) = 1.0			1
-
-# media(tail) - media(tail) = 0			1
-# media(tail) - media(tail) = 0			1
-
-# head - media(tail) = -2		0
-# head - media(tail) = 0		0
-
-# head * media(tail) = 24		1	OK
-# head * media(tail) = 1		1	OK

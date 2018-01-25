@@ -1,5 +1,5 @@
 ############################################################ Enum ################################################################
-#te
+IO.puts("Enum \n")
 #import Enum      Com importação evitaria ter que escrever Enum mais de uma vez, porém nesse caso decidi não importar.
 list1 = [1, 2, 3]
 list2 = [0, 1, 2, 3, 4, 9, 8, 7, 6, 5]
@@ -113,7 +113,7 @@ IO.inspect(Enum.group_by(medals, &(&1.medal), &(&1.player))) # /3
 # %{bronze: ["Anna"], gold: ["Anna", "Zoe"], silver: ["Joe", "Anderson", "Peter"]}       /3
 
 # IO.inspect(Enum.group_by())                       #                                           /2
-
+IO.puts("\nEnumerable \n")
 ############################################################ Enumerable ################################################################
 
 #IO.inspect(Enumerable.Date.Range.count())          #                                           /1

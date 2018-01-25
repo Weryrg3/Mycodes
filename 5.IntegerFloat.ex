@@ -1,3 +1,4 @@
+IO.puts("Integer \n")
 ############################# Integer ##############################
 require Integer                                 #  Import para even e odd
 IO.inspect(Integer.is_even(10))                 # true          /1    /&  &Integer.is_even/1
@@ -15,7 +16,7 @@ IO.inspect(Integer.parse("45.4"))               # {45, ".4"}    /1     \ string 
 IO.inspect(Integer.parse("45", 10))             # {45, ""}      /2     \ string e base, caso a base seja inferior retonr :error | parse("Awww++", 36) T: {509216, "++"}
 IO.inspect(Integer.undigits([1, 2, 3]))         # 123           /1
 IO.inspect(Integer.undigits([1, 0, 1, 0], 2))   # 10            /2     \ retorna list em um número na base dig
-IO.puts("\nFloat")
+IO.puts("\nFloat \n")
 ############################# Float ################################
 require Float
 IO.inspect(Float.round(34.25))              # 34.0              /1
@@ -28,7 +29,7 @@ IO.inspect(Float.parse("34.256"))           # {34.256, ""}      /1
 IO.inspect(Float.ratio(1.5))                # {3, 2}            /1     \ retorna valor float em inteiro 3/2 = 1.5 tuple
 IO.inspect(Float.to_charlist(34.256))       # '34.256'          /1
 IO.inspect(Float.to_string(34.256))         # "34.256"          /1
-IO.puts("\nAtom")
+IO.puts("\nAtom \n")
 ############################# Atom ##################################
 IO.inspect(Atom.to_charlist(:nome))        # 'nome'             /1
 IO.inspect(Atom.to_string(:nome))          # "nome"             /1
