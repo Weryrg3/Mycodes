@@ -3,7 +3,9 @@
   #1 linha
   #2 linha
   #3 linha
-
+# {:ok, file} = File.open("foo.tar.gz", [:read, :compressed])
+# IO.read(file, :line)
+# File.close(file)
 # IO.inspect(File.CopyError.exception())               #                                            /1
 # IO.inspect(File.CopyError.message())                 #                                            /1
 # IO.inspect(File.Error.exception())                   #                                            /1

@@ -98,15 +98,34 @@ IO.inspect(Total.capitalize("CASA. a DoG. Um HaTeR. "))
 ##############################################################################################
 # Pág 127 Livro 1.3
 # ➤ Exercise: StringsAndBinaries-7
-# Chapter 7 had an exercise about calculating sales tax on page 110. We
-# now have the sales information in a file of comma-separated id , ship_to ,
-# and amount values. The file looks like this:
-# id,ship_to,net_amount
-# 123,:NC,100.00
-# 124,:OK,35.50
-# 125,:TX,24.00
-# 126,:TX,44.80
-# 127,:NC,25.00
-# 128,:MA,10.00
-# 129,:CA,102.00
-# 120,:NC,50.00
+
+# Necessita do module Execercicio E.ListsAndRecursion-0-8
+defmodule Arquivo do
+  def arquivo0({:error, _}), do: []
+
+  def arquivo0({:ok, file}) do
+    arquivo1(IO.read(file, :line), file)
+  end
+
+  def arquivo1(:eof, _file) do
+    []
+  end
+
+  def arquivo1(string, file) do
+    order = [id: 0, ship_to: :Null, net_amount: 0.0]
+    list_order = string |> String.split(",")
+
+    list_order = List.replace_at(list_order, 0, Enum.at(list_order, 0) |> String.to_integer())
+    list_order = List.replace_at(list_order, 1, Enum.at(list_order, 1) |> String.next_codepoint() |> Tuple.to_list() |> Enum.at(1) |> String.to_atom()) 
+    list_order = List.replace_at(list_order, 2, Enum.at(list_order, 2) |> String.trim() |> String.to_float())
+
+    order = Keyword.put(order, :id, Enum.at(list_order, 0))
+    order = Keyword.put(order, :ship_to, Enum.at(list_order, 1))
+    order = Keyword.put(order, :net_amount, Enum.at(list_order, 2))
+
+    [order | arquivo1(IO.read(file, :line), file)]
+  end
+end
+
+orders = Arquivo.arquivo0(File.open("orders.txt", [:read]))
+IO.inspect(orders)
