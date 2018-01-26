@@ -13,36 +13,41 @@ defmodule Exercicio do
 end
 
 defmodule Arquivo do
+  def allowed_states() do
+    [:NC, :OK, :TX, :MA, :CA]
+  end
   def arquivo0({:error, _}), do: []
 
   def arquivo0({:ok, file}) do
+    IO.read(file, :line)
     arquivo1(IO.read(file, :line), file)
   end
 
-  def arquivo1(:eof, _file) do
+  def arquivo1(:eof, file) do
+    File.close(file)
     []
   end
 
   def arquivo1(string, file) do
-    order = [id: 0, ship_to: :Null, net_amount: 0.0]
-    list_order = string |> String.split(",")
-
-    list_order = List.replace_at(list_order, 0, Enum.at(list_order, 0) 
-      |> String.to_integer())
-    
-    list_order = List.replace_at(list_order, 1, Enum.at(list_order, 1) 
-      |> String.next_codepoint() 
-      |> Tuple.to_list() 
-      |> Enum.at(1) 
-      |> String.to_atom()) 
-    
-    list_order = List.replace_at(list_order, 2, Enum.at(list_order, 2) 
+    [id, ship_to, net_amount] = 
+      string 
       |> String.trim() 
-      |> String.to_float())
+      |> String.split(",")
 
-    order = Keyword.put(order, :id, Enum.at(list_order, 0))
-    order = Keyword.put(order, :ship_to, Enum.at(list_order, 1))
-    order = Keyword.put(order, :net_amount, Enum.at(list_order, 2))
+    id = String.to_integer(id)
+
+    ship_to =
+      ship_to 
+      |> String.trim_leading(":")
+      |> String.to_existing_atom()
+
+    net_amount = String.to_float(net_amount)
+
+    order =
+      Keyword.new() 
+      |> Keyword.put(:id, id) 
+      |> Keyword.put(:ship_to, ship_to)
+      |> Keyword.put(:net_amount, net_amount)
 
     [order | arquivo1(IO.read(file, :line), file)]
   end
@@ -50,5 +55,5 @@ end
 
 orders = Arquivo.arquivo0(File.open("orders.txt", [:read]))
 IO.inspect(orders)
-#tax_rates = [NC: 0.075, TX: 0.08]
-#IO.inspect(Exercicio.exercicio(orders, tax_rates))
+tax_rates = [NC: 0.075, TX: 0.08]
+IO.inspect(Exercicio.exercicio(orders, tax_rates))
