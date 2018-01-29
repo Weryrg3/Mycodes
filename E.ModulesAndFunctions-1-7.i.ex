@@ -84,6 +84,5 @@ IO.inspect(System.cwd())                #Current working directory
 #IO.inspect(System.get_env())           #Returns all system environment variables
 IO.inspect(System.get_env("HOSTNAME"))  #Returns the value of the given environment variable
 #ls
-
-# – Return the extension component of a file name (so return .exs if given "dave/test.exs" ). (Elixir)
+IO.inspect(Path.extname("test.exs"))    # Internet
 # – Convert a string containing JSON into Elixir data structures. (Just find; don’t install.)

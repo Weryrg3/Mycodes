@@ -94,3 +94,52 @@ IO.inspect(File.read("file.txt"))                      # {:ok, "1 linha\n2 linha
 # IO.inspect(File.write_stat!())                       #                                            /3
 # IO.inspect(File.write_stat())                        #                                            /2
 # IO.inspect(File.write_stat())                        #                                            /3
+################################################ Path ################################################
+IO.puts("\nPath \n")
+# IO.inspect(Path.Wildcard.list_dir())                   #                                            /1
+# IO.inspect(Path.Wildcard.read_link_info())             #                                            /1
+# IO.inspect(Path.absname())                             #                                            /1
+# IO.inspect(Path.absname())                             #                                            /2
+# IO.inspect(Path.basename())                            #                                            /1
+# IO.inspect(Path.basename())                            #                                            /2
+# IO.inspect(Path.dirname())                             #                                            /1
+# IO.inspect(Path.expand())                              #                                            /1
+# IO.inspect(Path.expand())                              #                                            /2
+IO.inspect(Path.extname("test.exs"))                             #                                            /1
+# IO.inspect(Path.join())                                #                                            /1
+# IO.inspect(Path.join())                                #                                            /2
+# IO.inspect(Path.relative())                            #                                            /1
+# IO.inspect(Path.relative_to())                         #                                            /2
+# IO.inspect(Path.relative_to_cwd())                     #                                            /1
+# IO.inspect(Path.rootname())                            #                                            /1
+# IO.inspect(Path.rootname())                            #                                            /2
+# IO.inspect(Path.split())                               #                                            /1
+# IO.inspect(Path.type())                                #                                            /1
+# IO.inspect(Path.wildcard())                            #                                            /1
+# IO.inspect(Path.wildcard())                            #                                            /2
+################################################ Date ##################################################
+# IO.inspect(Date.add())                                 #                                            /2
+# IO.inspect(Date.compare())                                 #                                            /2
+# IO.inspect(Date.convert! ())                                 #                                            /2
+# IO.inspect(Date.convert())                                 #                                            /2
+# IO.inspect(Date.day_of_week())                                 #                                            /1
+# IO.inspect(Date.days_in_month())                                 #                                            /1
+# IO.inspect(Date.diff ())                                 #                                            /2
+# IO.inspect(Date.from_erl!())                                 #                                            /1
+# IO.inspect(Date.from_erl!())                                 #                                            /2
+# IO.inspect(Date.from_erl ())                                 #                                            /1
+# IO.inspect(Date.from_erl ())                                 #                                            /2
+# IO.inspect(Date.from_iso8601!())                                 #                                            /1
+# IO.inspect(Date.from_iso8601!())                                 #                                            /2
+# IO.inspect(Date.from_iso8601 ())                                 #                                            /1
+# IO.inspect(Date.from_iso8601 ())                                 #                                            /2
+# IO.inspect(Date.leap_year? ())                                 #                                            /1
+# IO.inspect(Date.new())                                 #                                            /3
+# IO.inspect(Date.new())                                 #                                            /4
+# IO.inspect(Date.range())                                 #                                            /2
+# IO.inspect(Date.to_erl ())                                 #                                            /1
+# IO.inspect(Date.to_iso8601 ())                                 #                                            /1
+# IO.inspect(Date.to_iso8601 ())                                 #                                            /2
+# IO.inspect(Date.to_string())                                 #                                            /1
+# IO.inspect(Date.utc_today())                                 #                                            /0
+# IO.inspect(Date.utc_today())                                 #                                            /1
