@@ -1,148 +1,152 @@
-# Crie uma calculadora de dica simples. O programa deve alertar
-# para um valor de conta e uma taxa de propina. O programa deve computar
-# a ponta e, em seguida, exiba tanto a ponta quanto a quantidade total de
-# a conta.
-
-# Example output:
-# What is the bill? $200
-# What is the tip percentage? 15
-# The tip is $30.00
-# The total is $230.00
-
+# Exercises for programmers
 defmodule Calc do
   # Primeira cláusula que será executada, e (loop)
-  def first() do
+  defp read() do
     bill = IO.gets("What is the bill? ")
-    percentage = IO.gets("What is the tip percentage? ")
-    # Segunda cláusula que será executada cláusula de teste de valores
-    test(bill, percentage)
+    quantity = IO.gets("What is the tip quantity? ")
+
+    case parse(bill, quantity) do
+      :error ->
+        read()
+
+      {:ok, bill, quantity} ->
+        {:ok, bill * quantity / 100, Float.round(bill * (1 + quantity / 100), 2)}
+    end
   end
 
-  defp test(bill, percentage) do
-    case {Float.parse(bill), Float.parse(percentage)} do
+  defp parse(bill, quantity) do
+    case {Float.parse(bill), Float.parse(quantity)} do
       {:error, _} ->
-        IO.puts("\nRetype wrong bill!!!")
-        first()
+        IO.puts("bill wrong")
+        :error
 
       {_, :error} ->
-        IO.puts("\nRetype wrong percentage!!!")
-        first()
+        IO.puts("Quantity wrong")
+        :error
 
-      {{bill, _}, {percentage, _}} ->
-        if bill < 0 or percentage < 0 do
-          IO.puts("\nNegative value typed\nRetype wrong!!!")
-          first()
+      {{bill, _}, {quantity, _}} ->
+        if bill < 0 or quantity < 0 do
+          IO.puts("Value negative typed")
+          :error
         else
-          calculator(bill, percentage)
+          {:ok, bill, quantity}
         end
     end
   end
 
   # Cláusula final caso final caso teste retorne verdadeiro, essa cláusula irá calcular e imprimir
-  defp calculator(bill, percentage) do
-    "\nThe tip is $#{bill * percentage / 100} \nThe total is $#{
-      Float.round(bill * (1 + percentage / 100), 2)
-    }\n"
+  def last_value() do
+    {:ok, tip, total} = read()
+    "\nThe tip is $#{tip} \nThe total is $#{total}\n"
   end
 end
+# IO.puts(Calc.last_value())
+# 0
+##############################################################################################################
 
 defmodule Hello do
   def greet() do
-    greet(String.trim(IO.gets("What is your name? ")))
-  end
-
-  defp greet(name) when is_binary(name) do
-    IO.puts("Hello, #{name}, nice to meet you!")
+    name = String.trim(IO.gets("What is your name? "))
+    if is_binary(name) do
+      "Hello, #{name}, nice to meet you!"
+    else
+      IO.puts("Name contains unreadable characters, retype")
+      greet()
+    end
   end
 end
 
-# Hello.greet()
-
-# IO.puts("Hello, " <> String.trim(IO.gets("What is your name? ")) <> ", nice to meet you!")
+# IO.puts(Hello.greet())
+# 1
+##################################################################################################################
 
 defmodule String1 do
-  def string1() do
-    string1(String.trim(IO.gets("What is the input string? ")))
-  end
-
-  defp string1(name) do
-    IO.puts("#{name} has #{String.length(name)} characters.")
+  def input() do
+    input = String.trim(IO.gets("What is the input string? "))
+    "#{input} has #{String.length(input)} characters."
   end
 end
 
-# String1.string1()
+# IO.puts String1.input()
+# 2
+##################################################################################################################
 
 # No functions
+defmodule NoFunctions do
+  def no_functions do
+    a = String.trim(IO.gets("What is the quote? ")) 
+    b = String.trim(IO.gets("Who said it? "))
+    IO.puts("#{b} says, \"#{a}\"")
+    # 3
+    # What is the quote? These aren't the droids you're looking for.
+    # Who said it? Obi-Wan Kenobi
+    # Obi-Wan Kenobi says, "These aren't the droids you're looking for." 
 
-# a = String.trim(IO.gets("What is the quote? ")) ###############################################################################################################
-# b = String.trim(IO.gets("Who said it? "))
-# IO.puts("#{b} says, #{a}")
 
-# What is the quote? These aren't the droids you're looking for.
-# Who said it? Obi-Wan Kenobi
-# Obi-Wan Kenobi says, "These aren't the droids you're looking for." #############################################################################################
+    [noun, verb, adjective, adverb] =
+      String.split(
+        IO.gets("Enter a noun: ") <>
+          IO.gets("Enter a verb: ") <> IO.gets("Enter an adjective: ") <> IO.gets("Enter an adverb: ")
+      )
 
-# [noun, verb, adjective, adverb] =
-#   String.split(
-#     IO.gets("Enter a noun: ") <>
-#       IO.gets("Enter a verb: ") <> IO.gets("Enter an adjective: ") <> IO.gets("Enter an adverb: ")
-#   )
-
-# IO.puts(String.trim("Do you #{verb} your #{adjective} #{noun} #{adverb}? That's hilarious!"))
-
-# Functions
-
+    IO.puts(String.trim("Do you #{verb} your #{adjective} #{noun} #{adverb}? That's hilarious!"))
+    # 4
+  end
+end
+##################################################################################################################
 defmodule Math do
-  def math() do
-    check(
-      String.trim(IO.gets("What is the first number? ")),
-      String.trim(IO.gets("What is the second number? "))
-    )
+  defp read() do
+      first_number = String.trim(IO.gets("What is the first number? "))
+      second_number = String.trim(IO.gets("What is the second number? "))
+      case parse(first_number, second_number) do
+        :error -> read()
+        {:ok, first_number, second_number} -> {:ok, first_number, second_number}
+      end
   end
 
-  defp math(number1, number2) do
-    IO.puts(
+  def display() do
+      {:ok, number1, number2} = read()
       "#{number1} + #{number2} = #{number1 + number2}\n#{number1} - #{number2} = #{
         number1 - number2
       }\n#{number1} * #{number2} = #{number1 * number2}\n#{number1} / #{number2} = #{
         div(number1, number2)
       }"
-    )
   end
 
-  defp check(number1, number2) do
+  defp parse(number1, number2) do
     case {Integer.parse(number1), Integer.parse(number2)} do
       {:error, _} ->
         IO.puts("First number wrong")
-        math()
+        :error
 
       {_, :error} ->
         IO.puts("Second number wrong")
-        math()
+        :error
 
       {{number1, _}, {number2, _}} ->
         if number1 < 0 or number2 < 0 do
           IO.puts("Value negative typed")
-          math()
+          :error
         else
-          math(number1, number2)
+          {:ok, number1, number2}
         end
     end
   end
 end
 
-# Math.math()
-
-# No functions
-
+#IO.puts(Math.display())
+# 5
+##################################################################################################################
 defmodule Retirement do
-  def retirement() do
+  def read() do
     {age, _} = Integer.parse(IO.gets("What is your current age? "))
     {retire, _} = Integer.parse(IO.gets("At what age would you like to retire? "))
-    retirement(age, retire)
+    {age, retire}
   end
 
-  def retirement(age, retire) do
+  def retirement() do
+    {age, retire} = read()
+
     date = Date.utc_today()
     date = date.year
     retire = retire - age
@@ -150,81 +154,78 @@ defmodule Retirement do
     if retire < 1 do
       IO.puts("You can retire already.")
     else
-      IO.puts("You have #{retire} years left until you can retire.")
-      IO.puts("It's #{date}, so you can retire in #{date + retire}.")
+      "You have #{retire} years left until you can retire.\nIt's #{date}, so you can retire in #{
+        date + retire
+      }."
     end
   end
 end
 
-# Retirement.retirement()
-# What is your current age? 25
-# At what age would you like to retire? 65
-# You have 40 years left until you can retire.
-# It's 2015, so you can retire in 2055.
-
+# IO.puts(Retirement.retirement())
+# 6
+##################################################################################################################
 defmodule Area do
-  def feet() do
+  defp read() do
     {length, _} = Integer.parse(IO.gets("What is the length of the room in feet? "))
     {width, _} = Integer.parse(IO.gets("What is the width of the room in feet? "))
-    feet(length, width)
+    {length, width}
   end
 
-  defp feet(length, width) do
-    IO.puts(
-      "You entered dimensions of #{length} feet by #{width} feet.\nThe area is\n#{length * width} square feet\n#{
-        Float.round(length * width * 0.09290304, 3)
-      } square meters"
-    )
+  def feet() do
+    {length, width} = read()
+    "You entered dimensions of #{length} feet by #{width} feet.\nThe area is\n#{length * width} square feet\n#{
+      Float.round(length * width * 0.09290304, 3)
+    } square meters"
   end
 end
 
-# Area.feet()
-
+# IO.puts(Area.feet())
+# 7
+##################################################################################################################
 defmodule Pizza do
-  def pieces() do
+  defp read() do
     {people, _} = Integer.parse(IO.gets("How many people? "))
     {pizzas, _} = Integer.parse(IO.gets("How many pizzas do you have? "))
-    pieces(people, pizzas)
+    {people, pizzas}
   end
 
-  defp pieces(people, pizzas) do
+  def pieces() do
+    {people, pizzas} = read()
     {pieces, rest} = {div(8 * pizzas, people), rem(8 * pizzas, people)}
-
-    IO.puts(
       "#{people} people with #{pizzas} pizzas\nEach person gets #{pieces} pieces of pizza.\nThere are #{
         rest
       } leftover pieces."
-    )
   end
 end
 
-# Pizza.pieces()
-
+# IO.puts(Pizza.pieces())
+# 8
+##################################################################################################################
 defmodule Gallons do
-  def gallons() do
+  defp read() do
     {size, _} = Integer.parse(IO.gets("Enter size in feet: "))
-    gallons(size)
+    size
   end
 
-  def gallons(size) do
-    IO.puts(
-      "You will need to purchase #{trunc(Float.ceil(size / 350))} gallons of\npaint to cover #{
+  def gallons() do
+    size = read()  
+    "You will need to purchase #{trunc(Float.ceil(size / 350))} gallons of\npaint to cover #{
         size
       } square feet."
-    )
   end
 end
 
-# # Gallons.gallons()
-
+# IO.puts(Gallons.gallons())
+# 9
+##################################################################################################################
 defmodule Checkout do
   defp parse(price, quantity) do
     case {Integer.parse(price), Float.parse(quantity)} do
-      {:error, _} -> 
-        IO.puts("Price wrong") 
+      {:error, _} ->
+        IO.puts("Price wrong")
         :error
 
-      {_, :error} -> 
+      {_, :error} ->
         IO.puts("Quantity wrong")
         :error
 
@@ -239,68 +240,35 @@ defmodule Checkout do
   end
 
   defp read(n) do
-    price = IO.gets("Enter the price of item #{n}: "
+    price = IO.gets("Enter the price of item #{n}: ")
+
     if price == "\n" do
       :stop
     else
-      quantity = IO.gets("Enter the quantity of item #{n}: "
-      case parse(price, quantity) do 
+      quantity = IO.gets("Enter the quantity of item #{n}: ")
+
+      case parse(price, quantity) do
         :error -> read(n)
         {:ok, price, quantity} -> {:ok, price * quantity}
       end
     end
   end
 
-  defp guard() do
-    [ | read(n + 1)]
+  def read_items(), do: read_items(1)
+
+  defp read_items(n) do
+    case read(n) do
+      {:ok, value} ->
+        [value | read_items(n + 1)]
+
+      :stop ->
+        []
+        # [read(n) | guard(n + 1)]
+    end
   end
-end
 
-
-  #   def price() do
-  #     check(IO.gets("Enter the price of item 1: "), IO.gets("Enter the quantity of item 1: "), 1)
-  #   end
-
-  #   defp check(price, quantity, n) do
-  #     case {Integer.parse(price), Float.parse(quantity)} do
-  #       {:error, _} ->
-  #         IO.puts("Price wrong")
-  #         price(price, quantity, n)
-
-  #       {_, :error} ->
-  #         IO.puts("Quantity wrong")
-  #         price(price, quantity, n)
-
-  #       {{price, _}, {quantity, _}} ->
-  #         if price < 0 or quantity < 0 do
-  #           IO.puts("Value negative typed")
-  #           price(price, quantity, n)
-  #         else
-  #           guard(price, quantity, n)
-  #         end
-  #     end
-  #   end
-
-  #   defp price(_price, quantity, n) do
-  #     price = IO.gets("Enter the price of item #{n}: ")
-
-  #     if price == "\n" do
-  #       guard(0, quantity, n)
-  #     else
-  #       quantity = IO.gets("Enter the quantity of item #{n}: ")
-  #       check(price, quantity, n)
-  #     end
-  #   end
-
-  #   defp guard(0, _, _), do: []
-
-  #   defp guard(price, quantity, n) do
-  #     [price * quantity | price(price, quantity, n + 1)]
-  #   end
-
-
-defmodule LastValue do
-  def value(list) do
+  def last_value() do
+    list = read_items()
     sum_total = Enum.sum(list)
     tax = sum_total * (5.5 / 100)
     total = sum_total + tax
@@ -309,13 +277,44 @@ defmodule LastValue do
   end
 end
 
-LastValue.value(Checkout.price())
-# Enter the price of item 1: 25
-# Enter the quantity of item 1: 2
-# Enter the price of item 2: 10
-# Enter the quantity of item 2: 1
-# Enter the price of item 3: 4
-# Enter the quantity of item 3: 1
-# Subtotal: $64.00
-# Tax: $3.52
-# Total: $67.52
+#Checkout.last_value()
+# 10
+##################################################################################################################
+
+defmodule Conversion do
+  defp read() do
+    euros = IO.gets("How many euros are you exchanging? ")
+    rate = IO.gets("What is the exchange rate? ")
+
+    case parse(euros, rate) do
+      :error -> read()
+      {:ok, euros, rate} -> {:ok, euros, rate}
+    end
+  end
+
+  defp parse(euros, rate) do
+    case {Float.parse(euros), Float.parse(rate)} do
+      {:error, _} ->
+        IO.puts("Euros wrong, Retype")
+        :error
+
+      {_, :error} ->
+        IO.puts("Exchange rate wrong, Retype")
+        :error
+
+      {{euros, _}, {rate, _}} ->
+        {:ok, euros, rate}
+    end
+  end
+
+  def currenty() do
+    {:ok, euros, rate} = read()
+    # 100 taxa de câmbio
+    "#{euros} euros at an exchange rate of #{rate} is\n#{Float.round(euros * rate / 100, 2)} U.S. dollars."
+  end
+end
+
+# IO.puts(Conversion.currenty())
+# 11
+##################################################################################################################
+

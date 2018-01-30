@@ -1,8 +1,8 @@
-############################################## List #####################################################
-list = [1, 2, 3]
-kw = [{:name, "Wesley"}, {:likes, "Programming"}, {:where, "Ji-Paraná", "RO"}]
-kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]
-IO.puts("List\n")
+############################################## List ######################################################
+list = [1, 2, 3]                                                                                         #
+kw = [{:name, "Wesley"}, {:likes, "Programming"}, {:where, "Ji-Paraná", "RO"}]                           #
+kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]                                                       #
+IO.puts("List\n")                                                                                        #
 # IO.inspect(List.ascii_printable?())                         #                                         /1
 # IO.inspect(List.ascii_printable?())                         #                                         /2
 # IO.inspect(List.delete())                                   #                                         /2
@@ -46,20 +46,21 @@ IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle m
 # IO.inspect(List.Chars.List.to_charlist())                   #                                         /1
 # IO.inspect(List.Chars.to_charlist())                        #                                         /1
 ##########################################################################################################
-IO.puts("\nTuple \n")
+IO.puts("\nTuple \n")                                                                                    #
 ################################################ Tuple ###################################################
+# elem({}, 0) Percorre os elementos da tupla                  #                                         /2
 # IO.inspect(Tuple.append())                                  #                                         /2
 # IO.inspect(Tuple.delete_at())                               #                                         /2
 # IO.inspect(Tuple.duplicate())                               #                                         /2
 # IO.inspect(Tuple.insert_at())                               #                                         /3
 # IO.inspect(Tuple.to_list())                                 #                                         /1
 ##########################################################################################################
-IO.puts("\nMap \n")
+IO.puts("\nMap \n")                                                                                      #
 ################################################ Map #####################################################
-map = %{ nome: "Wesley", likes: "Programming", where: "Ji-Paraná" }
-map1 = %{ nome: "Wesley"}
-IO.inspect(map[:nome])  # "Wesley"
-IO.inspect(map.nome)    # "Wesley"   
+map = %{ nome: "Wesley", likes: "Programming", where: "Ji-Paraná" }                                      #
+map1 = %{ nome: "Wesley"}                                                                 ################
+IO.inspect(map[:nome])  # "Wesley"                                                        #
+IO.inspect(map.nome)    # "Wesley"                                                        #
 # m = %{ a: 1, b: 2, c: 3 }               %{a: 1, b: 2, c: 3}                             \ Map
 # m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map 
 # m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map (Map.put_new/3) para adicionar uma nova chave
@@ -95,9 +96,9 @@ IO.inspect(Map.put(map1, :state, "RO"))         # %{nome: "Wesley", state: "RO"}
 # IO.inspect(Map.update!                        #                                         /3
 # IO.inspect(Map.update                         #                                         /4
 ############################################################################################
-IO.puts("\nMapSet \n")
+IO.puts("\nMapSet \n")                                                                     #
 ####################################### MapSet #############################################
-# MapSet Need Enum.to_list, para printar
+# MapSet Need Enum.to_list, para printar                                                   #
 # IO.inspect(MapSet.delete())                   #                                         /2
 # IO.inspect(MapSet.difference())               #                                         /2
 # IO.inspect(MapSet.disjoint?())                #                                         /2
@@ -112,9 +113,9 @@ IO.inspect(MapSet.new())                        # #MapSet<[]>                   
 # IO.inspect(MapSet.subset?())                  #                                         /2
 # IO.inspect(MapSet.to_list())                  #                                         /1
 # IO.inspect(MapSet.union())                    #                                         /2
-######################################################
-IO.puts("\nKeyword \n")
-########################## Keyword      
+############################################################################################
+IO.puts("\nKeyword \n")                                                                    #
+########################## Keyword  ################################################################
 IO.inspect(Keyword.delete([   a: 1, b: 2, a: 3], :a))             # [b: 2]                        /2
 IO.inspect(Keyword.delete([a: 1, b: 2, a: 3], :a, 3))             # [a: 1, b: 2]                  /3
 IO.inspect(Keyword.delete_first([a: 1, b: 2, a: 3], :a))          # [b: 2, a: 3]                  /2
@@ -152,7 +153,7 @@ IO.inspect(Keyword.update!([a: 1], :a, &(&1 * 2)))                # [a: 2]      
 IO.inspect(Keyword.update([a: 1], :b, 13, &(&1 * 2)))             # [a: 1, b: 13]                 /4
 IO.inspect(Keyword.values([a: 1, b: 2, a: 3]))                    # [1, 2, 3]                     /1
 #################################################################################################### 
-IO.puts("\nSet \n")
+IO.puts("\nSet \n")                                                                                #
 ################################################ Set ###############################################
 # IO.inspect(Set.delete())                                        #                               /2
 # IO.inspect(Set.difference())                                    #                               /2
@@ -166,7 +167,7 @@ IO.puts("\nSet \n")
 # IO.inspect(Set.to_list())                                       #                               /1
 # IO.inspect(Set.union())                                         #                               /2
 ####################################################################################################
-IO.puts("\nDict DEPRECATED\n")
+IO.puts("\nDict DEPRECATED\n")                                                                     #
 ################################################ Dict ##############################################
 # IO.inspect(Dict.delete())                                       #                               /2
 # IO.inspect(Dict.drop())                                         #                               /2

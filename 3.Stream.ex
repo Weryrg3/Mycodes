@@ -79,3 +79,76 @@ IO.inspect(Stream.unfold({0,1}, fn {f1,f2} -> {f1, {f2, f1+f2}} end) |> Enum.tak
 
 
 #Stream.iterate(1, fn previous -> previous + 1 end)    # Infinit, Enum.take(integers, 5) (Enum.each(integers, &IO.puts/1) -> infinity
+################################################ Access ##################################################
+IO.puts("\nAccess \n")
+# IO.inspect(Access.all())                                #                                 /0
+# IO.inspect(Access.at())                               #                                 /1
+# IO.inspect(Access.elem())                               #                                 /1
+# IO.inspect(Access.fetch())                                #                                 /2
+# IO.inspect(Access.filter())                               #                                 /1
+# IO.inspect(Access.get())                                #                                 /2
+# IO.inspect(Access.get())                                #                                 /3
+# IO.inspect(Access.get_and_update())                               #                                 /3
+# IO.inspect(Access.key!())                               #                                 /1
+# IO.inspect(Access.key())                                #                                 /1
+# IO.inspect(Access.key())                                #                                 /2
+# IO.inspect(Access.pop())                                #                                 /2
+################################################ Date ##################################################
+IO.puts("\nDate \n")
+# IO.inspect(Date.add())                                 #                                            /2
+# IO.inspect(Date.compare())                                 #                                            /2
+# IO.inspect(Date.convert! ())                                 #                                            /2
+# IO.inspect(Date.convert())                                 #                                            /2
+# IO.inspect(Date.day_of_week())                                 #                                            /1
+# IO.inspect(Date.days_in_month())                                 #                                            /1
+# IO.inspect(Date.diff ())                                 #                                            /2
+# IO.inspect(Date.from_erl!())                                 #                                            /1
+# IO.inspect(Date.from_erl!())                                 #                                            /2
+# IO.inspect(Date.from_erl ())                                 #                                            /1
+# IO.inspect(Date.from_erl ())                                 #                                            /2
+# IO.inspect(Date.from_iso8601!())                                 #                                            /1
+# IO.inspect(Date.from_iso8601!())                                 #                                            /2
+# IO.inspect(Date.from_iso8601 ())                                 #                                            /1
+# IO.inspect(Date.from_iso8601 ())                                 #                                            /2
+# IO.inspect(Date.leap_year? ())                                 #                                            /1
+# IO.inspect(Date.new())                                 #                                            /3
+# IO.inspect(Date.new())                                 #                                            /4
+# IO.inspect(Date.range())                                 #                                            /2
+# IO.inspect(Date.to_erl ())                                 #                                            /1
+# IO.inspect(Date.to_iso8601 ())                                 #                                            /1
+# IO.inspect(Date.to_iso8601 ())                                 #                                            /2
+# IO.inspect(Date.to_string())                                 #                                            /1
+# IO.inspect(Date.utc_today())                                 #                                            /0
+# IO.inspect(Date.utc_today())                                 #                                            /1
+
+################################################ DateTime ##################################################
+IO.puts("\nDateTIme \n")
+# IO.inspect(DateTime.compare())                                 #                                            /2
+# IO.inspect(DateTime.convert!())                                #                                            /2
+# IO.inspect(DateTime.convert())                                 #                                            /2
+# IO.inspect(DateTime.diff())                                #                                            /2
+# IO.inspect(DateTime.diff())                                #                                            /3
+# IO.inspect(DateTime.from_iso8601())                                #                                            /1
+# IO.inspect(DateTime.from_iso8601())                                #                                            /2
+# IO.inspect(DateTime.from_naive!())                                 #                                            /2
+# IO.inspect(DateTime.from_naive())                                #                                            /2
+# IO.inspect(DateTime.from_unix!())                                #                                            /1
+# IO.inspect(DateTime.from_unix!())                                #                                            /2
+# IO.inspect(DateTime.from_unix!())                                #                                            /3
+# IO.inspect(DateTime.from_unix())                                 #                                            /1
+# IO.inspect(DateTime.from_unix())                                 #                                            /2
+# IO.inspect(DateTime.from_unix())                                 #                                            /3
+# IO.inspect(DateTime.to_date())                                 #                                            /1
+# IO.inspect(DateTime.to_iso8601())                                #                                            /1
+# IO.inspect(DateTime.to_iso8601())                                #                                            /2
+# IO.inspect(DateTime.to_naive())                                #                                            /1
+# IO.inspect(DateTime.to_string())                                 #                                            /1
+# IO.inspect(DateTime.to_time())                                 #                                            /1
+# IO.inspect(DateTime.to_unix())                                 #                                            /1
+# IO.inspect(DateTime.to_unix())                                 #                                            /2
+# IO.inspect(DateTime.truncate())                                #                                            /2
+# IO.inspect(DateTime.utc_now())                                 #                                            /0
+# IO.inspect(DateTime.utc_now())                                 #                                            /1
+############################################### Range #######################################################
+IO.puts("\nRange \n")
+#IO.inspect(Range.new())     #/2
