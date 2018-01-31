@@ -1,6 +1,14 @@
-############################# Inspect ##############################
-IO.puts("Inspect \n")
-# IO.inspect(Inspect.inspect                               #                              /2
+############################# Inspect ######################################################
+IO.puts("Inspect \n")                                      #                               #
+IO.inspect([1, 2, 3, 4, 5], limit: 3)                      # "[1, 2, 3, ...]"             /2    \ Exclusive
+IO.inspect([1, 2, 3], pretty: true, width: 0)              # "[1,\n 2,\n 3]"              /3    \ Exclusive
+IO.inspect("olá" <> <<0>>)                                 # "<<111, 108, 195, 161, 0>>"  /1    \ Exclusive
+IO.inspect("olá" <> <<0>>, binaries: :as_strings)          # "\"olá\\0\""                 /2    \ Exclusive
+IO.inspect("olá", binaries: :as_binaries)                  # "<<111, 108, 195, 161>>"     /2    \ Exclusive
+IO.inspect('bar')                                          # "'bar'"                      /1    \ Exclusive
+IO.inspect([0 | 'bar'])                                    # "[0, 98, 97, 114]"           /1    \ Exclusive
+IO.inspect(100, base: :octal)                              # "0o144"                      /2    \ Exclusive
+IO.inspect(100, base: :hex)                                # "0x64"                       /2    \ Exclusive
 # ---------------------------------------------------------#-------------------------------#
 IO.inspect(Inspect.Algebra.break)                          # {:doc_break, " ", :strict}   /0
 # IO.inspect(Inspect.Algebra.break                         #                              /1

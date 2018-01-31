@@ -167,33 +167,5 @@ IO.puts("\nSet \n")                                                             
 # IO.inspect(Set.to_list())                                       #                               /1
 # IO.inspect(Set.union())                                         #                               /2
 ####################################################################################################
-IO.puts("\nDict DEPRECATED\n")                                                                     #
-################################################ Dict ##############################################
-# IO.inspect(Dict.delete())                                       #                               /2
-# IO.inspect(Dict.drop())                                         #                               /2
-# IO.inspect(Dict.empty())                                        #                               /1
-# IO.inspect(Dict.equal?())                                       #                               /2
-# IO.inspect(Dict.fetch!())                                       #                               /2
-# IO.inspect(Dict.fetch())                                        #                               /2
-# IO.inspect(Dict.get())                                          #                               /2
-# IO.inspect(Dict.get())                                          #                               /3
-# IO.inspect(Dict.get_and_update())                               #                               /3
-# IO.inspect(Dict.get_lazy())                                     #                               /3
-# IO.inspect(Dict.has_key?())                                     #                               /2
-# IO.inspect(Dict.keys())                                         #                               /1
-# IO.inspect(Dict.merge())                                        #                               /2
-# IO.inspect(Dict.merge())                                        #                               /3
-# IO.inspect(Dict.pop())                                          #                               /2
-# IO.inspect(Dict.pop())                                          #                               /3
-# IO.inspect(Dict.pop_lazy())                                     #                               /3
-# IO.inspect(Dict.put())                                          #                               /3
-# IO.inspect(Dict.put_new())                                      #                               /3
-# IO.inspect(Dict.put_new_lazy())                                 #                               /3
-# IO.inspect(Dict.size())                                         #                               /1
-# IO.inspect(Dict.split())                                        #                               /2
-# IO.inspect(Dict.take())                                         #                               /2
-# IO.inspect(Dict.to_list())                                      #                               /1
-# IO.inspect(Dict.update!())                                      #                               /3
-# IO.inspect(Dict.update())                                       #                               /4
-# IO.inspect(Dict.values())                                       #                               /1
+
 

@@ -318,3 +318,34 @@ end
 # 11
 ##################################################################################################################
 
+defmodule SimpleInterest do # 0
+  defp read() do # 1
+    principal = IO.gets("Enter the principal: ")
+    rate = IO.gets("Enter the rate of interest: ")
+    years = IO.gets("Enter the number of years: ")
+    case parse(principal, rate, years) do # 2
+      :error -> read()
+      {:ok, principal, rate, years} -> {principal, rate, years}
+    end # 2
+  end # 1
+
+  defp parse(principal, rate, years) do # 3
+    case {Float.parse(principal), Float.parse(rate), Integer.parse(years)} do # 4
+      {:error, _, _} -> IO.puts("Principal wrong, Retype!!")
+      :error
+      {_, :error, _} -> IO.puts("Rate of interest wrong, Retype!!!")
+      :error
+      {_, _, :error} -> IO.puts("Number of years wrong, Retype!!")
+      :error
+      {{principal, _},{rate, _},{years, _}} -> {:ok, principal, rate, years}
+    end # 4
+  end # 3
+
+  def computing() do
+    {principal, rate, years} = read()
+    "After #{years} years at #{rate}%, the investment will\nbe worth $#{Float.round(principal * (1 + (rate/100)*years), 2)}."
+  end
+end # 0 
+
+# IO.puts(SimpleInterest.computing())
+# 12
