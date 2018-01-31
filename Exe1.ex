@@ -349,3 +349,173 @@ end # 0
 
 # IO.puts(SimpleInterest.computing())
 # 12
+#############################################################################################################################
+
+defmodule Compound do
+  defp read() do
+    principal = IO.gets("What is the principal amount? ")
+    rate = IO.gets("What is the rate? ")
+    number_years = IO.gets("What is the number of years? ")
+    number_times = IO.gets("What is the number of times the interest\nis compounded per year? ")
+
+    case parse(principal, rate, number_years, number_times) do
+      :error ->
+        read()
+
+      {:ok, principal, rate, number_years, number_times} ->
+        {principal, rate, number_years, number_times}
+    end
+  end
+
+  defp parse(principal, rate, number_years, number_times) do
+    case {
+           Float.parse(principal),
+           Float.parse(rate),
+           Integer.parse(number_years),
+           Integer.parse(number_times)
+         } do
+      {:error, _, _, _} ->
+        IO.puts("Principal amount wrong, Retype!!!")
+        :error
+
+      {_, :error, _, _} ->
+        IO.puts("Rate wrong, Retype!!!")
+        :error
+
+      {_, _, :error, _} ->
+        IO.puts("Number of years wrong, Retype!!!")
+        :error
+
+      {_, _, _, :error} ->
+        IO.puts("Number of times wrong, Retype!!!")
+        :error
+
+      {{principal, _}, {rate, _}, {number_years, _}, {number_times, _}} ->
+        {:ok, principal, rate, number_years, number_times}
+    end
+  end
+
+  def interest() do
+    {principal, rate, number_years, number_times} = read()
+    formula = principal * :math.pow(1 + rate / 100 / number_times, number_years * number_times)
+    # a = p * :math.pow((1 + r/n), n*t)
+    "$#{principal} invested at #{rate}% for #{number_years} years\ncompounded #{number_times} times per year is $#{
+      Float.round(formula, 2)
+    }."
+  end
+end
+
+# IO.puts(Compound.interest())
+# 13
+#############################################################################################################################
+
+defmodule Tax do
+  def read() do
+    order = IO.gets("What is the order amount? ")
+    state = IO.gets("What is the state? ")
+
+    case parse(order) do
+      :error -> read()
+      {:ok, order} -> {order, String.trim(state)}
+    end
+  end
+  
+  def parse(order) do
+    case Float.parse(order) do
+      :error -> IO.puts("Order amount wrong, Retype!!")
+        :error
+      {order, _} -> {:ok, order}
+    end
+  end
+
+  def calculator() do
+    {order, state} = read()
+    state = String.upcase(state)
+    if state == "WI" or state == "WISCONSIN" do
+      "The subtotal is $#{order}.\nThe tax is $#{Float.round(0.055 * order, 2)}.\nThe total is $#{Float.round(order * (1 + 0.055), 2)}."
+    else
+      "The total is $#{order}"
+    end
+  end
+end
+
+# IO.puts(Tax.calculator())
+# 14
+##########################################################################################################################################
+
+defmodule Password do
+  defp read() do
+    String.trim(IO.gets("What is the password? "))
+  end
+
+  def read_passwords(:eof, file, _) do
+    File.close(file)
+    :stop
+  end
+
+  def read_passwords(passwords, file, password) do
+    [_, saved_password] =
+      passwords
+      |> String.split(",")
+
+    if String.trim(saved_password) == password do
+      File.close(file)
+      :ok
+    else
+      read_passwords(IO.read(file, :line), file, password)
+    end
+  end
+
+  def validation({:error, _}), do: []
+
+  def validation({:ok, file}) do
+    password = read()
+    answer = read_passwords(IO.read(file, :line), file, password)
+    
+    if answer == :ok do
+      "Welcome!"
+    else
+      "I don't know you."
+    end
+  end
+end
+
+#IO.puts(Password.validation(File.open("senhas.txt", [:read])))
+# IO.puts(Password.validation(saved_passwords))
+# 15
+##########################################################################################################################################
+
+defmodule Driving do
+  def read() do
+    age = IO.gets("What is your age? ")
+
+    case parse(age) do
+      :error -> read()
+      {:ok, age} -> age
+    end
+  end
+
+  def parse(age) do
+    case Integer.parse(age) do
+      :error ->
+        IO.puts("Age wrong, Retype!!")
+        :error
+
+      {age, _} ->
+        {:ok, age}
+    end
+  end
+
+  def age() do
+    age = read()
+
+    if age < 16 do
+      "You are not old enough to legally drive."
+    else
+      "You are old enough to legally drive."
+    end
+  end
+end
+
+# IO.puts(Driving.age())
+# 16
