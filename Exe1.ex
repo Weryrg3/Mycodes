@@ -759,3 +759,112 @@ end
 # IO.puts(BMI.calculator())
 # 19
 ##########################################################################################################################################
+
+defmodule MultistateSales do
+  defp read() do
+    order = IO.gets("What is the order amount? ")
+
+    state =
+      IO.gets("What state do you live in? ")
+      |> String.trim()
+      |> String.upcase()
+
+    case parse(order) do
+      :error -> read()
+      {:ok, order} -> {order, state}
+    end
+  end
+
+  defp parse(order) do
+    case Float.parse(order) do
+      :error ->
+        IO.puts("Order amount wrong, retype")
+        :error
+
+      {order, _} ->
+        {:ok, order}
+    end
+  end
+
+  def tax_calculator() do
+    {order, state} = read()
+
+    if state == "WISCONSIN" or state == "WI" do
+      country =
+        IO.gets("Choice your country: \nEau Claire\nDunn county\nOther\n")
+        |> String.trim()
+        |> String.upcase()
+
+      case country do
+        "EAU CLAIRE" ->
+          "The tax is $#{0.005 * order}\nThe total is $#{Float.round(order * (1 + 0.005), 2)}"
+
+        "DUNN COUNTY" ->
+          "The tax is $#{0.004 * order}\nThe total is $#{Float.round(order * (1 + 0.004), 2)}"
+
+        "ILLINOIS" ->
+          "The tax is $#{0.08 * order}\nThe total is $#{Float.round(order * (1 + 0.08), 2)}"
+
+        "OTHER" ->
+          "The total is $#{order}"
+      end
+    else
+      "The total is $#{order}"
+    end
+  end
+end
+
+# IO.puts(MultistateSales.tax_calculator())
+# 20
+##########################################################################################################################################
+
+defmodule Numbers do
+  def read() do
+    number = IO.gets("Please enter the number of the month: ")
+
+    case parse(number) do
+      :error -> read()
+      {:ok, number} -> number
+    end
+  end
+
+  def parse(number) do
+    case Integer.parse(number) do
+      :error ->
+        IO.puts("Error!! Type a number!!")
+        :error
+
+      {number, _} ->
+        if number < 13 and number > 0 do
+          {:ok, number}
+        else
+          IO.puts("Error!! Type a number between 1 and 12!!")
+          :error
+        end
+    end
+  end
+
+  def names() do
+    number = read()
+
+    moth =
+      case number do
+        1 -> "January"
+        2 -> "February"
+        3 -> "March"
+        4 -> "April"
+        5 -> "May"
+        6 -> "June"
+        7 -> "July"
+        8 -> "August"
+        9 -> "September"
+        10 -> "October"
+        11 -> "November"
+        12 -> "December"
+      end
+      "The name of the month is #{moth}."
+  end
+end
+
+# IO.puts(Numbers.names())
+# 21
