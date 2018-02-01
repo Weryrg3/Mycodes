@@ -519,3 +519,243 @@ end
 
 # IO.puts(Driving.age())
 # 16
+##########################################################################################################################################
+
+defmodule BloodAlcohol do
+  defp read() do
+    alcohol = IO.gets("Type total alcohol consumed, in ounces (oz): ")
+    weight = IO.gets("Type your body weight in pounds: ")
+    gender = IO.gets("Type your gender: ")
+    hours = IO.gets("Type number of hours since the last drink: ")
+
+    case parse(alcohol, weight, hours) do
+      :error ->
+        read()
+
+      {:ok, alcohol, weight, hours} ->
+        case gender(gender) do
+          :error -> read()
+          {:ok, ratio} -> {alcohol, weight, ratio, hours}
+        end
+    end
+  end
+
+  defp parse(alcohol, weight, hours) do
+    case {Float.parse(alcohol), Float.parse(weight), Integer.parse(hours)} do
+      {:error, _, _} ->
+        IO.puts("Alcohol consumed wrong, Retype!!!")
+        :error
+
+      {_, :error, _} ->
+        IO.puts("Body weight wrong, Retype!!!")
+        :error
+
+      {_, _, :error} ->
+        IO.puts("Hours wrong, Retype!!!")
+        :error
+
+      {{alcohol, _}, {weight, _}, {hours, _}} ->
+        {:ok, alcohol, weight, hours}
+    end
+  end
+
+  defp gender(gender) do
+    gender = gender |> String.trim() |> String.upcase()
+
+    case gender do
+      "M" ->
+        {:ok, 0.73}
+
+      "MEN" ->
+        {:ok, 0.73}
+
+      "MAN" ->
+        {:ok, 0.73}
+
+      "MALE" ->
+        {:ok, 0.73}
+
+      "W" ->
+        {:ok, 0.66}
+
+      "WOMEN" ->
+        {:ok, 0.66}
+
+      "WOMAN" ->
+        {:ok, 0.66}
+
+      "FEMALE" ->
+        {:ok, 0.66}
+
+      "F" ->
+        {:ok, 0.66}
+
+      _ ->
+        IO.puts("Gender wrong, Retype!!!")
+        :error
+    end
+  end
+
+  def calculator() do
+    {alcohol, weight, ratio, hours} = read()
+
+    bac = Float.round(alcohol * 5.14 / weight * ratio - 0.015 * hours, 2)
+
+    permission =
+      if bac >= 0.08 do
+        "It is not legal for you to drive"
+      else
+        "It is legal for you to drive"
+      end
+
+    "Your BAC is #{bac}\n#{permission}"
+  end
+end
+
+# IO.puts(BloodAlcohol.calculator())
+# 17
+##########################################################################################################################################
+
+defmodule Temperature do
+  defp read_choice() do
+    choice1 = IO.gets("Choice first temperature: ")
+    choice2 = IO.gets("Choice second temperature: ")
+
+    case read_temperature({choice1, choice2}) do
+      :error ->
+        read_choice()
+
+      {choice, {temp1, temp2}} ->
+        temperature = IO.gets("Please enter the temperature in #{temp1}: ")
+
+        case parse(temperature) do
+          :error -> read_choice()
+          {:ok, temperature} -> {temperature, choice, temp2}
+        end
+    end
+  end
+
+  defp read_temperature({choice1, choice2}) do
+    {choice1, choice2} =
+      {
+        choice1
+        |> String.trim()
+        |> String.upcase(),
+        choice2
+        |> String.trim()
+        |> String.upcase()
+      }
+
+    case {choice1, choice2} do
+      {"F", "F"} ->
+        {{choice1, choice2}, {"Fahrenheit", "Fahrenheit"}}
+
+      {"F", "C"} ->
+        {{choice1, choice2}, {"Fahrenheit", "Celsius"}}
+
+      {"F", "K"} ->
+        {{choice1, choice2}, {"Fahrenheit", "Kelvin"}}
+
+      {"C", "C"} ->
+        {{choice1, choice2}, {"Celsius", "Celsius"}}
+
+      {"C", "F"} ->
+        {{choice1, choice2}, {"Celsius", "Fahrenheit"}}
+
+      {"C", "K"} ->
+        {{choice1, choice2}, {"Celsius", "Kelvin"}}
+
+      {"K", "F"} ->
+        {{choice1, choice2}, {"Kelvin", "Fahrenheit"}}
+
+      {"K", "C"} ->
+        {{choice1, choice2}, {"Kelvin", "Celsius"}}
+
+      {"K", "K"} ->
+        {{choice1, choice2}, {"Kelvin", "Kelvin"}}
+
+      {_, _} ->
+        IO.puts("Choice wrong, Type C, F or K, Retype!!")
+        :error
+    end
+  end
+
+  defp parse(temperature) do
+    case Float.parse(temperature) do
+      :error ->
+        IO.puts("Temperature wrong, Retype!!")
+        :error
+
+      {temperature, _} ->
+        {:ok, temperature}
+    end
+  end
+
+  def converter() do
+    IO.puts("Press the initial letter of the temperature you want to convert.")
+    {t, {temp1, temp2}, temp} = read_choice()
+
+    temperature_final =
+      case {temp1, temp2} do
+        {"C", "C"} -> t
+        {"C", "F"} -> t * 9 / 5 + 32
+        {"C", "K"} -> t + 273.15
+        {"F", "F"} -> t
+        {"F", "C"} -> (t - 32) * 5 / 9
+        {"F", "K"} -> (t - 32) * 5 / 9 + 273.15
+        {"K", "K"} -> t
+        {"K", "C"} -> t - 273.15
+        {"K", "F"} -> (t - 273.15) * 9 / 5 + 32
+      end
+
+    "The temperature in #{temp} is #{Float.round(temperature_final, 2)}"
+  end
+end
+
+# IO.puts(Temperature.converter())
+# 18
+##########################################################################################################################################
+
+defmodule BMI do
+  def read() do
+    height = IO.gets("Type height in inches: ")
+    weight = IO.gets("Type weight in pounds: ")
+
+    case parse(height, weight) do
+      :error -> read()
+      {:ok, height, weight} -> {height, weight}
+    end
+  end
+
+  def parse(height, weight) do
+    case {Float.parse(height), Float.parse(weight)} do
+      {:error, _} ->
+        IO.puts("Height wrong, Retype!!!")
+        :error
+
+      {_, :error} ->
+        IO.puts("Weight wrong, Retype!!!")
+        :error
+
+      {{height, _}, {weight, _}} ->
+        {:ok, height, weight}
+    end
+  end
+
+  def calculator() do
+    {weight, height} = read()
+    bmi = (weight / (height * height) * 703) |> Float.round(1)
+
+    IO.puts("Your BMI is #{bmi}.")
+
+    cond do
+      bmi >= 15.5 and bmi <= 25 -> "You are within the ideal weight range."
+      bmi > 25 -> "You are overweight. You should see your doctor."
+      bmi < 15.5 -> "You are underweight. You should see your doctor."
+    end
+  end
+end
+
+# IO.puts(BMI.calculator())
+# 19
+##########################################################################################################################################

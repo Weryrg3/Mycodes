@@ -101,3 +101,14 @@ IO.inspect(String.valid?("☭∂cas"))                            # true        
 # IO.inspect(String.Unicode.split_at())                       #                                         /2
 IO.inspect(String.Unicode.version)                            # {10, 0, 0}                              /0
 
+Regex.
+
+CompileError        compile!/1          compile!/2          
+compile/1           compile/2           escape/1            
+match?/2            named_captures/2    named_captures/3    
+names/1             opts/1              re_pattern/1        
+recompile!/1        recompile/1         regex?/1            
+replace/3           replace/4           run/2               
+run/3               scan/2              scan/3              
+source/1            split/2             split/3             
+version/0    

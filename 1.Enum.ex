@@ -1,4 +1,4 @@
-############################################################ Enum ################################################################
+10############################################################ Enum ################################################################
 IO.puts("Enum \n")
 #import Enum      Com importação evitaria ter que escrever Enum mais de uma vez, porém nesse caso decidi não importar.
 list1 = [1, 2, 3]
@@ -101,22 +101,20 @@ IO.inspect(Enum.zip(list1, palavras))                 # [{1, "Casa"}, {2, "Wesle
 # ----------------------------------------------------#------------------------------------------------#
 # IO.inspect(Enum.EmptyError.exception())             #                                               /1
 # IO.inspect(Enum.EmptyError.message())               #                                               /1
-
-medals = [
-  %{medal: :gold, player: "Anna"},
-  %{medal: :silver, player: "Joe"},
-  %{medal: :gold, player: "Zoe"},
-  %{medal: :bronze, player: "Anna"},
-  %{medal: :silver, player: "Anderson"},
-  %{medal: :silver, player: "Peter"}
-]
-IO.inspect(Enum.group_by(medals, &(&1.medal), &(&1.player))) # /3
-# %{bronze: ["Anna"], gold: ["Anna", "Zoe"], silver: ["Joe", "Anderson", "Peter"]}       /3
-
-# IO.inspect(Enum.group_by())                       #                                           /2
-IO.puts("\nEnumerable \n")
-############################################################ Enumerable ################################################################
-
+########################################################################################################
+medals = [                                                                                             #
+  %{medal: :gold, player: "Anna"},                                                                     #
+  %{medal: :silver, player: "Joe"},                                                                    #
+  %{medal: :gold, player: "Zoe"},                                                                      #
+  %{medal: :bronze, player: "Anna"},                                                                   #
+  %{medal: :silver, player: "Anderson"},                                                               #
+  %{medal: :silver, player: "Peter"}                                                                   #
+]                                                                                                      #
+IO.inspect(Enum.group_by(medals, &(&1.medal), &(&1.player))) #                                        /3
+# %{bronze: ["Anna"], gold: ["Anna", "Zoe"], silver: ["Joe", "Anderson", "Peter"]}                    /3
+# IO.inspect(Enum.group_by())                                                                         /2
+IO.puts("\nEnumerable \n")                                                                             #
+############################################################ Enumerable ################################
 #IO.inspect(Enumerable.Date.Range.count())          #                                           /1
 #IO.inspect(Enumerable.Date.Range.member?())        #                                           /2
 #IO.inspect(Enumerable.Date.Range.reduce())         #                                           /3
@@ -181,3 +179,14 @@ IO.puts("\nEnumerable \n")
 #IO.inspect(Enumerable.member?())                   #                                           /2
 #IO.inspect(Enumerable.reduce())                    #                                           /3
 #IO.inspect(Enumerable.slice())                     #                                           /1
+##################################################################################################
+IO.puts("\nCollectable \n")                         #                                            #
+# IO.inspect(Collectable.BitString.into())          #                                           /1
+# IO.inspect(Collectable.File.Stream.into())        #                                           /1
+# IO.inspect(Collectable.HashDict.into())           #                                           /1
+# IO.inspect(Collectable.HashSet.into())            #                                           /1
+# IO.inspect(Collectable.IO.Stream.into())          #                                           /1
+# IO.inspect(Collectable.List.List.into())          #                                           /1
+# IO.inspect(Collectable.Map.into())                #                                           /1
+# IO.inspect(Collectable.MapSet.into())             #                                           /1
+# IO.inspect(Collectable.into())                    #                                           /1

@@ -204,7 +204,7 @@
 # IO.inspect(:math.log10())               #                   /1
 # IO.inspect(:math.log2())                #                   /1
 #   IO.inspect(:math.pi())                # 3.141592653589793 /0    \ Pi
-#   IO.inspect(:math.pow(2, 4))           # 16.0              /2    \ Elevação
+#   IO.inspect(:math.pow(2, 4))           # 16.0              /2    \ Elevação 
 # IO.inspect(:math.sin())                 #                   /1
 # IO.inspect(:math.sinh())                #                   /1
 # IO.inspect(:math.sqrt())                #                   /1
