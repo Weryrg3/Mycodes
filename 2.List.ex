@@ -26,7 +26,7 @@ IO.inspect(List.keyreplace(kw2, :name, 0, {:nome, "Wesley"})) # [nome: "Wesley",
 # IO.inspect(List.myers_difference())                         #                                         /2 
 # IO.inspect(List.pop_at())                                   #                                         /2
 # IO.inspect(List.pop_at())                                   #                                         /3
-IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle my shoe"]                /3    \ na posição dois (0, 1, 2), trocou o 3 pela string
+IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle my shoe"]                /3 charlist   \ na posição dois (0, 1, 2), trocou o 3 pela string
 # IO.inspect(List.starts_with?())                             #                                         /2
 # IO.inspect(List.to_atom())                                  #                                         /1
 # IO.inspect(List.to_existing_atom())                         #                                         /1 

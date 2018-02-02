@@ -62,3 +62,17 @@ IO.puts("\nHashDict DEPRECATED\n")                                #             
 # IO.inspect(HashDict.update!())                                  #                               /3
 # IO.inspect(HashDict.update())                                   #                               /4
 # IO.inspect(HashDict.values())                                   #                               /1
+####################################################################################################
+IO.puts("\nHashSet DEPRECATED\n")                                 #                                #
+# IO.inspect(HashSet.delete())                                    #                               /2
+# IO.inspect(HashSet.difference())                                #                               /2
+# IO.inspect(HashSet.disjoint?())                                 #                               /2
+# IO.inspect(HashSet.equal?())                                    #                               /2
+# IO.inspect(HashSet.intersection())                              #                               /2
+# IO.inspect(HashSet.member?())                                   #                               /2
+IO.inspect(HashSet.new())                                         # #HashSet<[]>                  /0
+# IO.inspect(HashSet.put())                                       #                               /2
+# IO.inspect(HashSet.size())                                      #                               /1
+# IO.inspect(HashSet.subset?())                                   #                               /2
+# IO.inspect(HashSet.to_list())                                   #                               /1
+# IO.inspect(HashSet.union())                                     #                               /2

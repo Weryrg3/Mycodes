@@ -17,6 +17,7 @@ IO.inspect("Jun" <> "to")              # "Junto"                          /2
 IO.inspect(1 in 1 .. 10)               # true     in                      /2    
 IO.inspect("abcd" =~ ~r/bc/)           # true     =~                      /2    
 IO.inspect(div(10, 6))                 # 1                                /3    \ Divisão inteira
+IO.inspect(true and not(true) or 59)   # 59                  (or/2, and/2, not/1)
 # %/2
 # %{}/1
 # &/1
@@ -66,8 +67,7 @@ IO.inspect(__MODULE__)                 # nil                              /0
 # IO.inspect(__aliases__())                             #                 /1    
 # IO.inspect(__block__())                               #                 /1    
 # IO.inspect(alias!())                                  #                 /1    
-# IO.inspect(alias())                                   #                 /2    
-# IO.inspect(and())                                     #                 /2    
+#IO.inspect(alias(All.Tudo.Casa, as: Casa))             #                 /2   \ Simplifica a entrada de modulos
 IO.inspect(apply(fn x -> x * 2 end, [3]))               # 6               /2     
 IO.inspect(apply(Enum, :reverse, [[1, 2, 3]]))          # [3, 2, 1]       /3     
 # IO.inspect(b())                                       #                 /1    
@@ -117,19 +117,12 @@ IO.inspect(function_exported?(Enum, :member?, 2))       # true            /3    
 # IO.inspect(h())                                       #                 /1    
 IO.inspect(hd([9, 1, 2]))                               # 9               /1    \ Retorna com Head da list, caso lista vázia, retorna erro Terminal, 
 # IO.inspect(i())                                       #                 /1    
-# IO.inspect(if())                                      #                 /2    
-# IO.inspect(import())                                  #                 /2    
+#IO.inspect(import())                                   #                 /2    \ Importa uma função ex: import List
 # IO.inspect(import_file())                             #                 /1    
 # IO.inspect(import_file())                             #                 /2    
 # IO.inspect(import_file_if_available())                #                 /1    
 # IO.inspect(import_if_available())                     #                 /1    
 # IO.inspect(import_if_available())                     #                 /2    
-#IO.inspect(inspect())                                  #                 /1    
-#IO.inspect(inspect())                                  #                 /2    
-# IO.inspect(is_function())                             #                 /2    
-# IO.inspect(is_pid())                                  #                 /1    
-# IO.inspect(is_port())                                 #                 /1    
-# IO.inspect(is_reference())                            #                 /1    
 # IO.inspect(l())                                       #                 /1    
 IO.inspect(length([1, 2, 3, 4]))                        # 4               /1    
 # IO.inspect(ls())                                      #                 /1    
@@ -141,9 +134,7 @@ IO.inspect(min(7, 6))                                   # 6               /2
 # IO.inspect(nl())                                      #                 /1    
 # IO.inspect(nl())                                      #                 /2    
 # IO.inspect(node())                                    #                 /1    
-# IO.inspect(not())                                     #                 /1    
 # IO.inspect(open())                                    #                 /1    
-# IO.inspect(or())                                      #                 /2    
 # IO.inspect(pid())                                     #                 /1    
 # IO.inspect(pid())                                     #                 /3    
 # IO.inspect(pop_in())                                  #                 /1    

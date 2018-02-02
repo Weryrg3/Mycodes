@@ -868,3 +868,200 @@ end
 
 # IO.puts(Numbers.names())
 # 21
+############################################################################################################################################
+
+defmodule All22 do
+  defmodule Comparing1 do
+    defp read() do
+      number1 = IO.gets("Enter the first number: ")
+      number2 = IO.gets("Enter the second number: ")
+      number3 = IO.gets("Enter the third number: ")
+
+      case parse(number1, number2, number3) do
+        :error -> read()
+        {:ok, number1, number2, number3} -> [number1, number2, number3]
+      end
+    end
+
+    defp parse(number1, number2, number3) do
+      case {Integer.parse(number1), Integer.parse(number2), Integer.parse(number3)} do
+        {:error, _, _} ->
+          IO.puts("First number wrong, retype")
+          :error
+
+        {_, :error, _} ->
+          IO.puts("Second number wrong, retype")
+          :error
+
+        {_, _, :error} ->
+          IO.puts("Third number wrong, retype")
+          :error
+
+        {{number1, _}, {number2, _}, {number3, _}} ->
+          {:ok, number1, number2, number3}
+      end
+    end
+
+    defp recursion([]), do: []
+    defp recursion([n]), do: n
+
+    defp recursion([head | tail]) do
+      bigger = recursion(tail)
+
+      if head > bigger do
+        head
+      else
+        bigger
+      end
+    end
+
+    def number() do
+      bigger = read() |> recursion()
+      "The largest number is #{bigger}."
+    end
+  end
+
+  defmodule Comparing2 do
+    defp read(count) do
+      number = IO.gets("Enter the #{count}º number ")
+
+      if number == "\n" do
+        []
+      else
+        case parse(number) do
+          :error -> read(count)
+          {:ok, number} -> [number]
+        end
+      end
+    end
+
+    defp parse(number) do
+      case Integer.parse(number) do
+        :error -> IO.puts("Number wrong retype!!!")
+        :error
+        {number, _} -> {:ok, number}
+      end
+    end
+
+    defp list([], _), do: []
+    defp list(number, count) do
+      number ++ list(read(count), count + 1)
+    end
+
+    defp recursion([]), do: []
+    defp recursion([n]), do: n
+    defp recursion([head | tail]) do
+      bigger = recursion(tail)
+      if head > bigger do
+        head
+      else
+        bigger
+      end
+    end
+
+    def number() do
+      read(1) |> list(2) |> recursion()
+    end
+  end
+end
+
+#IO.puts(All22.Comparing1.number())
+# IO.puts(All22.Comparing2.number())
+# 22
+############################################################################################################################################
+
+defmodule Troubleshooting  do
+  defp read(question) do
+    IO.gets("#{question}") |> String.trim() |> String.upcase()
+  end
+
+  def car_issues() do
+    IO.puts("Is the car silent when you turn the key? ")
+    answer = read("")
+    case answer do
+      "Y" -> IO.puts("Are the battery terminals corroded? ")
+        left0(read(""))
+      "N" -> IO.puts("Does the car make a clicking noise? ")
+        right0(read(""))
+      _ -> IO.puts("Choice wrong type y or n")
+        car_issues()
+    end
+  end
+
+  defp left0(answer) do
+    question = "Are the battery terminals corroded? "
+    case answer do
+      "Y" -> "Clean terminals and try starting again."
+      "N" -> "Replace cables and try again."
+       _ -> IO.puts("Choice wrong type y or n")
+       left0(read(question))
+    end
+  end
+
+  defp right0(answer) do
+    question = "Does the car make a clicking noise? "
+    case answer do
+      "Y" -> "Replace the battery."
+      "N" -> IO.puts("Does the car crank up but fail to start?")
+        right1(read(""))
+      _ -> IO.puts("Choice wrong type y or n")
+      right0(read(question))
+    end
+  end
+
+  defp right1(answer) do
+    question = "Does the car crank up but fail to start? "
+    case answer do
+      "Y" -> "Check spark plug connections."
+      "N" -> IO.puts("Does the engine start and then die? ")
+      right2(read(""))
+      _ -> IO.puts("Choice wrong type y or n")
+      right1(read(question))
+    end
+  end
+
+  defp right2(answer) do
+    question = "Does the engine start and then die? "
+    case answer do
+      "Y" -> IO.puts("Does your car have fuel injection? ")
+        right3(read(""))
+      "N" -> IO.puts("Are you sure this is a right answer? let's try again")
+        right2(read(question))
+      _ -> IO.puts("Choice wrong type y or n")
+      right2(read(question))
+    end
+  end
+
+  defp right3(answer) do
+    question = "Does your car have fuel injection? "
+    case answer do
+      "Y" -> "Get it in for service."
+      "N" -> "Check to ensure the choke is opening and closing."
+      _ -> IO.puts("Choice wrong type y or n")
+      right3(read(question))
+    end
+  end
+end
+
+# IO.puts(Troubleshooting.car_issues())
+# 23
+############################################################################################################################################
+#                                                               Função Sort
+# defmodule Anagram do                                          Função Sort
+#                                                               Função Sort
+#   defp read() do                                              Função Sort
+#   end                                                         Função Sort
+#                                                               Função Sort
+#   def checker() do                                            Função Sort
+#   end                                                         Função Sort
+# end                                                           Função Sort
+#                                                               Função Sort
+# Enter two strings and I'll tell you if they                   Função Sort
+# are anagrams:                                                 Função Sort
+# Enter the first string: note                                  Função Sort
+# Enter the second string: tone                                 Função Sort
+# "note" and "tone" are anagrams.                               Função Sort
+#                                                               Função Sort
+# IO.puts(Angram.checker())                                     Função Sort
+# 24                                                            Função Sort
+#############################################################################################################################################

@@ -56,7 +56,7 @@ IO.inspect(Enum.max(palavras))                        # "wes"                   
 IO.inspect(Enum.max_by(palavras, &String.length/1))   # "Contêmporâneidade"                           /2
 # IO.inspect(Enum.max_by())                           #                                               /3
 IO.inspect(Enum.member?([1, 2, 3, 4], 2))             # true                                          /2     \ Verifica se o *num(or letr..) está dentro da lista
-# IO.inspect(Enum.min())                              #                                               /1
+IO.inspect(Enum.min(list2))                           # 0                                            /1
 # IO.inspect(Enum.min())                              #                                               /2
 # IO.inspect(Enum.min_by())                           #                                               /2
 # IO.inspect(Enum.min_by())                           #                                               /3

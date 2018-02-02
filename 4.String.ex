@@ -49,7 +49,7 @@ IO.inspect(String.slice("the cat on the mat", 4, 5))          # "cat o"         
 # IO.inspect(String.splitter())                               #                                         /2
 # IO.inspect(String.splitter())                               #                                         /3
 IO.inspect(String.starts_with?("string", ["stri", "ring"]))   # true                                    /2    \ Verifica se a string inicia com as letras informadas
-# IO.inspect(String.to_integer())                             #                                         /2
+IO.inspect(String.to_integer("50", 10))                       # 50                                      /2    \ Informa 
 IO.inspect(String.trim("   casa nova\n \n \t     "))          # "casa nova" ## Melhor função            /1    \ Retorna string sem espaços ou quebra de linha
 IO.inspect(String.trim("!!!Venda!!!!!", "!"))                 # "Venda"    ## Melhor função             /2    \ Retorna string sem caracter especifico
 IO.inspect(String.trim_leading("\t\f   Hello\t\n"))           # "Hello\t\n"                             /1    \ Retorna string sem espaços ou quebra na frente
@@ -100,15 +100,31 @@ IO.inspect(String.valid?("☭∂cas"))                            # true        
 # IO.inspect(String.Unicode.next_grapheme_size())             #                                         /1
 # IO.inspect(String.Unicode.split_at())                       #                                         /2
 IO.inspect(String.Unicode.version)                            # {10, 0, 0}                              /0
-
-Regex.
-
-CompileError        compile!/1          compile!/2          
-compile/1           compile/2           escape/1            
-match?/2            named_captures/2    named_captures/3    
-names/1             opts/1              re_pattern/1        
-recompile!/1        recompile/1         regex?/1            
-replace/3           replace/4           run/2               
-run/3               scan/2              scan/3              
-source/1            split/2             split/3             
-version/0    
+##########################################################################################################
+# IO.inspect(Regex.CompileError.exception())                  #                                         /1
+# IO.inspect(Regex.CompileError.message())                    #                                         /1
+# IO.inspect(Regex.compile!())                                #                                         /1
+# IO.inspect(Regex.compile!())                                #                                         /2
+# IO.inspect(Regex.compile())                                 #                                         /1
+# IO.inspect(Regex.compile())                                 #                                         /2
+# IO.inspect(Regex.escape())                                  #                                         /1
+# IO.inspect(Regex.match?())                                  #                                         /2
+# IO.inspect(Regex.named_captures())                          #                                         /2
+# IO.inspect(Regex.named_captures())                          #                                         /3
+# IO.inspect(Regex.names())                                   #                                         /1
+# IO.inspect(Regex.opts())                                    #                                         /1
+# IO.inspect(Regex.re_pattern())                              #                                         /1
+# IO.inspect(Regex.recompile!())                              #                                         /1
+# IO.inspect(Regex.recompile())                               #                                         /1
+# IO.inspect(Regex.regex?())                                  #                                         /1
+# IO.inspect(Regex.replace())                                 #                                         /3
+# IO.inspect(Regex.replace())                                 #                                         /4
+# IO.inspect(Regex.run())                                     #                                         /2
+# IO.inspect(Regex.run())                                     #                                         /3
+# IO.inspect(Regex.scan())                                    #                                         /2
+# IO.inspect(Regex.scan())                                    #                                         /3
+# IO.inspect(Regex.source())                                  #                                         /1
+# IO.inspect(Regex.split())                                   #                                         /2
+# IO.inspect(Regex.split())                                   #                                         /3
+# IO.inspect(Regex.version())                                 #                                         /0
+##########################################################################################################
