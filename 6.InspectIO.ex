@@ -118,12 +118,12 @@ IO.inspect(IO.chardata_to_string([0x0061, "bc"]))          # "abc"              
 #IO.inspect(IO.ANSI.bright())                              # "\e[1m"                      /0
 #IO.inspect(IO.ANSI.clear())                               # "\e[2J"                      /0
 #IO.inspect(IO.ANSI.clear_line())                          # "\e[2K"                      /0
-
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 #IO.inspect(IO.ANSI.color())                               #                              /1
 # IO.inspect(IO.ANSI.color())                              #                              /3
 # IO.inspect(IO.ANSI.color_background())                   #                              /1
 # IO.inspect(IO.ANSI.color_background())                   #                              /3
-
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 #IO.inspect(IO.ANSI.conceal())                             # "\e[8m"                      /0
 #IO.inspect(IO.ANSI.crossed_out())                         # "\e[9m"                      /0
 #IO.inspect(IO.ANSI.cyan())                                # "\e[36m"                     /0
@@ -142,12 +142,12 @@ IO.inspect(IO.chardata_to_string([0x0061, "bc"]))          # "abc"              
 #IO.inspect(IO.ANSI.font_7())                              # "\e[17m"                     /0
 #IO.inspect(IO.ANSI.font_8())                              # "\e[18m"                     /0
 #IO.inspect(IO.ANSI.font_9())                              # "\e[19m"                     /0
-
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 # IO.inspect(IO.ANSI.format())                             #                              /1
 # IO.inspect(IO.ANSI.format())                             #                              /2
 # IO.inspect(IO.ANSI.format_fragment())                    #                              /1
 # IO.inspect(IO.ANSI.format_fragment())                    #                              /2
-
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 #IO.inspect(IO.ANSI.framed())                             # "\e[51m"                      /0
 #IO.inspect(IO.ANSI.green())                              # "\e[32m"                      /0
 #IO.inspect(IO.ANSI.green_background())                   # "\e[42m"                      /0

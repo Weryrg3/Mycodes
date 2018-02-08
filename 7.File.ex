@@ -1,11 +1,11 @@
-# # -> File.open("file.txt", [:write], &(IO.write(&1, "Hello World!")))
-# file.txt
-  #1 linha
-  #2 linha
-  #3 linha
-# {:ok, file} = File.open("foo.tar.gz", [:read, :compressed])
-# IO.read(file, :line)
-# File.close(file)
+# # -> File.open("file.txt", [:write], &(IO.write(&1, "Hello World!"))) ##############################
+# file.txt                                             #                                             #
+  #1 linha                                             #                                             #
+  #2 linha                                             #                                             #
+  #3 linha                                             #                                             #
+# {:ok, file} = File.open("foo.tar.gz", [:read, :compressed])                                        #
+# IO.read(file, :line)                                 #                                             #  
+# File.close(file)                                     #                                             #
 # IO.inspect(File.CopyError.exception())               #                                            /1
 # IO.inspect(File.CopyError.message())                 #                                            /1
 # IO.inspect(File.Error.exception())                   #                                            /1
@@ -14,7 +14,6 @@
 # IO.inspect(File.LinkError.message())                 #                                            /1
 # IO.inspect(File.Stat.from_record())                  #                                            /1
 # IO.inspect(File.Stat.to_record())                    #                                            /1
-# File.Stream.                                  
 # IO.inspect(File.cd!())                               #                                            /1
 # IO.inspect(File.cd!())                               #                                            /2
 # IO.inspect(File.cd())                                #                                            /1
@@ -95,26 +94,25 @@ IO.inspect(File.read("file.txt"))                      # {:ok, "1 linha\n2 linha
 # IO.inspect(File.write_stat())                        #                                            /2
 # IO.inspect(File.write_stat())                        #                                            /3
 ################################################ Path ################################################
-IO.puts("\nPath \n")
-# IO.inspect(Path.Wildcard.list_dir())                   #                                            /1
-# IO.inspect(Path.Wildcard.read_link_info())             #                                            /1
-# IO.inspect(Path.absname())                             #                                            /1
-# IO.inspect(Path.absname())                             #                                            /2
-# IO.inspect(Path.basename())                            #                                            /1
-# IO.inspect(Path.basename())                            #                                            /2
-# IO.inspect(Path.dirname())                             #                                            /1
-# IO.inspect(Path.expand())                              #                                            /1
-# IO.inspect(Path.expand())                              #                                            /2
-IO.inspect(Path.extname("test.exs"))                             #                                            /1
-# IO.inspect(Path.join())                                #                                            /1
-# IO.inspect(Path.join())                                #                                            /2
-# IO.inspect(Path.relative())                            #                                            /1
-# IO.inspect(Path.relative_to())                         #                                            /2
-# IO.inspect(Path.relative_to_cwd())                     #                                            /1
-# IO.inspect(Path.rootname())                            #                                            /1
-# IO.inspect(Path.rootname())                            #                                            /2
-# IO.inspect(Path.split())                               #                                            /1
-# IO.inspect(Path.type())                                #                                            /1
-# IO.inspect(Path.wildcard())                            #                                            /1
-# IO.inspect(Path.wildcard())                            #                                            /2
-
+IO.puts("\nPath \n")                                   #                                             #
+# IO.inspect(Path.Wildcard.list_dir())                 #                                            /1
+# IO.inspect(Path.Wildcard.read_link_info())           #                                            /1
+# IO.inspect(Path.absname())                           #                                            /1
+# IO.inspect(Path.absname())                           #                                            /2
+# IO.inspect(Path.basename())                          #                                            /1
+# IO.inspect(Path.basename())                          #                                            /2
+# IO.inspect(Path.dirname())                           #                                            /1
+# IO.inspect(Path.expand())                            #                                            /1
+# IO.inspect(Path.expand())                            #                                            /2
+IO.inspect(Path.extname("test.exs"))                   #                                            /1
+# IO.inspect(Path.join())                              #                                            /1
+# IO.inspect(Path.join())                              #                                            /2
+# IO.inspect(Path.relative())                          #                                            /1
+# IO.inspect(Path.relative_to())                       #                                            /2
+# IO.inspect(Path.relative_to_cwd())                   #                                            /1
+# IO.inspect(Path.rootname())                          #                                            /1
+# IO.inspect(Path.rootname())                          #                                            /2
+# IO.inspect(Path.split())                             #                                            /1
+# IO.inspect(Path.type())                              #                                            /1
+# IO.inspect(Path.wildcard())                          #                                            /1
+# IO.inspect(Path.wildcard())                          #                                            /2

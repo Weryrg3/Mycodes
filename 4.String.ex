@@ -15,8 +15,8 @@ IO.inspect(String.to_integer("100"))                          # 100             
 IO.inspect(String.to_float("10.50"))                          # 10.5                                    /1    /&  &String.to_float/1
 IO.inspect(String.to_atom("atom")) # ------------------------ # :atom   ###Não Recomendável usar##      /1    /&  &String.to_atom/1
 IO.inspect(String.to_existing_atom("atom"))                   # :atom     Recomendável usar             /1    /&  &String.to_existing_atom/1
-IO.inspect(String.codepoints("Ate\u0308 "))                   # ["A", "t", "e", "̈", " "]                 /1    /&  &String.codepoints/1
-IO.inspect(String.graphemes("Ate\u0308 "))                    # ["A", "t", "ë", " "]                     /1    / Suporta caracteres especiais por código
+IO.inspect(String.codepoints("Ate\u0308 "))                   # ["A", "t", "e", "̈", " "]                /1    /&  &String.codepoints/1
+IO.inspect(String.graphemes("Ate\u0308 "))                    # ["A", "t", "ë", " "]                    /1    / Suporta caracteres especiais por código
 IO.inspect(String.at("ABCD", 1))                              # "B"                                     /2    /&  &String.at/2
 IO.inspect(String.contains?("ABCD e FGH", ["FGH", "e"]))      # true                                    /2    /&  &String.contains?/2
 IO.inspect(String.pad_leading("ABCD", 6))                     # "  ABCD"                                /2    \completa tamanho da String, com numero, nesse caso espaço.
