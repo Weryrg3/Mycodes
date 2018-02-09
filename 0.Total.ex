@@ -1,6 +1,6 @@
-IO.inspect(!false)                     # true
+IO.inspect(!false)                     # true                             /1
 IO.inspect(1 != 1.0)                   # false Others       (</2, >/2, <=/2, >=/2, ==/2, ./2)
-IO.inspect(1 !== 1.0)                  # true Others        ( ===/2 )
+IO.inspect(1 !== 1.0)                  # true Others        ( ===/2, !==/2 )
 IO.inspect(Enum.map 1 .. 5, &(&1))     # [1, 2, 3, 4, 5]    (1 .. 5) (#im 1.Enum) ../2      #/2 dois argumentos sendo passados
 IO.inspect(1 && 2)                     # 2                                /2    
 IO.inspect(1 || 2 )                    # 1                                /2    
@@ -18,10 +18,10 @@ IO.inspect(1 in 1 .. 10)               # true     in                      /2
 IO.inspect("abcd" =~ ~r/bc/)           # true     =~                      /2    
 IO.inspect(div(10, 6))                 # 1                                /3    \ Divisão inteira
 IO.inspect(true and not(true) or 59)   # 59                  (or/2, and/2, not/1)
+IO.inspect(^a = 2)                     # 2                                /1    \ Partned M. 
 # %/2
 # %{}/1
 # &/1
-# ^/1
 IO.inspect(is_atom(:atom))             # true                             /1    
 IO.inspect(is_boolean(false))          # true                             /1    
 IO.inspect(is_binary(<<1, 0>>))        # true   #Funciona também com string, pois toda string é binário   /1
@@ -43,26 +43,28 @@ IO.inspect(__DIR__)                    # "/home/wesley/1.Wesley/Mycodes0" /0
 #IO.inspect(__ENV__)                   #                                  /0    \ Retorna diversas funções e seus parametros 
 IO.inspect(__MODULE__)                 # nil                              /0    
 #-------------------------------#------#-----#--###-----------------------####
-#IO.inspect(binding())          #Terminal   /0  ### Só executa no terminal ###
-#IO.inspect(breaks())           #Terminal   /0  ### Só executa no terminal ###
-#IO.inspect(clear())            #Terminal   /0  ### Só executa no terminal ###
-#IO.inspect(continue())         #Terminal   /0  ### Só executa no terminal ###
-#IO.inspect(exports())          #Terminal   /0  ### Só executa no terminal ###
-#IO.inspect(flush())            #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(h())               #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(ls())              #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(make_ref())        #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(i())               #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(node())            #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(open())            #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(pwd())             #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(recompile())       #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(remove_breaks())   #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(respawn())         #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(runtime_info())    #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(self())            #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(v())               #Terminal   /0  ### Só executa no terminal ###
-#IO.inscpect(whereami())        #Terminal   /0  ### Só executa no terminal ###
+# binding                       #Terminal   /0  ### Só executa no terminal ###
+# breaks                        #Terminal   /0  ### Só executa no terminal ###
+# clear                         #Terminal   /0  ### Só executa no terminal ###
+# continue                      #Terminal   /0  ### Só executa no terminal ###
+# exports                       #Terminal   /0  ### Só executa no terminal ###
+# flush                         #Terminal   /0  ### Só executa no terminal ###
+# h                             #Terminal   /0  ### Só executa no terminal ###
+# ls                            #Terminal   /0  ### Só executa no terminal ###
+# make_ref                      #Terminal   /0  ### Só executa no terminal ###
+# i                             #Terminal   /0  ### Só executa no terminal ###
+# node                          #Terminal   /0  ### Só executa no terminal ###
+# open                          #Terminal   /0  ### Só executa no terminal ###
+# pwd                           #Terminal   /0  ### Só executa no terminal ###
+# recompile                     #Terminal   /0  ### Só executa no terminal ###
+# remove_breaks                 #Terminal   /0  ### Só executa no terminal ###
+# respawn                       #Terminal   /0  ### Só executa no terminal ###
+# runtime_info                  #Terminal   /0  ### Só executa no terminal ###
+# self                          #Terminal   /0  ### Só executa no terminal ###
+# v                             #Terminal   /0  ### Só executa no terminal ###
+# whereami                      #Terminal   /0  ### Só executa no terminal ###
+# cd                            #Terminal   /1  ### Só executa no terminal ###
+# i                             #Terminal   /1  ### Só executa no terminal ###
 #-------------------------------#------------#--###-----#-----------------####
 # IO.inspect(__aliases__())                             #                 /1    
 # IO.inspect(__block__())                               #                 /1    
@@ -81,28 +83,28 @@ IO.inspect(bit_size(<<1, 1, 1, 1>>))                    # 32              /1    
 # IO.inspect(byte_size())                               #                 /1    
 # IO.inspect(c())                                       #                 /1    
 # IO.inspect(c())                                       #                 /2    
-# IO.inspect(case())                                    #                 /2    
-# IO.inspect(cd())                                      #                 /1    
-# IO.inspect(cond())                                    #                 /1    
 #------------------------------------------------------###---------------###    
-#IO.inspect(def())# def.ex /1                           #     Funções      #    
-#IO.inspect(def())# def.ex /2                           #     Funções      #    
-#IO.inspect(defdelegate())# def.ex /2                   #     Funções      #    
-#IO.inspect(defexception())# def.ex /1                  #     Funções      #    
-#IO.inspect(defguard())# def.ex /1                      #     Funções      #    
-#IO.inspect(defguardp())# def.ex /1                     #     Funções      #    
-#IO.inspect(defimpl())# def.ex /2                       #     Funções      #    
-#IO.inspect(defimpl())# def.ex /3                       #     Funções      #    
-#IO.inspect(defmacro())# def.ex  /1                     #     Funções      #    
-#IO.inspect(defmacro())# def.ex  /2                     #     Funções      #    
-#IO.inspect(defmacrop())# def.ex /1                     #     Funções      #    
-#IO.inspect(defmacrop())# def.ex /2                     #     Funções      #    
-#IO.inspect(defmodule())# def.ex /2                     #     Funções      #    
-#IO.inspect(defoverridable())# def.ex  /1               #     Funções      #    
-#IO.inspect(defp())# def.ex  /1                         #     Funções      #    
-#IO.inspect(defp())# def.ex  /2                         #     Funções      #    
-#IO.inspect(defprotocol())# def.ex /2                   #     Funções      #    
-#IO.inspect(defstruct())# def.ex /1                     #     Funções      #    
+# def                 # def.ex  /1                      #     Funções      #    
+# def                 # def.ex  /2                      #     Funções      #    
+# defdelegate         # def.ex  /2                      #     Funções      #    
+# defexception        # def.ex  /1                      #     Funções      #    
+# defguard            # def.ex  /1                      #     Funções      #    
+# defguardp           # def.ex  /1                      #     Funções      #    
+# defimpl             # def.ex  /2                      #     Funções      #    
+# defimpl             # def.ex  /3                      #     Funções      #    
+# defmacro            # def.ex  /1                      #     Funções      #    
+# defmacro            # def.ex  /2                      #     Funções      #    
+# defmacrop           # def.ex  /1                      #     Funções      #    
+# defmacrop           # def.ex  /2                      #     Funções      #    
+# defmodule           # def.ex  /2                      #     Funções      #    
+# defoverridable      # def.ex  /1                      #     Funções      #    
+# defp                # def.ex  /1                      #     Funções      #    
+# defp                # def.ex  /2                      #     Funções      #    
+# defprotocol         # def.ex  /2                      #     Funções      #    
+# defstruct           # def.ex  /1                      #     Funções      #   
+# case                # def.ex  /2                      #     Funções      #
+# cond                # def.ex  /1                      #     Funções      #
+# with                # def.ex  /1                      #     Funções      #
 #------------------------------------------------------###---------------###    
 IO.inspect(destructure([x, y], [1, 2, 3]))              # [1, 2]          /2    \ Pega lista mesmo não sendo do mesmo tamanho, caso haja váriaveis a mais retorna nil, nas variáveis sem partter
 IO.inspect(elem({2, 4, 6}, 2))                          # 6               /2    \ Acessa um elemento da tupla usando sua posição em index
@@ -116,7 +118,6 @@ IO.inspect(function_exported?(Enum, :member?, 2))       # true            /3    
 # IO.inspect(get_in())                                  #                 /2    
 # IO.inspect(h())                                       #                 /1    
 IO.inspect(hd([9, 1, 2]))                               # 9               /1    \ Retorna com Head da list, caso lista vázia, retorna erro Terminal, 
-# IO.inspect(i())                                       #                 /1    
 #IO.inspect(import())                                   #                 /2    \ Importa uma função ex: import List
 # IO.inspect(import_file())                             #                 /1    
 # IO.inspect(import_file())                             #                 /2    
@@ -199,7 +200,6 @@ IO.inspect(put_elem({1, 2, 3, 4}, 1, 3))                # {1, 3, 3, 4}    /3    
 IO.inspect(var!(x) = 3)                                 # 3               /1    
 IO.inspect(var!(x, :foo) = 333)                         # 333             /2    \ binding(:foo) [x: 1]
 # IO.inspect(whereami())                                #                 /1    
-# IO.inspect(with())                                    #                 /1    
 # IO.inspect({}())                                      #                 /1    
 # IO.inspect(|>())                                      #                 /2    
 # ------------------------------------------------------#------------------#    

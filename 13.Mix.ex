@@ -114,21 +114,21 @@ Mix.Shell.Quiet.print_app                   #                 /0  #
 Mix.Shell.Quiet.prompt                      #                 /1
 Mix.Shell.Quiet.yes?                        #                 /1
 ########################################################################################################################
-Mix.Task.alias?                             #                 /1
-Mix.Task.all_modules                        #                 /0  #
-Mix.Task.clear                              #                 /0  #
-Mix.Task.get!                               #                 /1
-Mix.Task.get                                #                 /1
-Mix.Task.load_all                           #                 /0  #
-Mix.Task.load_tasks                         #                 /1
-Mix.Task.moduledoc                          #                 /1
-Mix.Task.preferred_cli_env                  #                 /1
-Mix.Task.recursive                          #                 /1
-Mix.Task.reenable                           #                 /1
-Mix.Task.rerun                              #                 /1
-Mix.Task.rerun                              #                 /2
-Mix.Task.run                                #                 /1
-Mix.Task.run                                #                 /2
-Mix.Task.shortdoc                           #                 /1
-Mix.Task.task?                              #                 /1
-Mix.Task.task_name                          #                 /1
+Mix.Task.alias?                             #                 /1    \ @Behaviour
+Mix.Task.all_modules                        #                 /0    \ @Behaviour
+Mix.Task.clear                              #                 /0    \ @Behaviour
+Mix.Task.get!                               #                 /1    \ @Behaviour
+Mix.Task.get                                #                 /1    \ @Behaviour
+Mix.Task.load_all                           #                 /0    \ @Behaviour
+Mix.Task.load_tasks                         #                 /1    \ @Behaviour
+Mix.Task.moduledoc                          #                 /1    \ @Behaviour
+Mix.Task.preferred_cli_env                  #                 /1    \ @Behaviour
+Mix.Task.recursive                          #                 /1    \ @Behaviour
+Mix.Task.reenable                           #                 /1    \ @Behaviour
+Mix.Task.rerun                              #                 /1    \ @Behaviour
+Mix.Task.rerun                              #                 /2    \ @Behaviour
+Mix.Task.run                                #                 /1    \ @Behaviour
+Mix.Task.run                                #                 /2    \ @Behaviour
+Mix.Task.shortdoc                           #                 /1    \ @Behaviour
+Mix.Task.task?                              #                 /1    \ @Behaviour
+Mix.Task.task_name                          #                 /1    \ @Behaviour

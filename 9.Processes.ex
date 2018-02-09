@@ -28,6 +28,7 @@ IO.puts("\n Agent\n")
 # IO.inspect(Agent.update())                             #                     /5
 #################################################################################
 IO.puts("\nApplication\n")                               #                      #
+# aplicação isolada                                      #                      #
 # IO.inspect(Application.app_dir())                      #                     /1
 # IO.inspect(Application.app_dir())                      #                     /2
 # IO.inspect(Application.delete_env())                   #                     /2
@@ -66,6 +67,7 @@ IO.puts("\nDynamicSupervisor \n")                        #                      
 # IO.inspect(DynamicSupervisor.which_children())         #                     /1
 #################################################################################
 IO.puts("\nGenServer \n")                                #                      #
+# Servidor generico                                      #                      #
 # IO.inspect(GenServer.abcast())                         #                     /2
 # IO.inspect(GenServer.abcast())                         #                     /3
 # IO.inspect(GenServer.call())                           #                     /2
@@ -85,16 +87,16 @@ IO.puts("\nGenServer \n")                                #                      
 # IO.inspect(GenServer.whereis())                        #                     /1
 #################################################################################
 IO.puts("\nNode \n")                                     #                      #
-IO.inspect(Node.alive?())                              # false                    /0
+IO.inspect(Node.alive?())                                # false               /0
 # IO.inspect(Node.connect())                             #                     /1
 # IO.inspect(Node.disconnect())                          #                     /1
-IO.inspect(Node.get_cookie())                          #                     /0
-IO.inspect(Node.list())                                #                     /0
+IO.inspect(Node.get_cookie())                            #                     /0
+IO.inspect(Node.list())                                  #                     /0
 # IO.inspect(Node.list())                                #                     /1
 # IO.inspect(Node.monitor())                             #                     /2
 # IO.inspect(Node.monitor())                             #                     /3
 # IO.inspect(Node.ping())                                #                     /1
-IO.inspect(Node.self())                                #                     /0
+IO.inspect(Node.self())                                  #                     /0
 # IO.inspect(Node.set_cookie())                          #                     /1
 # IO.inspect(Node.set_cookie())                          #                     /2
 # IO.inspect(Node.spawn())                               #                     /2
@@ -106,7 +108,7 @@ IO.inspect(Node.self())                                #                     /0
 # IO.inspect(Node.start())                               #                     /1
 # IO.inspect(Node.start())                               #                     /2
 # IO.inspect(Node.start())                               #                     /3
-IO.inspect(Node.stop())                                #                     /0
+IO.inspect(Node.stop())                                  #                     /0
 #################################################################################
 IO.puts("\nProcess \n")                                  #                      #
 # IO.inspect(Process.alive?())                           #                     /1
@@ -169,6 +171,7 @@ IO.puts("\nRegistry \n")                                 #                      
 # IO.inspect(Registry.update_value())                    #                     /3
 #################################################################################
 IO.puts("\nSupervisor \n")                               #                      #
+# Processo que supervisiona outros processos             #                      #
 # IO.inspect(Supervisor.Default.init())                  #                     /1
 # IO.inspect(Supervisor.Spec.supervise())                #                     /2
 # IO.inspect(Supervisor.Spec.supervisor())               #                     /2

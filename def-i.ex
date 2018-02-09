@@ -18,13 +18,16 @@ raise MyAppError,
   message: "did not get what was expected, got: #{inspect value}"
 
 
-# IO.inspect(defguard())                                #                 /1
-# IO.inspect(defguardp())                               #                 /1
-# IO.inspect(defmacro())                                #                 /1
-# IO.inspect(defmacro())                                #                 /2
-# IO.inspect(defmacrop())                               #                 /1
-# IO.inspect(defmacrop())                               #                 /2
-# IO.inspect(defoverridable())                          #                 /1
+# defguard                                              #                 /1
+# defguardp                                             #                 /1
+# defmacro                                              #                 /1
+# defmacro                                              #                 /2
+# defmacrop                                             #                 /1
+# defmacrop                                             #                 /2
+# defoverridable                                        #                 /1
+# case                                                  #                 /2    
+# cond                                                  #                 /1 
+# with                                                  #                 /1 
 
 https://hexdocs.pm/elixir/Kernel.html
 

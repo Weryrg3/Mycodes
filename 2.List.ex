@@ -116,7 +116,7 @@ IO.inspect(MapSet.new())                        # #MapSet<[]>                   
 ############################################################################################
 IO.puts("\nKeyword \n")                                                                    #
 ########################## Keyword  ################################################################
-IO.inspect(Keyword.delete([   a: 1, b: 2, a: 3], :a))             # [b: 2]                        /2
+IO.inspect(Keyword.delete([ a: 1, b: 2, a: 3], :a))               # [b: 2]                        /2
 IO.inspect(Keyword.delete([a: 1, b: 2, a: 3], :a, 3))             # [a: 1, b: 2]                  /3
 IO.inspect(Keyword.delete_first([a: 1, b: 2, a: 3], :a))          # [b: 2, a: 3]                  /2
 IO.inspect(Keyword.drop([a: 1, b: 2, c: 3], [:b, :a]))            # [c: 3]                        /2
