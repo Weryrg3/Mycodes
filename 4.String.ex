@@ -26,7 +26,7 @@ IO.inspect(String.pad_trailing("ABCD", 6, "*"))               # "ABCD**"        
 # IO.inspect(String.capitalize())                             #                                         /2
 # IO.inspect(String.chunk())                                  #                                         /2
 # IO.inspect(String.downcase())                               #                                         /2
-IO.inspect(String.ends_with?("string", ["elix", "ring"]))     # tue                                     /2    \ Verifica se a String termina com as palavras passadas
+IO.inspect(String.ends_with?("string", ["elix", "ring"]))     # true                                    /2    \ Verifica se a String termina com as palavras passadas
 # IO.inspect(String.equivalent?())                            #                                         /2
 IO.inspect(String.jaro_distance("Jose", "jose"))              # 0.8333333333333334                      /2    \ Mostra numero de similaridade de duas strings
 # IO.inspect(String.match?())                                 #                                         /2

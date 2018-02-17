@@ -39,7 +39,7 @@
 IO.inspect(File.cwd!())                                # "/home/wesley/1.Wesley/Mycodes0"           /0
 IO.inspect(File.cwd())                                 # {:ok, "/home/wesley/1.Wesley/Mycodes0"}    /0
 # IO.inspect(File.dir?())                              #                                            /1
-# IO.inspect(File.exists?())                           #                                            /1
+IO.inspect(File.exists?("file.txt"))                   # true                                       /1
 # IO.inspect(File.ln!())                               #                                            /2
 # IO.inspect(File.ln())                                #                                            /2
 # IO.inspect(File.ln_s!())                             #                                            /2

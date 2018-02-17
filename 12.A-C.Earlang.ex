@@ -1,3 +1,6 @@
+# Erlang executado em Elixir
+# erl 
+
 # :application.behaviour_info                           #                     /1
 # :application.ensure_all_started                       #                     /1
 # :application.ensure_all_started                       #                     /2
@@ -106,8 +109,8 @@
 # :array.map                                            #                     /2
 # :array.module_info                                    #                     /0
 # :array.module_info                                    #                     /1
-# :array.new                                            #                     /0
-# :array.new                                            #                     /1
+# :array.new                                            # {:array, 0, 10, :undefined, 10}     /0  -> Terminal
+# :array.new(20)                                        # {:array, 20, 0, :undefined, 100}    /1  -> Terminal
 # :array.new                                            #                     /2
 # :array.relax                                          #                     /1
 # :array.reset                                          #                     /2
