@@ -80,3 +80,4 @@ ExUnit.Formatter.format_filters()               #                               
 ExUnit.Formatter.format_test_all_failure()      #                                               /5
 ExUnit.Formatter.format_test_failure()          #                                               /5
 ExUnit.Formatter.format_time()                  #                                               /2
+
