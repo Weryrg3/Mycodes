@@ -169,7 +169,7 @@ IO.puts("\nURI \n")                                       #                   #
 # IO.inspect(URI.encode_query())                          #                  /1
 # IO.inspect(URI.encode_www_form())                       #                  /1
 # IO.inspect(URI.merge())                                 #                  /2
-# IO.inspect(URI.parse())                                 #                  /1
+IO.inspect(URI.parse("https://translate.google.com.br/?hl=pt-BR#pt/en/z%C3%A9%20droguinha"))  #                  /1
 # IO.inspect(URI.query_decoder())                         #                  /1
 # IO.inspect(URI.to_string())                             #                  /1
 ###############################################################################
