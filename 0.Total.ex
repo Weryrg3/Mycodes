@@ -171,7 +171,7 @@ IO.inspect(put_elem({1, 2, 3, 4}, 1, 3))                # {1, 3, 3, 4}    /3    
 # IO.inspect(sigil_r())                                 #                 /2    
 # IO.inspect(sigil_s())                                 #                 /2    
 # IO.inspect(sigil_w())                                 #                 /2    
-# IO.inspect(spawn())                                   #                 /1    
+# IO.inspect(spawn(Test, :test1, []))                   # Retorna PID     /1      
 # IO.inspect(spawn())                                   #                 /3    
 # IO.inspect(spawn_link())                              #                 /1    
 # IO.inspect(spawn_link())                              #                 /3    
