@@ -7,7 +7,7 @@ IO.puts("List\n")                                                               
 # IO.inspect(List.ascii_printable?())                         #                                         /2
 # IO.inspect(List.delete())                                   #                                         /2
 # IO.inspect(List.delete_at())                                #                                         /2
-# IO.inspect(List.duplicate())                                #                                         /2
+IO.inspect(List.duplicate(5, 4))                              # [5, 5, 5, 5]                            /2
 # IO.inspect(List.first())                                    #                                         /1
 IO.inspect(List.flatten([[[1], 2], [[[3]]]]))                 # [1, 2, 3]                               /1 
 # IO.inspect(List.flatten())                                  #                                         /2
