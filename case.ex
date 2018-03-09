@@ -4,6 +4,7 @@ case File.open("case.ex") do
     IO.puts("First line: #{IO.read(file, :line)}")
 
   # IO.puts("Second line: #{IO.read(file, :line)}")
+  # IO.puts("all line: #{IO.read(file, :all)}")
 
   {:error, reason} ->
     IO.puts("Failed to open file: #{reason}")

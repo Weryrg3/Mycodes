@@ -49,7 +49,7 @@ IO.inspect(String.slice("the cat on the mat", 4, 5))          # "cat o"         
 # IO.inspect(String.splitter())                               #                                         /2
 # IO.inspect(String.splitter())                               #                                         /3
 IO.inspect(String.starts_with?("string", ["stri", "ring"]))   # true                                    /2    \ Verifica se a string inicia com as letras informadas
-IO.inspect(String.to_integer("50", 10))                       # 50                                      /2    \ Informa 
+IO.inspect(String.to_integer("50", 10))                       # 50                                      /2    \ Informa
 IO.inspect(String.trim("   casa nova\n \n \t     "))          # "casa nova" ## Melhor função            /1    \ Retorna string sem espaços ou quebra de linha
 IO.inspect(String.trim("!!!Venda!!!!!", "!"))                 # "Venda"    ## Melhor função             /2    \ Retorna string sem caracter especifico
 IO.inspect(String.trim_leading("\t\f   Hello\t\n"))           # "Hello\t\n"                             /1    \ Retorna string sem espaços ou quebra na frente

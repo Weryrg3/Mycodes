@@ -10,7 +10,7 @@
 
 defmodule SpawnExs do
   def exercice do
-    receive do 
+    receive do
       {pid, name} ->
         send(pid, {:print, "Hello, #{name} #{inspect self()}"})
         exercice()
@@ -65,9 +65,11 @@ Test1.run()
 # Do the same, but have the child raise an exception. What difference do
 # you see in the tracing?
 
+# ?????????????????????????
+
 # WorkingWithMultipleProcesses-5
 # Repeat the two, changing spawn_link to spawn_monitor .
-
+# Feito em outro arquivo
 
 # WorkingWithMultipleProcesses-6
 # In the pmap code, I assigned the value of self to the variable me at the top

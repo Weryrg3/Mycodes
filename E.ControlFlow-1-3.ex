@@ -16,7 +16,7 @@ defmodule ControlFlow0 do
     IO.puts("#{count} -> #{fizz_buzz}")
     fizz_buzz(number-1, count+1)
   end
-  
+
 end
 
 #IO.inspect(ControlFlow0.loop(5))
@@ -35,4 +35,12 @@ ControlFlow0.loop(11)
 # is the tuple {:ok, data} , return the data. Otherwise, raise an exception
 # containing information from the parameter.
 # You could use your function like this:
+# file = ok! File.open("somefile")
+
+defmodule ControlFlow2 do #ControlFlow3
+  def ok!({:ok, file}), do: IO.read(file, :all) |> IO.puts()
+  def ok!({:error, error}), do: raise "Error function #{error}" #IO.puts("Error function: #{error}")
+  def ok!(error), do: IO.puts("Error function: #{error}") # or raise
+end
+
 # file = ok! File.open("somefile")

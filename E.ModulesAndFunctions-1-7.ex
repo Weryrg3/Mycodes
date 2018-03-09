@@ -15,7 +15,7 @@ IO.puts(Times.quadruple(10))
 defmodule Soma do
   def sum(0), do: 0
   def sum(n), do: n + sum(n - 1)
-  # IO.puts("#{n} + (#{n} - 1)") 
+  # IO.puts("#{n} + (#{n} - 1)")
 
   def gcd(x, y) do
     # [1, 2, 5, 10]
@@ -41,7 +41,7 @@ IO.inspect(Soma.gcd(10, 15))
 # Soma.gcd(10, 15)
 ###########################################################################################################################
 
-# Pág 56 Livro 1.3
+# Pág 56 Livro 1.3 -> 1.6
 defmodule Chop do
   def guess(number, range) do           # Execução inicial recebe um número e uma range
     first_guess = find_guess(range)     # Variável first recebe o retorno da range -> 0-0
@@ -56,7 +56,7 @@ defmodule Chop do
   defp guess(number, first..last, guess) do   # caso a função de cima falhe o valor entra nessa função -> 0-1
     IO.puts("Is it #{guess}")
 
-    next_range =                
+    next_range =
       if guess > number do  # ex: 500 > 273
         first..(guess - 1)  # 1 .. 499
       else
@@ -75,14 +75,11 @@ end
 # Chop.guess(273, 1..1000)
 ##########################################################################################################################################
 
-# incomplete
-# Pág 63 Livro 1.3
-
-#IO.inspect(Float.to_string(Float.round(4.6666, 2)))         
+#IO.inspect(Float.to_string(Float.round(4.6666, 2)))
 Float.round(4.655, 2) |> Float.to_string() |> IO.inspect()   # - Converta um flutuador em uma string com dois dígitos decimais. (Erlang)
 IO.inspect(System.cwd())                #Current working directory
 #IO.inspect(System.get_env())           #Returns all system environment variables
 IO.inspect(System.get_env("HOSTNAME"))  #Returns the value of the given environment variable
 #ls
 IO.inspect(Path.extname("test.exs"))    # Internet
-# – Convert a string containing JSON into Elixir data structures. (Just find; don’t install.)
+# – Convert a string containing JSON into Elixir data structures. (Just find; don’t install.) # Poison Encode
