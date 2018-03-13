@@ -13,7 +13,7 @@
 # seconds." But in the receive loop, it has an explicit timeout of 2,000 ms.
 # Why did I say "about" when it looks as if the time should be pretty accurate?
 
-# ?????????????????????????????????????
+# Porque muitas vezes o código demora mais para executar ultrapassando os 2 segundos
 
 # Exercise: Nodes-3
 # Alter the code so that successive ticks are sent to each registered client
@@ -21,7 +21,61 @@
 # on). Once the last client receives a tick, the process starts back at the
 # first. The solution should deal with new clients being added at any time.
 
-# code here
+# C17N = Cápiulo 17 -> Node
+defmodule Ticker do
+  # 2 seconds
+  @interval 2000
+  @name :ticker
+  def start do
+    pid = spawn(__MODULE__, :generator, [[], 0])
+    :global.register_name(@name, pid)
+  end
+
+  def register(client_pid) do
+    try do
+      send(:global.whereis_name(@name), {:register, client_pid})
+    rescue
+      ArgumentError -> "Tick not found!!!"
+    end
+  end
+
+  def generator(clients, n) do
+    receive do
+      {:register, pid} ->
+        IO.puts("registering #{inspect(pid)}")
+        generator([pid | clients], n)
+    after
+      @interval ->
+        n = if n < 0, do: length(clients) - 1, else: n
+
+        if clients == [] do
+          IO.puts("Waiting client for tick")
+        else
+          pid = Enum.at(clients, n)
+          IO.puts("tick ID: #{String.replace(inspect(pid), ["#", "<", ">", "PID"], "")}")
+          send(pid, {:tick, pid})
+        end
+
+        generator(clients, n - 1)
+    end
+  end
+end
+
+defmodule Client do
+  def start do
+    pid = spawn(__MODULE__, :receiver, [1])
+    Ticker.register(pid)
+  end
+
+  def receiver(n) do
+    receive do
+      {:tick, pid} ->
+        # IO.puts "tock in client"
+        IO.puts("tock in client ID: #{String.replace(inspect(pid), ["#", "<", ">", "PID"], "")} - #{n}")
+        receiver(n + 1)
+    end
+  end
+end
 
 # Exercise: Nodes-4
 # The ticker process in this chapter is a central server that sends events to

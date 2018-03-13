@@ -11,7 +11,7 @@ defmodule Chain do
       Enum.reduce(1..n, self(), fn _, send_to ->
         spawn(Chain, :counter, [send_to])
       end)
-
+    # require IEx; IEx.pry
     send(last, 0)
 
     receive do

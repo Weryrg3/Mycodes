@@ -20,7 +20,6 @@ defmodule Ticker do
     after
       @interval ->
         IO.puts("tick")
-
         Enum.each(clients, fn client ->
           send(client, {:tick})
         end)

@@ -85,3 +85,37 @@ test2 = [[6, 7, 8, 9],
 ]
 
 Tudo.imprime(test2)
+
+defmodule Parallel do
+  def pmap(collection, fun) do
+    me = self()
+
+    collection
+    |> Enum.map(fn elem ->
+      spawn_link(fn -> send(me, {self(), fun.(elem)}) end)
+    end)
+    |> Enum.map(fn pid ->
+      receive do
+        {^pid, result} -> result
+      end
+    end)
+  end
+end
+
+defmodule NormalFun do
+  def test1(list, fun) do
+    list
+    |> Enum.map(fn elem -> fun.(elem) end)
+  end
+end
+
+Enum.each(1..10, fn _ ->
+{time, _} = :timer.tc(Parallel, :pmap, [1..1000, &(&1 > 50)])
+IO.puts("Time: #{time}") end
+)
+IO.puts("")
+
+Enum.each(1..10, fn _ ->
+  {time, _} = :timer.tc(NormalFun, :test1, [1..1000, &(&1 > 50)])
+  IO.puts("Time: #{time}") end
+)
