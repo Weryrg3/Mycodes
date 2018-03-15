@@ -119,3 +119,70 @@ Enum.each(1..10, fn _ ->
   {time, _} = :timer.tc(NormalFun, :test1, [1..1000, &(&1 > 50)])
   IO.puts("Time: #{time}") end
 )
+
+#########################################################################
+# C17N = Cápiulo 17 -> Node
+defmodule Ticker do
+  # 2 seconds
+  @interval 2000
+  @name :ticker
+  def start do
+    pid = spawn(__MODULE__, :generator, [[], 0])
+    :global.register_name(@name, pid)
+  end
+
+  def register(client_pid) do
+    try do
+      send(:global.whereis_name(@name), {:register, client_pid, Node.self()})
+    rescue
+      ArgumentError -> "Tick not found!!!"
+    end
+  end
+
+  def generator(clients, n) do
+    receive do
+      {:register, pid, node_self} ->
+        IO.puts("registering #{inspect(pid)}")
+        Process.monitor(pid)
+        [node_self, _] = Atom.to_string(node_self) |> String.split("@")
+        clients = [{pid, node_self} | clients]
+        generator(clients, length(clients) - 1)
+
+      {_, _, _, pid_error, :noconnection} ->
+        IO.puts("unregistering client #{inspect(pid_error)}")
+        # clients = List.delete(clients, {pid_error, _})
+        clients = Enum.reject(clients, fn {pid, _no} -> pid == pid_error end)
+        generator(clients, length(clients) - 1)
+        send(pid, {:tick, pid})
+      after
+      @interval ->
+        n = if n < 0, do: length(clients) - 1, else: n
+
+        if clients == [] do
+          IO.puts("Waiting client for tick")
+        else
+          {pid, no} = Enum.at(clients, n)
+          IO.puts("tick client name: #{no} ID: #{String.replace(inspect(pid), ["#", "<", ">", "PID"], "")}")
+          send(pid, {:tick, pid})
+        end
+
+        generator(clients, n - 1)
+    end
+  end
+end
+
+defmodule Client do
+  def start do
+    pid = spawn(__MODULE__, :receiver, [])
+    Ticker.register(pid)
+  end
+
+  def receiver() do
+    receive do
+      {:tick, pid} ->
+        [node_s, _] = Atom.to_string(Node.self) |> String.split("@")
+        IO.puts("tock in client name: #{node_s} ID: #{String.replace(inspect(pid), ["#", "<", ">", "PID"], "")}")
+        receiver()
+    end
+  end
+end

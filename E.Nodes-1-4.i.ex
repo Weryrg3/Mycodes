@@ -86,3 +86,61 @@ end
 # with the case where a client’s receive loop times out just as you’re adding
 # a new process. What does this say about who has to be responsible for
 # updating the links?
+defmodule Client do
+  def start_client(ring) do
+    spawn(__MODULE__, :client_init, [ring])
+  end
+
+  def start_ring do
+    spawn(__MODULE__, :ring_loop, [nil])
+  end
+
+  def ring_loop(state) do
+    receive do
+      {:register, pid} ->
+        case state do
+          nil ->
+            send(pid, :tick)
+            ring_loop({pid, pid})
+
+          {first, last} ->
+            send(pid, {:change_next, first})
+            send(last, {:change_next, pid})
+            ring_loop({first, pid})
+        end
+    end
+  end
+
+  def client_init(ring) do
+    send(ring, {:register, self()})
+    client_loop(false, nil, ring)
+  end
+
+  def client_loop(send, next, ring) do
+    receive do
+      {:change_next, pid} ->
+        log(ring, "Registrando #{inspect(pid)}")
+        client_loop(send, pid, ring)
+
+      :tick ->
+        log(ring, "Tock")
+        client_loop(true, next, ring)
+    after
+      2000 ->
+        if send && next do
+          log(ring, "Tick [#{inspect next}]")
+          send(next, :tick)
+          client_loop(false, next, ring)
+        else
+          client_loop(send, next, ring)
+        end
+    end
+  end
+
+  defp log(ring, msg) do
+    IO.puts("[ring: #{inspect ring}, node: #{inspect(self())}] #{msg}")
+  end
+end
+
+# ring = :global.register_name(:ring, Client.start_ring())
+# Client.start_client(ring)
