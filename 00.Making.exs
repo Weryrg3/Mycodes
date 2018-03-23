@@ -1,15 +1,12 @@
-defmodule Chat do
-
+defmodule No do
+  defstruct valor: nil, proximo: nil
 end
 
-# Aplicação de bots que conversam e respondam
-# o usuário inicia um bot, depois outro, então envia mensagem de um para o outro
-# e recebe uma resposta
+# no1 = No.__struct__(valor: 1)
+# no2 = No.__struct__(valor: 2)
+# no3 = No.__struct__(valor: 3)
 
-# fulano de tal entrou
-# quando tiver 1 ou mais bots # fulano de tal entrou envie uma mensagem para ele!!
-
-# start_people
-# send_message -> send_message("Oi", "people2") or send_message("Olá pessoal", "todos")
-# loop_managenment
-# loop_messages
+# IO.inspect(no3)
+#
+# no1.__Struct__(proximo: no2)
+#
