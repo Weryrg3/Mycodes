@@ -5,36 +5,36 @@ kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]                              
 IO.puts("List\n")                                                                                        #
 # IO.inspect(List.ascii_printable?())                         #                                         /1
 # IO.inspect(List.ascii_printable?())                         #                                         /2
-# IO.inspect(List.delete())                                   #                                         /2
+IO.inspect(List.delete(list, 2))                              # [1, 3]                                  /2
 # IO.inspect(List.delete_at())                                #                                         /2
 IO.inspect(List.duplicate(5, 4))                              # [5, 5, 5, 5]                            /2
 # IO.inspect(List.first())                                    #                                         /1
-IO.inspect(List.flatten([[[1], 2], [[[3]]]]))                 # [1, 2, 3]                               /1 
+IO.inspect(List.flatten([[[1], 2], [[[3]]]]))                 # [1, 2, 3]                               /1
 # IO.inspect(List.flatten())                                  #                                         /2
 IO.inspect(List.foldl([1, 2, 3], "", &("#{&1}(#{&2})")))      # "3(2(1()))"                             /3  List.foldl([1,2,3], "", fn value, acc -> "#{value}(#{acc})" end)
 IO.inspect(List.foldr([1, 2, 3], "", &("#{&1}(#{&2})")))      # "1(2(3()))"                             /3  List.foldr([1,2,3], "", fn value, acc -> "#{value}(#{acc})" end)
-# IO.inspect(List.insert_at())                                #                                         /3
+IO.inspect(List.insert_at(list, 1, 4))                        # [1, 4, 2, 3]                            /3
 IO.inspect(List.keydelete(kw, "RO", 2))                       # [name: "Wesley", likes: "Programming"]  /3
 IO.inspect(List.keyfind(kw, "RO", 2))                         # {:where, "Ji-Paraná", "RO"}             /3    \ Verificando se tem "RO" em kw, na segunda posição da tupla (keyword).
-IO.inspect(List.keyfind(kw, "RO", 3, "teste"))                # "teste"                                 /4    \ Verifica "RO" posição 3, caso não encontre retorna com valor passado 
+IO.inspect(List.keyfind(kw, "RO", 3, "teste"))                # "teste"                                 /4    \ Verifica "RO" posição 3, caso não encontre retorna com valor passado
 # IO.inspect(List.keymember?())                               #                                         /3
 IO.inspect(List.keyreplace(kw2, :name, 0, {:nome, "Wesley"})) # [nome: "Wesley", likes: "Programming"]  /4
 # IO.inspect(List.keysort())                                  #                                         /2
 # IO.inspect(List.keystore())                                 #                                         /4
 # IO.inspect(List.keytake())                                  #                                         /3
-# IO.inspect(List.last())                                     #                                         /1
-# IO.inspect(List.myers_difference())                         #                                         /2 
+IO.inspect(List.last(list))                                   # 3                                        /1
+# IO.inspect(List.myers_difference())                         #                                         /2
 # IO.inspect(List.pop_at())                                   #                                         /2
 # IO.inspect(List.pop_at())                                   #                                         /3
 IO.inspect(List.replace_at(list, 2, "buckle my shoe"))        # [1, 2, "buckle my shoe"]                /3 charlist   \ na posição dois (0, 1, 2), trocou o 3 pela string
 # IO.inspect(List.starts_with?())                             #                                         /2
 # IO.inspect(List.to_atom())                                  #                                         /1
-# IO.inspect(List.to_existing_atom())                         #                                         /1 
+# IO.inspect(List.to_existing_atom())                         #                                         /1
 # IO.inspect(List.to_float())                                 #                                         /1
 # IO.inspect(List.to_integer())                               #                                         /1
 # IO.inspect(List.to_integer())                               #                                         /2
 # IO.inspect(List.to_string())                                #                                         /1
-# IO.inspect(List.to_tuple())                                 #                                         /1
+IO.inspect(List.to_tuple(list))                               # {1, 2, 3}                               /1
 # IO.inspect(List.update_at())                                #                                         /3
 # IO.inspect(List.wrap())                                     #                                         /1
 # IO.inspect(List.zip())                                      #                                         /1
@@ -62,7 +62,7 @@ map1 = %{ nome: "Wesley"}                                                       
 IO.inspect(map[:nome])  # "Wesley"                                                        #
 IO.inspect(map.nome)    # "Wesley"                                                        #
 # m = %{ a: 1, b: 2, c: 3 }               %{a: 1, b: 2, c: 3}                             \ Map
-# m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map 
+# m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map
 # m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map (Map.put_new/3) para adicionar uma nova chave
 # IO.inspect(Map.delete())                      #                                         /2
 IO.inspect(Map.drop(map, [:nome, :likes]))      # %{where: "Ji-Paraná"}                   /2
@@ -70,7 +70,7 @@ IO.inspect(Map.drop(map, [:nome, :likes]))      # %{where: "Ji-Paraná"}        
 # IO.inspect(Map.fetch!                         #                                         /2
 # IO.inspect(Map.fetch                          #                                         /2
 # IO.inspect(Map.from_struct                    #                                         /1
-# IO.inspect(Map.get                            #                                         /2
+IO.inspect(Map.get(map, :nome))                 # "Wesley"                                /2
 # IO.inspect(Map.get                            #                                         /3
 # IO.inspect(Map.get_and_update!                #                                         /3
 # IO.inspect(Map.get_and_update                 #                                         /3
@@ -152,7 +152,7 @@ IO.inspect(Keyword.to_list([a: 1, b: 2, c: 3, a: 5]))             # [a: 1, b: 2,
 IO.inspect(Keyword.update!([a: 1], :a, &(&1 * 2)))                # [a: 2]                        /3    \ Caso não achei a key ocorre erro de compilação[a: 1, b: 2, a: 3]
 IO.inspect(Keyword.update([a: 1], :b, 13, &(&1 * 2)))             # [a: 1, b: 13]                 /4
 IO.inspect(Keyword.values([a: 1, b: 2, a: 3]))                    # [1, 2, 3]                     /1
-#################################################################################################### 
+####################################################################################################
 IO.puts("\nSet \n")                                                                                #
 ################################################ Set ###############################################
 # IO.inspect(Set.delete())                                        #                               /2
