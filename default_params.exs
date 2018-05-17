@@ -5,6 +5,7 @@ defmodule Example do
 end
 
 Example.func(4, 5, 6, 7)
+Example.func(4, 7, 6)
 Example.func(4, 7)
 
 
