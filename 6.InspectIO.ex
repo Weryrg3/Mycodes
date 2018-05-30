@@ -108,85 +108,85 @@ IO.inspect(IO.chardata_to_string([0x0061, "bc"]))          # "abc"              
 # Sequence.defsequence())                                  #                              /2
 # Sequence.defsequence())                                  #                              /3
 # ---------------------------------------------------------#-------------------------------#
-#IO.inspect(IO.ANSI.black())                               # "\e[30m"                     /0
-#IO.inspect(IO.ANSI.black_background())                    # "\e[40m"                     /0
-#IO.inspect(IO.ANSI.blink_off())                           # "\e[25m"                     /0
-#IO.inspect(IO.ANSI.blink_rapid())                         # "\e[6m"                      /0
-#IO.inspect(IO.ANSI.blink_slow())                          # "\e[5m"                      /0
-#IO.inspect(IO.ANSI.blue())                                # "\e[34m"                     /0
-#IO.inspect(IO.ANSI.blue_background())                     # "\e[44m"                     /0
-#IO.inspect(IO.ANSI.bright())                              # "\e[1m"                      /0
-#IO.inspect(IO.ANSI.clear())                               # "\e[2J"                      /0
-#IO.inspect(IO.ANSI.clear_line())                          # "\e[2K"                      /0
+IO.puts("#{"\e[30m"} black #{"\e[0m"}")                    # IO.inspect(IO.ANSI.black())            # "\e[30m"    /0
+IO.puts("#{"\e[40m"} black_background #{"\e[0m"}")         # IO.inspect(IO.ANSI.black_background()) # "\e[40m"    /0
+IO.puts("#{"\e[25m"} blink_off #{"\e[0m"}")                # IO.inspect(IO.ANSI.blink_off())        # "\e[25m"    /0
+IO.puts("#{"\e[6m"} blink_rapid #{"\e[0m"}")               # IO.inspect(IO.ANSI.blink_rapid())      # "\e[6m"     /0
+IO.puts("#{"\e[5m"} blink_slow #{"\e[0m"}")                # IO.inspect(IO.ANSI.blink_slow())       # "\e[5m"     /0
+IO.puts("#{"\e[34m"} blue #{"\e[0m"}")                     # IO.inspect(IO.ANSI.blue())             # "\e[34m"    /0
+IO.puts("#{"\e[44m"} blue_background #{"\e[0m"}")          # IO.inspect(IO.ANSI.blue_background())  # "\e[44m"    /0
+IO.puts("#{"\e[1m"} bright #{"\e[0m"}")                    # IO.inspect(IO.ANSI.bright())           # "\e[1m"     /0
+IO.puts("#{"\e[2K"} clear_line #{"\e[0m"}")                # IO.inspect(IO.ANSI.clear_line())       # "\e[2K"     /0
+#IO.inspect(IO.ANSI.clear())                               # "\e[2J"  Limpa terminal      /0
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 #IO.inspect(IO.ANSI.color())                               #                              /1
 # IO.inspect(IO.ANSI.color())                              #                              /3
 # IO.inspect(IO.ANSI.color_background())                   #                              /1
 # IO.inspect(IO.ANSI.color_background())                   #                              /3
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
-#IO.inspect(IO.ANSI.conceal())                             # "\e[8m"                      /0
-#IO.inspect(IO.ANSI.crossed_out())                         # "\e[9m"                      /0
-#IO.inspect(IO.ANSI.cyan())                                # "\e[36m"                     /0
-#IO.inspect(IO.ANSI.cyan_background())                     # "\e[46m"                     /0
-#IO.inspect(IO.ANSI.default_background())                  # "\e[49m"                     /0
-#IO.inspect(IO.ANSI.default_color())                       # "\e[39m"                     /0
-#IO.inspect(IO.ANSI.enabled?())                            # true                         /0
-#IO.inspect(IO.ANSI.encircled())                           # "\e[52m"                     /0
-#IO.inspect(IO.ANSI.faint())                               # "\e[2m"                      /0
-#IO.inspect(IO.ANSI.font_1())                              # "\e[11m"                     /0
-#IO.inspect(IO.ANSI.font_2())                              # "\e[12m"                     /0
-#IO.inspect(IO.ANSI.font_3())                              # "\e[13m"                     /0
-#IO.inspect(IO.ANSI.font_4())                              # "\e[14m"                     /0
-#IO.inspect(IO.ANSI.font_5())                              # "\e[15m"                     /0
-#IO.inspect(IO.ANSI.font_6())                              # "\e[16m"                     /0
-#IO.inspect(IO.ANSI.font_7())                              # "\e[17m"                     /0
-#IO.inspect(IO.ANSI.font_8())                              # "\e[18m"                     /0
-#IO.inspect(IO.ANSI.font_9())                              # "\e[19m"                     /0
+IO.puts("#{"\e[8m"}  conceal #{"\e[0m"}")                  # IO.inspect(IO.ANSI.conceal())             # "\e[8m"    /0
+IO.puts("#{"\e[9m"}  crossed_out #{"\e[0m"}")              # IO.inspect(IO.ANSI.crossed_out())         # "\e[9m"    /0
+IO.puts("#{"\e[36m"} cyan #{"\e[0m"}")                     # IO.inspect(IO.ANSI.cyan())                # "\e[36m"   /0
+IO.puts("#{"\e[46m"} cyan_background #{"\e[0m"}")          # IO.inspect(IO.ANSI.cyan_background())     # "\e[46m"   /0
+IO.puts("#{"\e[49m"} default_background #{"\e[0m"}")       # IO.inspect(IO.ANSI.default_background())  # "\e[49m"   /0
+IO.puts("#{"\e[39m"} default_color #{"\e[0m"}")            # IO.inspect(IO.ANSI.default_color())       # "\e[39m"   /0
+IO.puts("#{"\e[52m"} encircled #{"\e[0m"}")                # IO.inspect(IO.ANSI.encircled())           # "\e[52m"   /0
+IO.puts("#{"\e[2m"}  faint #{"\e[0m"}")                    # IO.inspect(IO.ANSI.faint())               # "\e[2m"    /0
+IO.puts("#{"\e[11m"} font_1 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_1())              # "\e[11m"   /0
+IO.puts("#{"\e[12m"} font_2 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_2())              # "\e[12m"   /0
+IO.puts("#{"\e[13m"} font_3 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_3())              # "\e[13m"   /0
+IO.puts("#{"\e[14m"} font_4 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_4())              # "\e[14m"   /0
+IO.puts("#{"\e[15m"} font_5 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_5())              # "\e[15m"   /0
+IO.puts("#{"\e[16m"} font_6 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_6())              # "\e[16m"   /0
+IO.puts("#{"\e[17m"} font_7 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_7())              # "\e[17m"   /0
+IO.puts("#{"\e[18m"} font_8 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_8())              # "\e[18m"   /0
+IO.puts("#{"\e[19m"} font_9 #{"\e[0m"}")                   # IO.inspect(IO.ANSI.font_9())              # "\e[19m"   /0
+# IO.inspect(IO.ANSI.enabled?())                           # true                         /0
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
 # IO.inspect(IO.ANSI.format())                             #                              /1
 # IO.inspect(IO.ANSI.format())                             #                              /2
 # IO.inspect(IO.ANSI.format_fragment())                    #                              /1
 # IO.inspect(IO.ANSI.format_fragment())                    #                              /2
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++#
-#IO.inspect(IO.ANSI.framed())                              # "\e[51m"                     /0
-#IO.inspect(IO.ANSI.green())                               # "\e[32m"                     /0
-#IO.inspect(IO.ANSI.green_background())                    # "\e[42m"                     /0
-#IO.inspect(IO.ANSI.home())                                # "\e[H"                       /0
-#IO.inspect(IO.ANSI.inverse())                             # "\e[7m"                      /0
-#IO.inspect(IO.ANSI.inverse_off())                         # "\e[27m"                     /0
-#IO.inspect(IO.ANSI.italic())                              # "\e[3m"                      /0
-#IO.inspect(IO.ANSI.light_black())                         # "\e[90m"                     /0
-#IO.inspect(IO.ANSI.light_black_background())              # "\e[100m"                    /0
-#IO.inspect(IO.ANSI.light_blue())                          # "\e[94m"                     /0
-#IO.inspect(IO.ANSI.light_blue_background())               # "\e[104m"                    /0
-#IO.inspect(IO.ANSI.light_cyan())                          # "\e[96m"                     /0
-#IO.inspect(IO.ANSI.light_cyan_background())               # "\e[106m"                    /0
-#IO.inspect(IO.ANSI.light_green())                         # "\e[92m"                     /0
-#IO.inspect(IO.ANSI.light_green_background())              # "\e[102m"                    /0
-#IO.inspect(IO.ANSI.light_magenta())                       # "\e[95m"                     /0
-#IO.inspect(IO.ANSI.light_magenta_background())            # "\e[105m"                    /0
-#IO.inspect(IO.ANSI.light_red())                           # "\e[91m"                     /0
-#IO.inspect(IO.ANSI.light_red_background())                # "\e[101m"                    /0
-#IO.inspect(IO.ANSI.light_white())                         # "\e[97m"                     /0
-#IO.inspect(IO.ANSI.light_white_background())              # "\e[107m"                    /0
-#IO.inspect(IO.ANSI.light_yellow())                        # "\e[93m"                     /0
-#IO.inspect(IO.ANSI.light_yellow_background())             # "\e[103m"                    /0
-#IO.inspect(IO.ANSI.magenta())                             # "\e[35m"                     /0
-#IO.inspect(IO.ANSI.magenta_background())                  # "\e[45m"                     /0
-#IO.inspect(IO.ANSI.no_underline())                        # "\e[24m"                     /0
-#IO.inspect(IO.ANSI.normal())                              # "\e[22m"                     /0
-#IO.inspect(IO.ANSI.not_framed_encircled())                # "\e[54m"                     /0
-#IO.inspect(IO.ANSI.not_italic())                          # "\e[23m"                     /0
-#IO.inspect(IO.ANSI.not_overlined())                       # "\e[55m"                     /0
-#IO.inspect(IO.ANSI.overlined())                           # "\e[53m"                     /0
-#IO.inspect(IO.ANSI.primary_font())                        # "\e[10m"                     /0
-#IO.inspect(IO.ANSI.red())                                 # "\e[31m"                     /0
-#IO.inspect(IO.ANSI.red_background())                      # "\e[41m"                     /0
-#IO.inspect(IO.ANSI.reset())                               # "\e[0m"                      /0
-#IO.inspect(IO.ANSI.reverse())                             # "\e[7m"                      /0
-#IO.inspect(IO.ANSI.reverse_off())                         # "\e[27m"                     /0
-#IO.inspect(IO.ANSI.underline())                           # "\e[4m"                      /0
-#IO.inspect(IO.ANSI.white())                               # "\e[37m"                     /0
-#IO.inspect(IO.ANSI.white_background())                    # "\e[47m"                     /0
-#IO.inspect(IO.ANSI.yellow())                              # "\e[33m"                     /0
-#IO.inspect(IO.ANSI.yellow_background())                   # "\e[43m"                     /0
+IO.puts("#{"\e[51m"} framed #{"\e[0m"}")                      # IO.inspect(IO.ANSI.framed())                    # "\e[51m"    /0
+IO.puts("#{"\e[32m"} green #{"\e[0m"}")                       # IO.inspect(IO.ANSI.green())                     # "\e[32m"    /0
+IO.puts("#{"\e[42m"} green_background #{"\e[0m"}")            # IO.inspect(IO.ANSI.green_background())          # "\e[42m"    /0
+IO.puts("#{"\e[H"} home #{"\e[0m"}")                          # IO.inspect(IO.ANSI.home())                      # "\e[H"      /0
+IO.puts("#{"\e[7m"} inverse #{"\e[0m"}")                      # IO.inspect(IO.ANSI.inverse())                   # "\e[7m"     /0
+IO.puts("#{"\e[27m"} inverse_off #{"\e[0m"}")                 # IO.inspect(IO.ANSI.inverse_off())               # "\e[27m"    /0
+IO.puts("#{"\e[3m"} italic #{"\e[0m"}")                       # IO.inspect(IO.ANSI.italic())                    # "\e[3m"     /0
+IO.puts("#{"\e[90m"} light_black #{"\e[0m"}")                 # IO.inspect(IO.ANSI.light_black())               # "\e[90m"    /0
+IO.puts("#{"\e[100m"} light_black_background #{"\e[0m"}")     # IO.inspect(IO.ANSI.light_black_background())    # "\e[100m"   /0
+IO.puts("#{"\e[94m"} light_blue #{"\e[0m"}")                  # IO.inspect(IO.ANSI.light_blue())                # "\e[94m"    /0
+IO.puts("#{"\e[104m"} light_blue_background #{"\e[0m"}")      # IO.inspect(IO.ANSI.light_blue_background())     # "\e[104m"   /0
+IO.puts("#{"\e[96m"} light_cyan #{"\e[0m"}")                  # IO.inspect(IO.ANSI.light_cyan())                # "\e[96m"    /0
+IO.puts("#{"\e[106m"} light_cyan_background #{"\e[0m"}")      # IO.inspect(IO.ANSI.light_cyan_background())     # "\e[106m"   /0
+IO.puts("#{"\e[92m"} light_green #{"\e[0m"}")                 # IO.inspect(IO.ANSI.light_green())               # "\e[92m"    /0
+IO.puts("#{"\e[102m"} light_green_background #{"\e[0m"}")     # IO.inspect(IO.ANSI.light_green_background())    # "\e[102m"   /0
+IO.puts("#{"\e[95m"} light_magenta #{"\e[0m"}")               # IO.inspect(IO.ANSI.light_magenta())             # "\e[95m"    /0
+IO.puts("#{"\e[105m"} light_magenta_background #{"\e[0m"}")   # IO.inspect(IO.ANSI.light_magenta_background())  # "\e[105m"   /0
+IO.puts("#{"\e[91m"} light_red #{"\e[0m"}")                   # IO.inspect(IO.ANSI.light_red())                 # "\e[91m"    /0
+IO.puts("#{"\e[101m"} light_red_background #{"\e[0m"}")       # IO.inspect(IO.ANSI.light_red_background())      # "\e[101m"   /0
+IO.puts("#{"\e[97m"} light_white #{"\e[0m"}")                 # IO.inspect(IO.ANSI.light_white())               # "\e[97m"    /0
+IO.puts("#{"\e[107m"} light_white_background #{"\e[0m"}")     # IO.inspect(IO.ANSI.light_white_background())    # "\e[107m"   /0
+IO.puts("#{"\e[93m"} light_yellow #{"\e[0m"}")                # IO.inspect(IO.ANSI.light_yellow())              # "\e[93m"    /0
+IO.puts("#{"\e[103m"} light_yellow_background #{"\e[0m"}")    # IO.inspect(IO.ANSI.light_yellow_background())   # "\e[103m"   /0
+IO.puts("#{"\e[35m"} magenta #{"\e[0m"}")                     # IO.inspect(IO.ANSI.magenta())                   # "\e[35m"    /0
+IO.puts("#{"\e[45m"} magenta_background #{"\e[0m"}")          # IO.inspect(IO.ANSI.magenta_background())        # "\e[45m"    /0
+IO.puts("#{"\e[24m"} no_underline #{"\e[0m"}")                # IO.inspect(IO.ANSI.no_underline())              # "\e[24m"    /0
+IO.puts("#{"\e[22m"} normal #{"\e[0m"}")                      # IO.inspect(IO.ANSI.normal())                    # "\e[22m"    /0
+IO.puts("#{"\e[54m"} not_framed_encircled #{"\e[0m"}")        # IO.inspect(IO.ANSI.not_framed_encircled())      # "\e[54m"    /0
+IO.puts("#{"\e[23m"} not_italic #{"\e[0m"}")                  # IO.inspect(IO.ANSI.not_italic())                # "\e[23m"    /0
+IO.puts("#{"\e[55m"} not_overlined #{"\e[0m"}")               # IO.inspect(IO.ANSI.not_overlined())             # "\e[55m"    /0
+IO.puts("#{"\e[53m"} overlined #{"\e[0m"}")                   # IO.inspect(IO.ANSI.overlined())                 # "\e[53m"    /0
+IO.puts("#{"\e[10m"} primary_font #{"\e[0m"}")                # IO.inspect(IO.ANSI.primary_font())              # "\e[10m"    /0
+IO.puts("#{"\e[31m"} red #{"\e[0m"}")                         # IO.inspect(IO.ANSI.red())                       # "\e[31m"    /0
+IO.puts("#{"\e[41m"} red_background #{"\e[0m"}")              # IO.inspect(IO.ANSI.red_background())            # "\e[41m"    /0
+IO.puts("#{"\e[0m"} reset #{"\e[0m"}")                        # IO.inspect(IO.ANSI.reset())                     # "\e[0m"     /0
+IO.puts("#{"\e[7m"} reverse #{"\e[0m"}")                      # IO.inspect(IO.ANSI.reverse())                   # "\e[7m"     /0
+IO.puts("#{"\e[27m"} reverse_off #{"\e[0m"}")                 # IO.inspect(IO.ANSI.reverse_off())               # "\e[27m"    /0
+IO.puts("#{"\e[4m"} underline #{"\e[0m"}")                    # IO.inspect(IO.ANSI.underline())                 # "\e[4m"     /0
+IO.puts("#{"\e[37m"} white #{"\e[0m"}")                       # IO.inspect(IO.ANSI.white())                     # "\e[37m"    /0
+IO.puts("#{"\e[47m"} white_background #{"\e[0m"}")            # IO.inspect(IO.ANSI.white_background())          # "\e[47m"    /0
+IO.puts("#{"\e[33m"} yellow #{"\e[0m"}")                      # IO.inspect(IO.ANSI.yellow())                    # "\e[33m"    /0
+IO.puts("#{"\e[43m"} yellow_background #{"\e[0m"}")           # IO.inspect(IO.ANSI.yellow_background())         # "\e[43m"    /0
