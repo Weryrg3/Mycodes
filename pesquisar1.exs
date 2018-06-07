@@ -1,24 +1,38 @@
 defmodule SearchWords do
   def procurar_palavra(word, process) do
     IO.puts("")
-
+    time_total_inicial = Time.utc_now()
     paths = criar_caminho([File.cwd!()], [], process)
     path_by_process = Enum.chunk_every(paths, process)
+    time_path_final = Time.diff(Time.utc_now(), time_total_inicial)
     IO.puts("")
+
+    time_inicial_arquivos = Time.utc_now()
     pids =
       Enum.map(path_by_process, &spawn(__MODULE__, :procurar_por_arquivo, [&1, word, self()]))
 
     {:ok, {paths2, arquivos}} = loop([], [], 0, pids)
-    # IO.puts("\e[94mPesquisa: \e[1m#{word}\e[0m")
+    time_final_arquivos = Time.diff(Time.utc_now(), time_inicial_arquivos)
+
+    time_total_final = Time.diff(Time.utc_now(), time_total_inicial)
+    IO.puts("\nTempo pesquisa de todos arquivos e dir: #{time_path_final} s")
+    IO.puts("Tempo de verificação de pesquisa de arquivos: #{time_final_arquivos} s")
+    IO.puts("\e[1mTempo total: #{time_total_final} s\e[0m")
     IO.puts("\e[1mProcessos totais: #{length(pids)}\e[0m")
     IO.puts("\e[1mTotais de arquivos: #{length(paths)}\e[0m")
-    IO.puts("\nCriando arquivos.txt com arquivos encontrados")
-    IO.puts("\nCriando caminhos.txt com diretórios encontrados")
-    Process.sleep(1000)
-    File.touch!("arquivos.txt")
-    File.touch!("caminhos.txt")
-    File.write("arquivos.txt", Enum.join(arquivos, "\n"))
-    File.write("caminhos.txt", Enum.join(paths2, "\n"))
+
+    salvar =
+      IO.gets("Deseja salvar a busca dos arquivos S/n? ")
+      |> String.trim()
+      |> String.upcase()
+
+    if String.contains?(salvar, ["S", "SIM", "Y", "YES"]) do
+      lista_total = ["Arquivos"] ++ arquivos ++ [""] ++ ["Caminhos"] ++ paths2
+
+      IO.puts("\nCriando encontrados.txt com arquivos e caminhos encontrados ")
+      File.touch!("encontrados.txt")
+      File.write("encontrados.txt", Enum.join(lista_total, "\n"))
+    end
   end
 
   def criar_caminho([], dir, _), do: dir
@@ -31,7 +45,13 @@ defmodule SearchWords do
         |> Enum.chunk_every(process)
         |> Enum.map(&spawn(__MODULE__, :caminhos, [&1, head, self()]))
 
-      novos_arq = loop_caminhos([], pids)
+      novos_arq =
+        if pids != [] do
+          loop_caminhos([], pids)
+        else
+          IO.puts("\e[31m Diretório vázio? \e[1m#{inspect(head)}\e[0m")
+          []
+        end
 
       nova_lista = novos_arq ++ tail
       novo_dir = novos_arq ++ dir
@@ -65,7 +85,7 @@ defmodule SearchWords do
           loop_caminhos(paths, pids)
         end
     after
-      50 ->
+      1000 ->
         IO.puts("\e[31mErro \e[1m#{inspect(pids)} #{inspect(paths)}\e[0m")
         IO.puts("\e[31m#{String.duplicate("#", 100)}\e[0m")
         paths
@@ -81,7 +101,8 @@ defmodule SearchWords do
         IO.puts("\e[32m #{path}\e[0m \e[1m->\e[0m  \e[94m#{arquivo} \e[0m")
         loop([path | paths], [arquivo | arquivos], erros, pids)
 
-      {:erro, n} ->
+      {:erro, n, text, path} ->
+        IO.puts("\e[31mErro \e[1m#{Atom.to_string(text)}?\e[0m\e[31m #{path}\e[0m")
         loop(paths, arquivos, erros + n, pids)
 
       {:fim, pid} ->
@@ -90,7 +111,7 @@ defmodule SearchWords do
         if pids == [] do
           IO.puts("\nDiretórios: \e[33m #{inspect(paths)} \e[0m\n")
           IO.puts("Arquivos: \e[33m #{inspect(arquivos)} \e[0m")
-          IO.puts("\nTamanho lista de arquivos encontrados: \e[95m#{length(paths)}\e[0m")
+          IO.puts("\nTamanho da lista de arquivos encontrados: \e[95m#{length(paths)}\e[0m")
           IO.puts("Erros encontrados: \e[1m\e[31m#{erros}\e[0m")
           {:ok, {paths, arquivos}}
         else
@@ -111,9 +132,8 @@ defmodule SearchWords do
 
         procurar_por_arquivo(t, word, pid)
 
-      {:error, text} ->
-        send(pid, {:erro, 1})
-        IO.puts("\e[31mErro \e[1m#{Atom.to_string(text)}\e[0m\e[31m #{h}\e[0m")
+      {:error, error} ->
+        send(pid, {:erro, 1, error, h})
         procurar_por_arquivo(t, word, pid)
     end
   end
