@@ -18,7 +18,7 @@ IO.inspect(1 in 1 .. 10)               # true     in                      /2
 IO.inspect("abcd" =~ ~r/bc/)           # true     =~                      /2
 IO.inspect(div(10, 6))                 # 1                                /3    \ Divisão inteira
 IO.inspect(true and not(true) or 59)   # 59                  (or/2, and/2, not/1)
-IO.inspect(^a = 2)                     # 2                                /1    \ Partned M.
+IO.inspect(^a = 2)                     # 2                                /1    \ Partner M.
 # %/2
 # %{}/1
 # &/1
@@ -34,25 +34,27 @@ IO.inspect(is_map(%{"RO" => "Ron"}))   # true                             /1
 IO.inspect(is_nil(nil))                # true                             /1
 IO.inspect(is_number(10))              # true                             /1
 IO.inspect(is_tuple({1, 2, 3}))        # true                             /1
-# IO.inspect(is_pid())                 # true                             /1
+IO.inspect(is_pid(self()))             # true                             /1
 # IO.inspect(is_port())                # true                             /1
 # IO.inspect(is_reference())           # true                             /1
 #--------------------------------------#-----------------------------------#
 #IO.inspect(__CALLER__)                #                                  /0
 IO.inspect(__DIR__)                    # "/home/wesley/1.Wesley/Mycodes0" /0
-#IO.inspect(__ENV__)                   #                                  /0    \ Retorna diversas funções e seus parametros
+#IO.inspect(__ENV__)                   #                                  /0    \ Retorna diversas funções e seus parâmetros
 IO.inspect(__MODULE__)                 # nil                              /0
 #-------------------------------#------#-----#--###-----------------------####
 # binding                       #Terminal   /0  ### Só executa no terminal ###
 # breaks                        #Terminal   /0  ### Só executa no terminal ###
+# cd                            #Terminal   /1  ### Só executa no terminal ###
 # clear                         #Terminal   /0  ### Só executa no terminal ###
 # continue                      #Terminal   /0  ### Só executa no terminal ###
 # exports                       #Terminal   /0  ### Só executa no terminal ###
 # flush                         #Terminal   /0  ### Só executa no terminal ###
 # h                             #Terminal   /0  ### Só executa no terminal ###
+# i                             #Terminal   /0  ### Só executa no terminal ###
+# i                             #Terminal   /1  ### Só executa no terminal ###
 # ls                            #Terminal   /0  ### Só executa no terminal ###
 # make_ref                      #Terminal   /0  ### Só executa no terminal ###
-# i                             #Terminal   /0  ### Só executa no terminal ###
 # node                          #Terminal   /0  ### Só executa no terminal ###
 # open                          #Terminal   /0  ### Só executa no terminal ###
 # pwd                           #Terminal   /0  ### Só executa no terminal ###
@@ -63,13 +65,11 @@ IO.inspect(__MODULE__)                 # nil                              /0
 # self                          #Terminal   /0  ### Só executa no terminal ###
 # v                             #Terminal   /0  ### Só executa no terminal ###
 # whereami                      #Terminal   /0  ### Só executa no terminal ###
-# cd                            #Terminal   /1  ### Só executa no terminal ###
-# i                             #Terminal   /1  ### Só executa no terminal ###
 #-------------------------------#------------#--###-----#-----------------####
 # IO.inspect(__aliases__())                             #                 /1
 # IO.inspect(__block__())                               #                 /1
 # IO.inspect(alias!())                                  #                 /1
-#IO.inspect(alias(All.Tudo.Casa, as: Casa))             #                 /2   \ Simplifica a entrada de modulos
+alias(All.Tudo.Casa, as: Casa)                          #                 /2   \ Simplifica a entrada de módulos
 IO.inspect(apply(fn x -> x * 2 end, [3]))               # 6               /2
 IO.inspect(apply(Enum, :reverse, [[1, 2, 3]]))          # [3, 2, 1]       /3
 # IO.inspect(b())                                       #                 /1
@@ -116,7 +116,6 @@ IO.inspect(function_exported?(Enum, :member?, 2))       # true            /3    
 # IO.inspect(get_and_update_in())                       #                 /2
 # IO.inspect(get_and_update_in())                       #                 /3
 # IO.inspect(get_in())                                  #                 /2
-# IO.inspect(h())                                       #                 /1
 IO.inspect(hd([9, 1, 2]))                               # 9               /1    \ Retorna com Head da list, caso lista vázia, retorna erro Terminal,
 #IO.inspect(import())                                   #                 /2    \ Importa uma função ex: import List
 # IO.inspect(import_file())                             #                 /1
@@ -171,7 +170,7 @@ IO.inspect(put_elem({1, 2, 3, 4}, 1, 3))                # {1, 3, 3, 4}    /3    
 # IO.inspect(sigil_r())                                 #                 /2
 # IO.inspect(sigil_s())                                 #                 /2
 # IO.inspect(sigil_w())                                 #                 /2
-# IO.inspect(spawn(Test, :test1, []))                   # New process PID   /1
+# IO.inspect(spawn(Test, :test1, []))                   # New process PID /1
 # IO.inspect(spawn())                                   #                 /3
 # IO.inspect(spawn_link())                              #                 /1
 # IO.inspect(spawn_link())                              #                 /3

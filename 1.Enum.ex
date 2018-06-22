@@ -1,19 +1,19 @@
-10############################################################ Enum ################################################################
+############################################################ Enum ################################################################
 IO.puts("Enum \n")
 #import Enum      Com importação evitaria ter que escrever Enum mais de uma vez, porém nesse caso decidi não importar.
 list1 = [1, 2, 3]
 list2 = [0, 1, 2, 3, 4, 9, 8, 7, 6, 5]
 par = [2, 4, 6, 8]
-palavras = ["Casa", "Wesley", "wes", "Contêmporâneidade"]
-minpa = ["cas", "tes", "ig"]
+palavras = ["Casa", "Wesley", "wes", "Contemporaneidade"]
+list_words = ["cas", "tes", "ig"]
 IO.inspect(Enum.all?([1, nil, 3]))                    # false                                         /1    /&  &Enum.all?/1
 IO.inspect(Enum.all?(list2, &(&1 < 10)))              # true  fun \ or fn x -> x < 10 end             /2    /&  &Enum.all?/2
 IO.inspect(Enum.count(list1))                         # 3                                             /1    /&  &Enum.count/1
-IO.inspect(Enum.count(list2, &(rem(&1, 2) == 0)))     # 5                                             /2    \ par [0, 2, 4, 6, 8] tamho = 5
+IO.inspect(Enum.count(list2, &(rem(&1, 2) == 0)))     # 5                                             /2    \ par [0, 2, 4, 6, 8] tamanho = 5
 IO.inspect(Enum.concat([1 .. 5, 6 .. 8]))             # [1, 2, 3, 4, 5, 6, 7, 8]                      /1
-IO.inspect(Enum.concat(list1, list2))                 # [1, 2, 3, 0, 1, 2, 3, 4, 9, 8, 7, 6, 5]       /2    
+IO.inspect(Enum.concat(list1, list2))                 # [1, 2, 3, 0, 1, 2, 3, 4, 9, 8, 7, 6, 5]       /2
 IO.inspect(Enum.random(list2))                        # 9                                             /1    \ *valor aleatório da lista
-IO.inspect(Enum.sum(list1))                           # 6                                             /1    \ Soma todos numeros da lista
+IO.inspect(Enum.sum(list1))                           # 6                                             /1    \ Soma todos números da lista
 IO.inspect(Enum.chunk_by(list2, &(&1 < 5)))           # [[0, 1, 2, 3, 4], [9, 8, 7, 6, 5]]            /2    \ or Enum.chunk_by([1, 2, 2, 3, 4, 4, 6, 7, 7], &(rem(&1, 2) == 1))
 IO.inspect(Enum.chunk(list2, 2))                      # [[0, 1], [2, 3], [4, 9], '\b\a', [6, 5]]      /2    \ Igual?
 IO.inspect(Enum.chunk_every(list2, 2))                # [[0, 1], [2, 3], [4, 9], '\b\a', [6, 5]]      /2    \ Igual?
@@ -42,7 +42,7 @@ IO.inspect(Enum.find_value(par, "Impar", &(&1 == 1))) # "Impar"                 
 IO.inspect(Enum.flat_map([[1, 2], [3, 4]], &(&1)))    # [1, 2, 3, 4]                                  /2    \ Pega matriz e transforma lista novamente matriz(chunk)
 # IO.inspect(Enum.flat_map_reduce())                  #                                               /3
 IO.inspect(Enum.intersperse(list1, 0))                # [1, 0, 2, 0, 3]                               /2
-IO.inspect(Enum.into(1..5, [100, 101 ]))              # [100, 101, 1, 2, 3, 4, 5]                     /2    \ 
+IO.inspect(Enum.into(1..5, [100, 101 ]))              # [100, 101, 1, 2, 3, 4, 5]                     /2    \
 IO.inspect(Enum.into([2, 3], [2], &(&1 * 3)))         # [2, 6, 9]                                     /3    \ Retorna número passado e coloca função na lista
 IO.inspect(Enum.join(["ab", "cd", "efg"]))            # "abcdefg"                                     /1    \ Retorna uma string
 IO.inspect(Enum.join(["ap", "ho", "fl"], ", "))       # "ap, ho, fl"                                  /2    \ Retorna uma string, com junção da função passada
@@ -53,7 +53,7 @@ IO.inspect(Enum.map(1 .. 5, &(&1)))                   # [1, 2, 3, 4, 5]         
 # IO.inspect(Enum.map_reduce())                       #                                               /3
 IO.inspect(Enum.max(palavras))                        # "wes"                                         /1    \ Retorna o maior valor, se String verifica valor ASCII number
 # IO.inspect(Enum.max())                              #                                               /2
-IO.inspect(Enum.max_by(palavras, &String.length/1))   # "Contêmporâneidade"                           /2
+IO.inspect(Enum.max_by(palavras, &String.length/1))   # "Contemporaneidade"                           /2
 # IO.inspect(Enum.max_by())                           #                                               /3
 IO.inspect(Enum.member?([1, 2, 3, 4], 2))             # true                                          /2     \ Verifica se o *num(or letr..) está dentro da lista
 IO.inspect(Enum.min(list2))                           # 0                                            /1
@@ -91,7 +91,7 @@ IO.inspect(Enum.to_list(1..10))                       # [1, 2, 3, 4, 5, 6, 7, 8,
 IO.inspect(Enum.uniq([1, 1, 2, "a", "a", 3]))         # [1, 2, "a", 3]                                /1    \ Permite apenas um elemento sem repetir
 # IO.inspect(Enum.uniq_by())                          #                                               /2
 # IO.inspect(Enum.unzip())                            #                                               /1
-IO.inspect(Enum.with_index(minpa))                    # [{"cas", 0}, {"tes", 1}, {"ig", 2}]           /1
+IO.inspect(Enum.with_index(list_words))               # [{"cas", 0}, {"tes", 1}, {"ig", 2}]           /1
 # IO.inspect(Enum.with_index())                       #                                               /2
 # IO.inspect(Enum.zip())                              #                                               /1
 IO.inspect(Enum.zip(list1, palavras))                 # [{1, "Casa"}, {2, "Wesley"}, {3, "wes"}]      /2    \ Uni duas listas

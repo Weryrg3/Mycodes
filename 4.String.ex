@@ -5,8 +5,8 @@ IO.inspect(String.last("Pega ult letra"))                     # "a"             
 IO.inspect(String.reverse("Reverte as palavras"))             # "sarvalap sa etreveR"                   /1    /&  &String.reverse/1
 IO.inspect(String.split("Transf String em lista"))            # ["Transf", "String", "em", "lista"]     /1    /&  &String.split/1
 IO.inspect(String.split("Transf.Str... por arg", "."))        # ["Transf", "Str", "", "", " por arg"]   /2    /&  &String.split/2
-IO.inspect(String.length("Tamnho da Str"))                    # 13                                      /1    /&  &String.length/1
-IO.inspect(String.upcase("Deixa tudo maisculo"))              # "DEIXA TUDO MAISCULO"                   /1    /&  &String.upcase/1
+IO.inspect(String.length("Tamanho da Str"))                    # 13                                      /1    /&  &String.length/1
+IO.inspect(String.upcase("Deixa tudo maiúsculo"))              # "DEIXA TUDO MAISCULO"                   /1    /&  &String.upcase/1
 IO.inspect(String.duplicate("Duplica ", 3))                   # "Duplica Duplica Duplica "              /2    /&  &String.duplicate/2
 IO.inspect(String.downcase("DEIXA TUDO MINUSCULO"))           # "deixa tudo minusculo"                  /1    /&  &String.downcase/1
 IO.inspect(String.to_charlist("Passa para char"))             # 'Passa para char'                       /1    /&  &String.to_charlist/1

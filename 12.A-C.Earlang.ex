@@ -1,5 +1,5 @@
-# Erlang executado em Elixir
-# erl 
+# Earlang executado em Elixir
+# erl
 
 # :application.behaviour_info                           #                     /1
 # :application.ensure_all_started                       #                     /1

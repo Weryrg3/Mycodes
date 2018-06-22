@@ -67,7 +67,7 @@ IO.puts("\nDynamicSupervisor \n")                        #                      
 # IO.inspect(DynamicSupervisor.which_children())         #                     /1
 #################################################################################
 IO.puts("\nGenServer \n")                                #                      #
-# Servidor generico                                      #                      #
+# Servidor genérico                                      #                      #
 # IO.inspect(GenServer.abcast())                         #                     /2
 # IO.inspect(GenServer.abcast())                         #                     /3
 # IO.inspect(GenServer.call())                           #                     /2
