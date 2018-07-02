@@ -30,3 +30,15 @@ function round(base, expoente = 2) {
 
 console.log(round(4));                   // 16
 console.log(round(4, 4));                // 256
+
+function maior(...numbers) {    // aceita diversos valores
+    let resultado = -Infinity;
+    for (let number of numbers) {
+        if (number > resultado) resultado = number;
+    }
+    return resultado;
+}
+let numbers = [4, 1, 3, -2, 9];
+console.log(maior(4, 1, 3, -2, 10));    // 10
+console.log(maior(...numbers));         // 9
+console.log(maior(11, ...numbers, 2));  // 11

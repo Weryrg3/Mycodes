@@ -3,8 +3,10 @@ let b = 2;                          // Variável local
 const c = 3;                        // Constante
 console.log(typeof 4);              // number
 console.log(typeof 4.5);            // number
-console.log(Number("10.0"));        // 10
+console.log(Number("10.1"));        // 10.1
 console.log(Number("10"));          // 10
+console.log(parseFloat("10.1"));    // 10.1
+console.log(parseInt("10.1"));      // 10
 console.log(Math.max(4, 2));        // 4
 console.log(Math.min(4, 2, 3, 1));  // 1
 console.log(!isNaN(10));            // true
