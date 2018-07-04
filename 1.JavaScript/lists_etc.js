@@ -37,3 +37,14 @@ let obj3 = {v: 10};
 console.log(obj1 == obj2);  // true
 console.log(obj1 == obj3);  // false
 
+let {idade} = {nome: "Wesley", idade: 21};
+console.log(idade)  // 21
+
+let json = JSON.stringify({nome: 'Wesley', maior: true, lista: [1, 2]});
+console.log(json);  // {"nome":"Wesley","maior":true,"lista":[1,2]}
+let parse = JSON.parse(json).nome;
+console.log(parse); // Wesley
+
+[1, 2].forEach(n => console.log(n));    // 1 2  // Map
+[1, 2].filter(n => n % 2 == 0);         // 2    // Map
+

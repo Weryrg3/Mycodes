@@ -1,6 +1,3 @@
-// ##########################################################
-//      Função                  #############################
-
 const soma = function (x, y) { return x + y; };
 console.log(soma(1, 2));                // 3
 
@@ -41,4 +38,20 @@ function maior(...numbers) {    // aceita diversos valores
 let numbers = [4, 1, 3, -2, 9];
 console.log(maior(4, 1, 3, -2, 10));    // 10
 console.log(maior(...numbers));         // 9
-console.log(maior(11, ...numbers, 2));  // 11
+console.log(maior(11, ...numbers, 2));  // 
+
+function repete(n, acao) {
+    for (let i = 0; i < n; i++) acao(i);
+}
+
+repete(2, console.log); // 0 1
+
+function reduce(array, combine, start) {
+    let current = start;
+    for (let element of array) {
+        current = combine(current, element);
+    }
+    return current;
+}
+
+console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0)) // 10
