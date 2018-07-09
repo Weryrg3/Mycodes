@@ -62,3 +62,8 @@ round0(5);      // 25
 de mais de 
 uma linha */
 
+
+let iterator = "Ok"[Symbol.iterator]();
+console.log(iterator.next());   // { value: 'O', done: false }
+console.log(iterator.next());   // { value: 'k', done: false }
+console.log(iterator.next());   // { value: undefined, done: true }

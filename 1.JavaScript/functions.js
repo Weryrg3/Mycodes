@@ -54,4 +54,82 @@ function reduce(array, combine, start) {
     return current;
 }
 
-console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0)) // 10
+console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0)); // 10
+
+function fala(palavra) {
+    console.log(`O ${this.pessoa} disse ${palavra}`);
+}
+
+let pedro = { pessoa: "Pedro", fala };
+pedro.fala("estou com fome!!"); // O Pedro disse estou com fome!!
+fala.call(pedro, "olá");        // O Pedro disse olá
+
+let object = new class { getWord(arg) { return arg; } };
+console.log(object.getWord("hello"));  // hello
+
+class Example {
+    constructor(type) {
+        this.type = type;
+    }
+    fala(palavra) {
+        console.log(`O ${this.type} disse ${palavra}`)
+    }
+}
+
+Example.prototype.algo = "coisa";
+Example.algo = "Alguma coisa";
+console.log(Example.algo);              // Alguma coisa
+console.log(Example.prototype.algo);    // coisa
+
+let sym = Symbol("example");
+Example.prototype[sym] = 10;
+
+let tamanho = {
+    get random() {
+        return Math.floor(Math.random() * 100);
+    }
+}
+
+console.log(tamanho.random);    // random número
+
+class Temperatura {
+    constructor(celsius) {
+        this.celsius = celsius;
+    }
+
+    get fahrenheit() {
+        return this.celsius * 1.8 + 32
+    }
+
+    set fahrenheit(value) {
+        this.celsius = (value - 32) / 1.8;
+    }
+
+    static fromFahrenheit(value) {
+        return new Temperatura((value - 32) / 1.8);
+    }
+}
+
+let temp = new Temperatura(22);
+console.log(temp.fahrenheit);   // 71.6
+temp.fahrenheit = 71.6;
+console.log(temp.celsius);      // 21.999999999999996
+
+class SymmetricMatrix extends Matrix {
+    constructor(size, element = (x, y) => undefined) {
+        super(size, size, (x, y) => {
+            if (x < y) return element(y, x);
+            else return element(x, y);
+        });
+    }
+
+    set(x, y, value) {
+        super.set(x, y, value);
+        if (x != y) {
+            super.set(y, x, value);
+        }
+    }
+}
+
+let matrix = new SymmetricMatrix(5, (x, y) => `${x} - ${y}`);
+console.log(matrix.get(2, 3));  // 3 - 2

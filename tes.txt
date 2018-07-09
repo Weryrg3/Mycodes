@@ -1,0 +1,5 @@
+str = ""
+for letr <- 0..55295 do
+    str = "{str} #{[letr]} "
+end
+File.write(str, "tes.txt")

@@ -19,5 +19,10 @@ console.log("cinco".length);                // 5
 console.log(l_w);                           // [ 'Eu', 'estou', 'bem' ]
 console.log(...l_w);                        // Eu estou bem
 
-console.log("🐴".charCodeAt(0))             // 128052
+console.log("a".charCodeAt(0));             // 97
+console.log("a".codePointAt(0));            // 97
+console.log("🐴".charCodeAt(0));            // 55357
+console.log("🐴".codePointAt(0));           // 128052
+
+console.log([1, 2, 3].toString());          // 1,2,3
 
