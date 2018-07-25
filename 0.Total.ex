@@ -19,12 +19,10 @@ IO.inspect("abcd" =~ ~r/bc/)           # true     =~                      /2
 IO.inspect(div(10, 6))                 # 1                                /3    \ Divisão inteira
 IO.inspect(true and not(true) or 59)   # 59                  (or/2, and/2, not/1)
 IO.inspect(^a = 2)                     # 2                                /1    \ Partner M.
-# %/2
-# %{}/1
-# &/1
+#--------------------------------------#-----------------------------------#
 IO.inspect(is_atom(:atom))             # true                             /1
 IO.inspect(is_boolean(false))          # true                             /1
-IO.inspect(is_binary(<<1, 0>>))        # true   #Funciona também com string, pois toda string é binário   /1
+IO.inspect(is_binary(<<1, 0>>))        # true                             /1 #Funciona também com string, pois toda string é binário
 IO.inspect(is_bitstring("Texto"))      # true                             /1
 IO.inspect(is_float(4.5))              # true                             /1
 IO.inspect(is_function(&(&1)))         # true                             /1
@@ -41,7 +39,7 @@ IO.inspect(is_pid(self()))             # true                             /1
 #IO.inspect(__CALLER__)                #                                  /0
 IO.inspect(__DIR__)                    # "/home/wesley/1.Wesley/Mycodes0" /0
 #IO.inspect(__ENV__)                   #                                  /0    \ Retorna diversas funções e seus parâmetros
-IO.inspect(__MODULE__)                 # nil                              /0
+IO.inspect(__MODULE__)                 # nil                              /0    \ Retorna nome modulo atual
 #-------------------------------#------#-----#--###-----------------------####
 # binding                       #Terminal   /0  ### Só executa no terminal ###
 # breaks                        #Terminal   /0  ### Só executa no terminal ###
@@ -116,7 +114,7 @@ IO.inspect(function_exported?(Enum, :member?, 2))       # true            /3    
 # IO.inspect(get_and_update_in())                       #                 /2
 # IO.inspect(get_and_update_in())                       #                 /3
 # IO.inspect(get_in())                                  #                 /2
-IO.inspect(hd([9, 1, 2]))                               # 9               /1    \ Retorna com Head da list, caso lista vázia, retorna erro Terminal,
+IO.inspect(hd([9, 1, 2]))                               # 9               /1    \ Retorna com Head da list, caso lista vazia, retorna erro Terminal,
 #IO.inspect(import())                                   #                 /2    \ Importa uma função ex: import List
 # IO.inspect(import_file())                             #                 /1
 # IO.inspect(import_file())                             #                 /2
@@ -142,7 +140,7 @@ IO.inspect(min(7, 6))                                   # 6               /2
 IO.inspect(put_elem({1, 2, 3, 4}, 1, 3))                # {1, 3, 3, 4}    /3    \ Troca valor de uma tupla pela posição index
 # IO.inspect(put_in())                                  #                 /2
 # IO.inspect(put_in())                                  #                 /3
-# IO.inspect(quote())                                   #                 /2
+IO.inspect(quote do %{m: "a"} end)                      # {:%{}, [], [m: "a"]}  /2
 # IO.inspect(r())                                       #                 /1
 # IO.inspect(raise())                                   #                 /1
 # IO.inspect(raise())                                   #                 /2
