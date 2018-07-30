@@ -108,8 +108,6 @@ IO.inspect(destructure([x, y], [1, 2, 3]))              # [1, 2]          /2    
 IO.inspect(elem({2, 4, 6}, 2))                          # 6               /2    \ Acessa um elemento da tupla usando sua posição em index
 #IO.inspect(exit("Erro"))                               # ** (exit) "Erro"/1    \ Terminal para a execução
 # IO.inspect(exports())                                 #                 /1
-# IO.inspect(fn())                                      #                 /1
-# IO.inspect(for())                                     #                 /1
 IO.inspect(function_exported?(Enum, :member?, 2))       # true            /3    \ Não importa função, mas verifica se ela existe, e se está com raridade correta
 # IO.inspect(get_and_update_in())                       #                 /2
 # IO.inspect(get_and_update_in())                       #                 /3
@@ -197,8 +195,6 @@ IO.inspect(quote do %{m: "a"} end)                      # {:%{}, [], [m: "a"]}  
 IO.inspect(var!(x) = 3)                                 # 3               /1
 IO.inspect(var!(x, :foo) = 333)                         # 333             /2    \ binding(:foo) [x: 1]
 # IO.inspect(whereami())                                #                 /1
-# IO.inspect({}())                                      #                 /1
-# IO.inspect(|>())                                      #                 /2
 # ------------------------------------------------------#------------------#
 # IO.inspect(Kernel.CLI.main())                         #                 /1
 # IO.inspect(Kernel.CLI.run())                          #                 /1

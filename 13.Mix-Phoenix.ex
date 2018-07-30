@@ -14,8 +14,8 @@ Mix.raise("Erroooo")                        # Erroooo         /1    \ Retorna me
 Mix.shell                                   # Mix.Shell.IO    /0    \ Returns the current shell. (net). (cor azul)
 Mix.shell                                   #                 /1
 ########################################################################################################################
-Mix.ProjectStack.clear_cache                #                 /0  #        
-Mix.ProjectStack.clear_stack                #                 /0  #        
+Mix.ProjectStack.clear_cache                #                 /0  #
+Mix.ProjectStack.clear_stack                #                 /0  #
 Mix.ProjectStack.configured_applications    #                 /0  #
 Mix.ProjectStack.configured_applications    #                 /1
 Mix.ProjectStack.peek                       #                 /0  #
@@ -163,7 +163,7 @@ to_erl_file/1
 Test
 require_and_run/4
 #################################################################################
-Mix.Config. 
+Mix.Config.
 Agent               LoadError           config/2
 config/3            import_config/1     merge/2
 persist/1           read!/1             read!/2
@@ -238,4 +238,34 @@ Mix.Tasks.
 Mix.TasksServer.
 #################################################################################
 Mix.Utils.
+
 #################################################################################
+#################################################################################
+#                                 Phoenix                                       #
+#################################################################################
+#################################################################################
+
+
+# Learn.Repo Ecto
+Learn.
+Learn.Repo.
+aggregate/3            aggregate/4            all/1
+all/2                  child_spec/1           config/0
+delete!/1              delete!/2              delete/1
+delete/2               delete_all/1           delete_all/2
+get!/2                 get!/3                 get/2
+get/3                  get_by!/2              get_by!/3
+get_by/2               get_by/3               in_transaction?/0
+insert!/1              insert!/2              insert/1
+insert/2               insert_all/2           insert_all/3
+insert_or_update!/1    insert_or_update!/2    insert_or_update/1
+insert_or_update/2     load/2                 one!/1
+one!/2                 one/1                  one/2
+preload/2              preload/3              query!/1
+query!/2               query!/3               query/1
+query/2                query/3                rollback/1
+start_link/0           start_link/1           stop/1
+stop/2                 stream/1               stream/2
+to_sql/2               transaction/1          transaction/2
+update!/1              update!/2              update/1
+update/2               update_all/2           update_all/3

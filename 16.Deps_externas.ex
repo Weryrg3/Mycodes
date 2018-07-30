@@ -4,7 +4,78 @@
 "                  mix phoenix.server                  "
 ""                      Phoenix                       ""
 ########################################################
-
+# Project Learn                                        #
+Mix.Phoenix.attrs                                      #  /1
+Mix.Phoenix.base                                       # "Learn"                      /0
+Mix.Phoenix.check_module_name_availability!            #  /1
+Mix.Phoenix.copy_from                                  #  /5
+Mix.Phoenix.inflect                                    #  /1
+Mix.Phoenix.modules                                    # [Learn.BD, Learn.Buttons ... /0
+Mix.Phoenix.otp_app                                    # :learn                       /0
+Mix.Phoenix.params                                     #  /1
+Mix.Phoenix.uniques                                    #  /1
+########################################################
+# Project Learn                                        #
+Learn.Repo.aggregate                                   #  /3
+Learn.Repo.aggregate                                   #  /4
+Learn.Repo.all                                         #  /1
+Learn.Repo.all                                         #  /2
+Learn.Repo.child_spec                                  #  /1
+Learn.Repo.config                                      # [otp_app: :learn, repo: Learn.Repo...  /0
+Learn.Repo.delete!                                     #  /1
+Learn.Repo.delete!                                     #  /2
+Learn.Repo.delete                                      #  /1
+Learn.Repo.delete                                      #  /2
+Learn.Repo.delete_all                                  #  /1
+Learn.Repo.delete_all                                  #  /2
+Learn.Repo.get!                                        #  /2
+Learn.Repo.get!                                        #  /3
+Learn.Repo.get                                         #  /2
+Learn.Repo.get                                         #  /3
+Learn.Repo.get_by!                                     #  /2
+Learn.Repo.get_by!                                     #  /3
+Learn.Repo.get_by                                      #  /2
+Learn.Repo.get_by                                      #  /3
+Learn.Repo.in_transaction?                             # false /0
+Learn.Repo.insert!                                     #  /1
+Learn.Repo.insert!                                     #  /2
+Learn.Repo.insert                                      #  /1
+Learn.Repo.insert                                      #  /2
+Learn.Repo.insert_all                                  #  /2
+Learn.Repo.insert_all                                  #  /3
+Learn.Repo.insert_or_update!                           #  /1
+Learn.Repo.insert_or_update!                           #  /2
+Learn.Repo.insert_or_update                            #  /1
+Learn.Repo.insert_or_update                            #  /2
+Learn.Repo.load                                        #  /2
+Learn.Repo.one!                                        #  /1
+Learn.Repo.one!                                        #  /2
+Learn.Repo.one                                         #  /1
+Learn.Repo.one                                         #  /2
+Learn.Repo.preload                                     #  /2
+Learn.Repo.preload                                     #  /3
+Learn.Repo.query!                                      #  /1
+Learn.Repo.query!                                      #  /2
+Learn.Repo.query!                                      #  /3
+Learn.Repo.query                                       #  /1
+Learn.Repo.query                                       #  /2
+Learn.Repo.query                                       #  /3
+Learn.Repo.rollback                                    #  /1
+Learn.Repo.start_link                                  #  /0
+Learn.Repo.start_link                                  #  /1
+Learn.Repo.stop                                        #  /1
+Learn.Repo.stop                                        #  /2
+Learn.Repo.stream                                      #  /1
+Learn.Repo.stream                                      #  /2
+Learn.Repo.to_sql                                      #  /2
+Learn.Repo.transaction                                 #  /1
+Learn.Repo.transaction                                 #  /2
+Learn.Repo.update!                                     #  /1
+Learn.Repo.update!                                     #  /2
+Learn.Repo.update                                      #  /1
+Learn.Repo.update                                      #  /2
+Learn.Repo.update_all                                  #  /2
+Learn.Repo.update_all                                  #  /3
 ########################################################
 "                   mix ecto.create                    "
 "           mix ecto.gen.migration create_thing        "

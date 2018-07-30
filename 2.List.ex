@@ -5,10 +5,10 @@ kw2 = [{:name, "Wesley"}, {:likes, "Programming"}]                              
 IO.puts("List\n")                                                                                        #
 # IO.inspect(List.ascii_printable?())                         #                                         /1
 # IO.inspect(List.ascii_printable?())                         #                                         /2
-IO.inspect(List.delete(list, 2))                              # [1, 3]                                  /2
-# IO.inspect(List.delete_at())                                #                                         /2
+IO.inspect(List.delete(list, 2))                              # [1, 3]                                  /2 // Passa valor em que irá deletar
+IO.inspect(List.delete_at(list, 0))                           # [2, 3]                                  /2 // Passa index em que irá deletar
 IO.inspect(List.duplicate(5, 4))                              # [5, 5, 5, 5]                            /2
-# IO.inspect(List.first())                                    #                                         /1
+IO.inspect(List.first(list))                                  # 1                                       /1
 IO.inspect(List.flatten([[[1], 2], [[[3]]]]))                 # [1, 2, 3]                               /1
 # IO.inspect(List.flatten())                                  #                                         /2
 IO.inspect(List.foldl([1, 2, 3], "", &("#{&1}(#{&2})")))      # "3(2(1()))"                             /3  List.foldl([1,2,3], "", fn value, acc -> "#{value}(#{acc})" end)
@@ -64,37 +64,37 @@ IO.inspect(map.nome)    # "Wesley"                                              
 # m = %{ a: 1, b: 2, c: 3 }               %{a: 1, b: 2, c: 3}                             \ Map
 # m1 = %{ m | b: "two", c: "three" }      %{a: 1, b: "two", c: "three"}                   \ Adicionar items a um novo map
 # m2 = %{ m1 | a: "one" }                 %{a: "one", b: "two", c: "three"}               \ Adicionar items a um novo map (Map.put_new/3) para adicionar uma nova chave
-# IO.inspect(Map.delete())                      #                                         /2
-IO.inspect(Map.drop(map, [:nome, :likes]))      # %{where: "Ji-Paraná"}                   /2
-# IO.inspect(Map.equal?                         #                                         /2
-# IO.inspect(Map.fetch!                         #                                         /2
-# IO.inspect(Map.fetch                          #                                         /2
-# IO.inspect(Map.from_struct                    #                                         /1
-IO.inspect(Map.get(map, :nome))                 # "Wesley"                                /2
-# IO.inspect(Map.get                            #                                         /3
-# IO.inspect(Map.get_and_update!                #                                         /3
-# IO.inspect(Map.get_and_update                 #                                         /3
-# IO.inspect(Map.get_lazy                       #                                         /3
-IO.inspect(Map.has_key?(map, :nome))            # true                                    /2    \ Verifica se tem a key :nome
-IO.inspect(Map.keys(map))                       # [:likes, :nome, :where]                 /1    \ Retonrna todas keys
-IO.inspect(Map.values(map))                     # ["Programming", "Wesley", "Ji-Paraná"]  /1    \ Retorna todos valores
-# IO.inspect(Map.merge                          #                                         /2
-# IO.inspect(Map.merge                          #                                         /3
-IO.inspect(Map.new())                           # %{}                                     /0    \ Cria um map *vazio
-# IO.inspect(Map.new                            #                                         /1
-# IO.inspect(Map.new                            #                                         /2
-# IO.inspect(Map.pop                            #                                         /2
-# IO.inspect(Map.pop                            #                                         /3
-# IO.inspect(Map.pop_lazy                       #                                         /3
-IO.inspect(Map.put(map1, :state, "RO"))         # %{nome: "Wesley", state: "RO"}          /3    \ Adiciona uma nova key e value
-# IO.inspect(Map.put_new                        #                                         /3
-# IO.inspect(Map.put_new_lazy                   #                                         /3
-# IO.inspect(Map.replace!                       #                                         /3
-# IO.inspect(Map.split                          #                                         /2
-# IO.inspect(Map.take                           #                                         /2
-# IO.inspect(Map.to_list                        #                                         /1
-# IO.inspect(Map.update!                        #                                         /3
-# IO.inspect(Map.update                         #                                         /4
+# IO.inspect(Map.delete())                              #                                         /2
+IO.inspect(Map.drop(map, [:nome, :likes]))              # %{where: "Ji-Paraná"}                   /2
+# IO.inspect(Map.equal?                                 #                                         /2
+# IO.inspect(Map.fetch!                                 #                                         /2
+# IO.inspect(Map.fetch                                  #                                         /2
+# IO.inspect(Map.from_struct                            #                                         /1
+IO.inspect(Map.get(map, :nome))                         # "Wesley"                                /2
+# IO.inspect(Map.get                                    #                                         /3
+# IO.inspect(Map.get_and_update!                        #                                         /3
+# IO.inspect(Map.get_and_update                         #                                         /3
+# IO.inspect(Map.get_lazy                               #                                         /3
+IO.inspect(Map.has_key?(map, :nome))                    # true                                    /2    \ Verifica se tem a key :nome
+IO.inspect(Map.keys(map))                               # [:likes, :nome, :where]                 /1    \ Retonrna todas keys
+IO.inspect(Map.values(map))                             # ["Programming", "Wesley", "Ji-Paraná"]  /1    \ Retorna todos valores
+# IO.inspect(Map.merge                                  #                                         /2
+# IO.inspect(Map.merge                                  #                                         /3
+IO.inspect(Map.new())                                   # %{}                                     /0    \ Cria um map *vazio
+# IO.inspect(Map.new                                    #                                         /1
+# IO.inspect(Map.new                                    #                                         /2
+IO.inspect(Map.pop(%{a: 1, b: 2}, :a))                  # {1, %{b: 2}}                            /2
+IO.inspect(Map.pop(%{a: 1, b: 2}, :c, "default"))       # {"default", %{a: 1, b: 2}}              /3
+IO.inspect(Map.pop_lazy(%{a: 1}, :b, fn -> "d" end))    # {"d", %{a: 1}}                          /3
+IO.inspect(Map.put(map1, :state, "RO"))                 # %{nome: "Wesley", state: "RO"}          /3    \ Adiciona uma nova key e value
+IO.inspect(Map.put_new(%{a: 1}, :b, 2))                 # %{a: 1, b: 2}                           /3
+IO.inspect(Map.put_new_lazy(%{a: 1}, :a, fn -> 2 end))  # %{a: 1}                                 /3
+IO.inspect(Map.replace!(%{a: 1}, :a, 2))                # %{a: 2}                                 /3
+# IO.inspect(Map.split                                  #                                         /2
+# IO.inspect(Map.take                                   #                                         /2
+# IO.inspect(Map.to_list                                #                                         /1
+# IO.inspect(Map.update!                                #                                         /3
+# IO.inspect(Map.update                                 #                                         /4
 ############################################################################################
 IO.puts("\nMapSet \n")                                                                     #
 ####################################### MapSet #############################################
