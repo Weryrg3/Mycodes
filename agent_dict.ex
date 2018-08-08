@@ -16,4 +16,8 @@ defmodule Frequency do
   def words do
     Agent.get(__MODULE__, fn map -> Map.keys(map) end)
   end
+
+  def stop do
+    Agent.stop(__MODULE__)
+  end
 end
